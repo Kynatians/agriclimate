@@ -33,6 +33,16 @@ export function SourceLabel({ source, className }: SourceLabelProps) {
     timeStr = source.lastUpdate;
   }
 
+  // Check if update is recent (less than 24 hours)
+  const isRecent = (() => {
+    try {
+      const diffHours = (Date.now() - new Date(source.lastUpdate).getTime()) / 3600000;
+      return diffHours >= 0 && diffHours < 24;
+    } catch {
+      return false;
+    }
+  })();
+
   return (
     <span
       className={cn(
@@ -41,10 +51,16 @@ export function SourceLabel({ source, className }: SourceLabelProps) {
       )}
       title={`Data Provenance: ${source.dataset} (${source.resolution}) updated at ${source.lastUpdate}`}
     >
+      <span
+        className={cn(
+          "h-1.5 w-1.5 rounded-full shrink-0",
+          isRecent ? "bg-[var(--status-success)] animate-pulse" : "bg-[var(--primary)]"
+        )}
+      />
       <span className="font-medium text-[var(--fg-secondary)]">{source.dataset}</span>
-      <span>·</span>
+      <span>:</span>
       <span>{source.resolution}</span>
-      <span>·</span>
+      <span>:</span>
       <span>{timeStr}</span>
     </span>
   );

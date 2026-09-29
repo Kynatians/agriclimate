@@ -1,0 +1,650 @@
+[
+  {
+    "blockId": "blk_kurigram_01",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.42,
+      "baseline": 0.54,
+      "anomaly": -0.12,
+      "trend": "declining"
+    },
+    "soilMoistureSurface": {
+      "value": 24.5,
+      "baseline": 35,
+      "anomaly": -10.5,
+      "trend": "declining"
+    },
+    "soilMoistureRootZone": {
+      "value": 26.2,
+      "baseline": 36.8,
+      "anomaly": -10.6,
+      "trend": "declining"
+    },
+    "precip7dActual": 30.2,
+    "precip7dForecast": 18.1,
+    "lst": -999,
+    "spi": -1.35,
+    "cwsi": 0.95,
+    "floodScore": 0.22,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.648Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_02",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.58,
+      "baseline": 0.56,
+      "anomaly": 0.02,
+      "trend": "improving"
+    },
+    "soilMoistureSurface": {
+      "value": 34,
+      "baseline": 33.5,
+      "anomaly": 0.5,
+      "trend": "stable"
+    },
+    "soilMoistureRootZone": {
+      "value": 35.8,
+      "baseline": 35,
+      "anomaly": 0.8,
+      "trend": "improving"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": 0.15,
+    "cwsi": 0.95,
+    "floodScore": 0.45,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.649Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_03",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.62,
+      "baseline": 0.59,
+      "anomaly": 0.03,
+      "trend": "improving"
+    },
+    "soilMoistureSurface": {
+      "value": 38.5,
+      "baseline": 36,
+      "anomaly": 2.5,
+      "trend": "improving"
+    },
+    "soilMoistureRootZone": {
+      "value": 40.2,
+      "baseline": 38,
+      "anomaly": 2.2,
+      "trend": "improving"
+    },
+    "precip7dActual": 30.2,
+    "precip7dForecast": 18.1,
+    "lst": -999,
+    "spi": 0.65,
+    "cwsi": 0.95,
+    "floodScore": 0.58,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.650Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_04",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.48,
+      "baseline": 0.52,
+      "anomaly": -0.04,
+      "trend": "stable"
+    },
+    "soilMoistureSurface": {
+      "value": 28,
+      "baseline": 32,
+      "anomaly": -4,
+      "trend": "declining"
+    },
+    "soilMoistureRootZone": {
+      "value": 30.5,
+      "baseline": 34,
+      "anomaly": -3.5,
+      "trend": "declining"
+    },
+    "precip7dActual": 30.2,
+    "precip7dForecast": 18.1,
+    "lst": -999,
+    "spi": -0.42,
+    "cwsi": 0.95,
+    "floodScore": 0.28,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.651Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_05",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.55,
+      "baseline": 0.53,
+      "anomaly": 0.02,
+      "trend": "stable"
+    },
+    "soilMoistureSurface": {
+      "value": 33.2,
+      "baseline": 33,
+      "anomaly": 0.2,
+      "trend": "stable"
+    },
+    "soilMoistureRootZone": {
+      "value": 34.9,
+      "baseline": 34.5,
+      "anomaly": 0.4,
+      "trend": "stable"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": 0.08,
+    "cwsi": 0.95,
+    "floodScore": 0.35,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.651Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_06",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.51,
+      "baseline": 0.5,
+      "anomaly": 0.01,
+      "trend": "stable"
+    },
+    "soilMoistureSurface": {
+      "value": 30.5,
+      "baseline": 31,
+      "anomaly": -0.5,
+      "trend": "stable"
+    },
+    "soilMoistureRootZone": {
+      "value": 32.8,
+      "baseline": 33,
+      "anomaly": -0.2,
+      "trend": "stable"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": -0.12,
+    "cwsi": 0.95,
+    "floodScore": 0.3,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.652Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_07",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.46,
+      "baseline": 0.55,
+      "anomaly": -0.09,
+      "trend": "declining"
+    },
+    "soilMoistureSurface": {
+      "value": 26,
+      "baseline": 34,
+      "anomaly": -8,
+      "trend": "declining"
+    },
+    "soilMoistureRootZone": {
+      "value": 28.5,
+      "baseline": 35.5,
+      "anomaly": -7,
+      "trend": "declining"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": -0.92,
+    "cwsi": 0.95,
+    "floodScore": 0.25,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.653Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_08",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.57,
+      "baseline": 0.55,
+      "anomaly": 0.02,
+      "trend": "improving"
+    },
+    "soilMoistureSurface": {
+      "value": 36.5,
+      "baseline": 35,
+      "anomaly": 1.5,
+      "trend": "stable"
+    },
+    "soilMoistureRootZone": {
+      "value": 38.2,
+      "baseline": 36.5,
+      "anomaly": 1.7,
+      "trend": "improving"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": 0.85,
+    "cwsi": 0.95,
+    "floodScore": 0.68,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.653Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_09",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.6,
+      "baseline": 0.58,
+      "anomaly": 0.02,
+      "trend": "improving"
+    },
+    "soilMoistureSurface": {
+      "value": 41,
+      "baseline": 36,
+      "anomaly": 5,
+      "trend": "improving"
+    },
+    "soilMoistureRootZone": {
+      "value": 43.5,
+      "baseline": 38,
+      "anomaly": 5.5,
+      "trend": "improving"
+    },
+    "precip7dActual": 39.7,
+    "precip7dForecast": 23.8,
+    "lst": -999,
+    "spi": 1.45,
+    "cwsi": 0.95,
+    "floodScore": 0.78,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.654Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_10",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.53,
+      "baseline": 0.52,
+      "anomaly": 0.01,
+      "trend": "stable"
+    },
+    "soilMoistureSurface": {
+      "value": 31,
+      "baseline": 32,
+      "anomaly": -1,
+      "trend": "stable"
+    },
+    "soilMoistureRootZone": {
+      "value": 33.5,
+      "baseline": 34,
+      "anomaly": -0.5,
+      "trend": "stable"
+    },
+    "precip7dActual": 49,
+    "precip7dForecast": 29.4,
+    "lst": -999,
+    "spi": 0.05,
+    "cwsi": 0.95,
+    "floodScore": 0.32,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.655Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_11",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.44,
+      "baseline": 0.52,
+      "anomaly": -0.08,
+      "trend": "declining"
+    },
+    "soilMoistureSurface": {
+      "value": 46,
+      "baseline": 38,
+      "anomaly": 8,
+      "trend": "improving"
+    },
+    "soilMoistureRootZone": {
+      "value": 48.5,
+      "baseline": 40,
+      "anomaly": 8.5,
+      "trend": "improving"
+    },
+    "precip7dActual": 40.6,
+    "precip7dForecast": 24.4,
+    "lst": -999,
+    "spi": 1.72,
+    "cwsi": 0.95,
+    "floodScore": 0.88,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.655Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "blockId": "blk_kurigram_12",
+    "asOf": "2026-09-28",
+    "ndvi": {
+      "value": 0.49,
+      "baseline": 0.54,
+      "anomaly": -0.05,
+      "trend": "declining"
+    },
+    "soilMoistureSurface": {
+      "value": 44,
+      "baseline": 37,
+      "anomaly": 7,
+      "trend": "improving"
+    },
+    "soilMoistureRootZone": {
+      "value": 46.8,
+      "baseline": 39,
+      "anomaly": 7.8,
+      "trend": "improving"
+    },
+    "precip7dActual": 40.6,
+    "precip7dForecast": 24.4,
+    "lst": -999,
+    "spi": 1.6,
+    "cwsi": 0.95,
+    "floodScore": 0.84,
+    "sources": [
+      {
+        "metric": "weather_and_solar",
+        "dataset": "NASA POWER Daily (GEOS-FP)",
+        "resolution": "0.5deg x 0.625deg",
+        "lastUpdate": "2026-09-29T16:56:36.656Z"
+      },
+      {
+        "metric": "soilMoisture",
+        "dataset": "NASA SMAP L3 Enhanced",
+        "resolution": "500m",
+        "lastUpdate": "2026-09-28T04:30:00Z"
+      },
+      {
+        "metric": "ndvi",
+        "dataset": "MODIS MOD13Q1 / Landsat 9",
+        "resolution": "250m",
+        "lastUpdate": "2026-09-27T10:15:00Z"
+      },
+      {
+        "metric": "precip",
+        "dataset": "GPM IMERG Late Run",
+        "resolution": "10km",
+        "lastUpdate": "2026-09-28T05:00:00Z"
+      }
+    ]
+  }
+]

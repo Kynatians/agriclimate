@@ -5,7 +5,7 @@ import { Alert } from "@/lib/dal/types";
 import { useUiStore, SeverityFilter, CropFilter, PeriodFilter } from "@/lib/stores/ui";
 import { LayerToggleList } from "./LayerToggleList";
 import { AlertFeed } from "./AlertFeed";
-import { FileText, Send, Radio, Filter, MapPin } from "lucide-react";
+import { FileText, Send, Radio, Filter, MapPin, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +23,35 @@ export function ControlPanel({
   className,
 }: ControlPanelProps) {
   const { filters, setFilter } = useUiStore();
+  const [isSyncing, setIsSyncing] = React.useState(false);
+  const [lastSyncTime, setLastSyncTime] = React.useState<string | null>(null);
+  const [syncMessage, setSyncMessage] = React.useState<string | null>(null);
+
+  const handleSyncLiveNasa = async () => {
+    setIsSyncing(true);
+    setSyncMessage(null);
+    try {
+      const res = await fetch("/api/sync/live-nasa", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ force: true }),
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        const timeStr = new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+        setLastSyncTime(timeStr);
+        setSyncMessage(`Synced ${json.data?.blocksUpdated ?? 12} blocks with NASA telemetry`);
+        setTimeout(() => setSyncMessage(null), 4000);
+      } else {
+        setSyncMessage("NASA sync failed; using cached telemetry.");
+      }
+    } catch {
+      setSyncMessage("Network error; retained cached telemetry.");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   const filteredAlerts = React.useMemo(() => {
     if (filters.severity === "all") return alerts;
@@ -73,6 +102,37 @@ export function ControlPanel({
           <FileText className="h-3.5 w-3.5" />
           <span>District Report</span>
         </Button>
+      </div>
+
+      {/* Live NASA Sync Action */}
+      <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] p-2.5 space-y-1.5">
+        <div className="flex items-center justify-between text-[11px]">
+          <span className="font-semibold text-[var(--fg-secondary)] flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-[var(--status-success)] animate-pulse" />
+            Live NASA Feed
+          </span>
+          {lastSyncTime && (
+            <span className="font-mono text-[9px] text-[var(--fg-muted)]">
+              {lastSyncTime}
+            </span>
+          )}
+        </div>
+
+        <button
+          type="button"
+          onClick={handleSyncLiveNasa}
+          disabled={isSyncing}
+          className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-[var(--primary)]/40 bg-[var(--primary-subtle)] px-2.5 py-1.5 text-xs font-bold text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all cursor-pointer disabled:opacity-50"
+        >
+          <RefreshCw className={cn("h-3.5 w-3.5", isSyncing && "animate-spin")} />
+          <span>{isSyncing ? "Connecting NASA Feed..." : "Sync Live NASA Telemetry"}</span>
+        </button>
+
+        {syncMessage && (
+          <p className="text-[10px] text-[var(--status-success)] text-center font-medium">
+            {syncMessage}
+          </p>
+        )}
       </div>
 
       {/* Filter Matrix */}

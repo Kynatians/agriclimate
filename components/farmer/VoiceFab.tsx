@@ -24,7 +24,7 @@ export function VoiceFab({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "fixed bottom-20 right-4 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-fg)] shadow-lg transition-transform hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--primary)]/30 cursor-pointer",
+          "fixed bottom-20 md:bottom-6 right-4 md:right-8 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-fg)] shadow-lg transition-transform hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--primary)]/30 cursor-pointer",
           className
         )}
         aria-label="Voice Query & Audio Advisory"

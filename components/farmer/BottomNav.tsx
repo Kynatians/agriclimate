@@ -50,7 +50,7 @@ export function BottomNav({
     <nav
       aria-label="Farmer Navigation Bar"
       className={cn(
-        "fixed bottom-0 left-0 right-0 z-30 flex h-16 w-full items-center justify-around border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2 shadow-lg backdrop-blur-md",
+        "fixed bottom-0 left-0 right-0 z-30 flex h-16 w-full items-center justify-around border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2 shadow-lg backdrop-blur-md md:hidden",
         className
       )}
     >
