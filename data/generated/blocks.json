@@ -1,0 +1,278 @@
+[
+  {
+    "id": "blk_kurigram_01",
+    "name": "Chilmari South",
+    "districtId": "kurigram",
+    "subDistrict": "Chilmari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.650, 25.680],
+          [89.720, 25.680],
+          [89.720, 25.730],
+          [89.650, 25.730],
+          [89.650, 25.680]
+        ]
+      ]
+    },
+    "centroid": [89.685, 25.705],
+    "farmerCount": 284,
+    "pumpAssetCount": 4,
+    "primaryCrop": "rice_boro",
+    "cropStage": "vegetative"
+  },
+  {
+    "id": "blk_kurigram_02",
+    "name": "Chilmari North",
+    "districtId": "kurigram",
+    "subDistrict": "Chilmari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.650, 25.730],
+          [89.720, 25.730],
+          [89.720, 25.780],
+          [89.650, 25.780],
+          [89.650, 25.730]
+        ]
+      ]
+    },
+    "centroid": [89.685, 25.755],
+    "farmerCount": 312,
+    "pumpAssetCount": 3,
+    "primaryCrop": "rice_aman",
+    "cropStage": "flowering"
+  },
+  {
+    "id": "blk_kurigram_03",
+    "name": "Ulipur East",
+    "districtId": "kurigram",
+    "subDistrict": "Ulipur",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.600, 25.660],
+          [89.650, 25.660],
+          [89.650, 25.740],
+          [89.600, 25.740],
+          [89.600, 25.660]
+        ]
+      ]
+    },
+    "centroid": [89.625, 25.700],
+    "farmerCount": 418,
+    "pumpAssetCount": 5,
+    "primaryCrop": "jute_tossa",
+    "cropStage": "maturity"
+  },
+  {
+    "id": "blk_kurigram_04",
+    "name": "Ulipur West",
+    "districtId": "kurigram",
+    "subDistrict": "Ulipur",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.540, 25.660],
+          [89.600, 25.660],
+          [89.600, 25.740],
+          [89.540, 25.740],
+          [89.540, 25.660]
+        ]
+      ]
+    },
+    "centroid": [89.570, 25.700],
+    "farmerCount": 376,
+    "pumpAssetCount": 4,
+    "primaryCrop": "wheat_kanchan",
+    "cropStage": "sowing"
+  },
+  {
+    "id": "blk_kurigram_05",
+    "name": "Kurigram Sadar East",
+    "districtId": "kurigram",
+    "subDistrict": "Kurigram Sadar",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.620, 25.780],
+          [89.700, 25.780],
+          [89.700, 25.860],
+          [89.620, 25.860],
+          [89.620, 25.780]
+        ]
+      ]
+    },
+    "centroid": [89.660, 25.820],
+    "farmerCount": 542,
+    "pumpAssetCount": 6,
+    "primaryCrop": "rice_boro",
+    "cropStage": "vegetative"
+  },
+  {
+    "id": "blk_kurigram_06",
+    "name": "Kurigram Sadar West",
+    "districtId": "kurigram",
+    "subDistrict": "Kurigram Sadar",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.540, 25.780],
+          [89.620, 25.780],
+          [89.620, 25.860],
+          [89.540, 25.860],
+          [89.540, 25.780]
+        ]
+      ]
+    },
+    "centroid": [89.580, 25.820],
+    "farmerCount": 489,
+    "pumpAssetCount": 5,
+    "primaryCrop": "lentil_bari",
+    "cropStage": "flowering"
+  },
+  {
+    "id": "blk_kurigram_07",
+    "name": "Rajarhat Central",
+    "districtId": "kurigram",
+    "subDistrict": "Rajarhat",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.500, 25.750],
+          [89.560, 25.750],
+          [89.560, 25.830],
+          [89.500, 25.830],
+          [89.500, 25.750]
+        ]
+      ]
+    },
+    "centroid": [89.530, 25.790],
+    "farmerCount": 320,
+    "pumpAssetCount": 3,
+    "primaryCrop": "mustard_tori",
+    "cropStage": "maturity"
+  },
+  {
+    "id": "blk_kurigram_08",
+    "name": "Nageshwari South",
+    "districtId": "kurigram",
+    "subDistrict": "Nageshwari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.620, 25.860],
+          [89.720, 25.860],
+          [89.720, 25.960],
+          [89.620, 25.960],
+          [89.620, 25.860]
+        ]
+      ]
+    },
+    "centroid": [89.670, 25.910],
+    "farmerCount": 410,
+    "pumpAssetCount": 4,
+    "primaryCrop": "rice_aman",
+    "cropStage": "vegetative"
+  },
+  {
+    "id": "blk_kurigram_09",
+    "name": "Nageshwari North",
+    "districtId": "kurigram",
+    "subDistrict": "Nageshwari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.620, 25.960],
+          [89.740, 25.960],
+          [89.740, 26.060],
+          [89.620, 26.060],
+          [89.620, 25.960]
+        ]
+      ]
+    },
+    "centroid": [89.680, 26.010],
+    "farmerCount": 365,
+    "pumpAssetCount": 3,
+    "primaryCrop": "maize_hybrid",
+    "cropStage": "flowering"
+  },
+  {
+    "id": "blk_kurigram_10",
+    "name": "Bhurungamari Border",
+    "districtId": "kurigram",
+    "subDistrict": "Bhurungamari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.640, 26.060],
+          [89.760, 26.060],
+          [89.760, 26.160],
+          [89.640, 26.160],
+          [89.640, 26.060]
+        ]
+      ]
+    },
+    "centroid": [89.700, 26.110],
+    "farmerCount": 298,
+    "pumpAssetCount": 3,
+    "primaryCrop": "potato_cardinal",
+    "cropStage": "harvest"
+  },
+  {
+    "id": "blk_kurigram_11",
+    "name": "Rowmari Char",
+    "districtId": "kurigram",
+    "subDistrict": "Rowmari",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.750, 25.540],
+          [89.860, 25.540],
+          [89.860, 25.660],
+          [89.750, 25.660],
+          [89.750, 25.540]
+        ]
+      ]
+    },
+    "centroid": [89.805, 25.600],
+    "farmerCount": 245,
+    "pumpAssetCount": 2,
+    "primaryCrop": "rice_aus",
+    "cropStage": "vegetative"
+  },
+  {
+    "id": "blk_kurigram_12",
+    "name": "Char Rajibpur Riparian",
+    "districtId": "kurigram",
+    "subDistrict": "Char Rajibpur",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [89.720, 25.420],
+          [89.840, 25.420],
+          [89.840, 25.540],
+          [89.720, 25.540],
+          [89.720, 25.420]
+        ]
+      ]
+    },
+    "centroid": [89.780, 25.480],
+    "farmerCount": 186,
+    "pumpAssetCount": 2,
+    "primaryCrop": "chili_hot",
+    "cropStage": "harvest"
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "id": "alrt_001",
+    "blockId": "blk_kurigram_11",
+    "type": "flood",
+    "severity": "high",
+    "leadTimeHours": 48,
+    "headline": {
+      "en": "Flash Flood Warning: Rapid Water Influx Expected",
+      "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+    },
+    "detail": {
+      "en": "Brahmaputra basin upstream runoff combined with 138mm 48-hour forecast rainfall indicates acute inundation risk for low-lying char fields. Elevate harvested crops and prepare drainage channels.",
+      "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+    },
+    "issuedAt": "2026-09-28T05:00:00Z",
+    "expiresAt": "2026-09-30T18:00:00Z"
+  },
+  {
+    "id": "alrt_002",
+    "blockId": "blk_kurigram_12",
+    "type": "flood",
+    "severity": "high",
+    "leadTimeHours": 48,
+    "headline": {
+      "en": "Flash Flood Warning: Char Inundation Alert",
+      "bn": "আকস্মিক বন্যা সতর্কতা: চরাঞ্চল প্লাবনের পূর্বাভাস"
+    },
+    "detail": {
+      "en": "Riparian buffer saturation at 94% with heavy convective rainfall predicted over next 48 hours. Flood Susceptibility Score reaches 0.84.",
+      "bn": "চরাঞ্চলের মাটির আর্দ্রতা সম্পৃক্ততার হার ৯৪% এবং আগামী ৪৮ ঘণ্টায় ভারী বর্ষণের পূর্বাভাস রয়েছে। বন্যা ঝুঁকি সূচক ০.৮৪ এ পৌঁছেছে।"
+    },
+    "issuedAt": "2026-09-28T05:30:00Z",
+    "expiresAt": "2026-09-30T18:00:00Z"
+  },
+  {
+    "id": "alrt_003",
+    "blockId": "blk_kurigram_01",
+    "type": "drought",
+    "severity": "high",
+    "leadTimeHours": 168,
+    "headline": {
+      "en": "Drought Stress Warning: Severe Soil Moisture Deficit",
+      "bn": "খরা সতর্কতা: মাটিতে তীব্র আর্দ্রতা ঘাটতি"
+    },
+    "detail": {
+      "en": "Root-zone soil moisture down 28% below seasonal norm sustained over 6 days. CWSI exceeds 0.70. Deploy supplemental solar irrigation immediately to prevent vegetative arrest.",
+      "bn": "মাটির মূল অঞ্চলে আর্দ্রতা স্বাভাবিকের চেয়ে ২৮% কমে গেছে যা গত ৬ দিন ধরে অব্যাহত। ফসলের পানিশূন্যতা সূচক ০.৭০ ছাড়িয়েছে। দ্রুত সেচ নিশ্চিত করুন।"
+    },
+    "issuedAt": "2026-09-27T08:00:00Z",
+    "expiresAt": "2026-10-04T12:00:00Z"
+  },
+  {
+    "id": "alrt_004",
+    "blockId": "blk_kurigram_07",
+    "type": "drought",
+    "severity": "medium",
+    "leadTimeHours": 120,
+    "headline": {
+      "en": "Drought Advisory: Moisture Depletion Trend",
+      "bn": "খরা পূর্বাভাস: আর্দ্রতা হ্রাসের প্রবণতা"
+    },
+    "detail": {
+      "en": "Surface soil moisture at 26% VWC with SPI dropping below -0.9. Light supplemental irrigation recommended for flowering crops.",
+      "bn": "মাটির উপরিভাগে আর্দ্রতা ২৬% এ নেমে এসেছে এবং এসপিআই সূচক -০.৯ এর নিচে। ফুল আসা ফসলে হালকা সেচ দেওয়ার পরামর্শ দেওয়া হচ্ছে।"
+    },
+    "issuedAt": "2026-09-27T12:00:00Z",
+    "expiresAt": "2026-10-02T12:00:00Z"
+  },
+  {
+    "id": "alrt_005",
+    "blockId": "blk_kurigram_09",
+    "type": "waterlogging",
+    "severity": "medium",
+    "leadTimeHours": 72,
+    "headline": {
+      "en": "Waterlogging Advisory: High Soil Saturation Risk",
+      "bn": "জলাবদ্ধতা পূর্বাভাস: অতিরিক্ত পানি জমে থাকার ঝুঁকি"
+    },
+    "detail": {
+      "en": "Soil moisture exceeding 41% VWC combined with 115mm projected precipitation. Check field furrows and clear boundary outlets.",
+      "bn": "মাটির আর্দ্রতা ৪১% ছাড়িয়েছে এবং ১১৫ মিমি বৃষ্টিপাতের পূর্বাভাস রয়েছে। জমির আইল ও নিকাশী নালা পরিষ্কার রাখুন।"
+    },
+    "issuedAt": "2026-09-28T06:00:00Z",
+    "expiresAt": "2026-10-01T12:00:00Z"
+  }
+]
