@@ -1,0 +1,25 @@
+[
+  {
+    "id": "dispatched_1790775865508",
+    "blockId": "blk_kurigram_11",
+    "type": "flood",
+    "severity": "medium",
+    "leadTimeHours": 48,
+    "headline": {
+      "en": "Flash Flood Warning: Rapid Water Influx Expected",
+      "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+    },
+    "detail": {
+      "en": "Flash Flood Warning: Rapid Water Influx Expected",
+      "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+    },
+    "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+    "channels": [
+      "sms",
+      "push"
+    ],
+    "isOfficerDispatched": true,
+    "issuedAt": "2026-09-30T13:44:25.532Z",
+    "expiresAt": "2026-10-07T13:44:25.532Z"
+  }
+]

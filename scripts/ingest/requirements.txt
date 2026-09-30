@@ -1,4 +1,4 @@
-# AgriSentinel NASA Ingestion Pipeline Dependencies
+# AgriClimate NASA Ingestion Pipeline Dependencies
 requests>=2.31.0
 pydantic>=2.5.0
 pystac-client>=0.7.5

@@ -9,6 +9,7 @@ import { useUiStore } from "@/lib/stores/ui";
 import { getSession } from "@/lib/auth/mock-session";
 import { Alert } from "@/lib/dal/types";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n/client";
 
 interface TopBarProps {
   alerts?: Alert[];
@@ -16,6 +17,7 @@ interface TopBarProps {
 }
 
 export function TopBar({ alerts = [], className }: TopBarProps) {
+  const { t } = useTranslation();
   const theme = useUiStore((state) => state.theme);
   const toggleTheme = useUiStore((state) => state.toggleTheme);
   const session = getSession();
@@ -35,7 +37,7 @@ export function TopBar({ alerts = [], className }: TopBarProps) {
         <div className="flex flex-col">
           <div className="flex items-center gap-1.5">
             <span className="text-base font-bold tracking-tight text-[var(--fg-primary)]">
-              AgriSentinel
+              {t("app.title", "AgriClimate")}
             </span>
             <span className="hidden sm:inline-block rounded bg-[var(--primary-subtle)] px-1.5 py-0.2 text-[10px] font-semibold text-[var(--primary)] uppercase font-mono">
               NASA Remote Sensing

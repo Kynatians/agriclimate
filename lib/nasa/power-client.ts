@@ -69,7 +69,7 @@ export async function fetchPowerPoint(
         signal: controller.signal,
         headers: {
           "Accept": "application/json",
-          "User-Agent": "AgriSentinel-Pilot/1.0",
+          "User-Agent": "AgriClimate-Pilot/1.0",
         },
         next: { revalidate: 21600 }, // 6-hour Next.js fetch cache
       });

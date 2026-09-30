@@ -201,7 +201,7 @@ export function TacticalOverlayCard({
 
         <div className="flex items-center justify-between text-[11px] text-[var(--fg-muted)] pt-2 border-t border-[var(--border-subtle)]/70 font-mono">
           <span>Affected Blocks: {disaster.affectedBlocks.length}</span>
-          <span className="text-[var(--primary)] font-bold">NASA GPM/SMAP Sentinel</span>
+          <span className="text-[var(--primary)] font-bold">NASA GPM/SMAP AgriClimate</span>
         </div>
       </div>
     );

@@ -106,15 +106,30 @@ export function getCachedLiveTimeSeries(blockId: string): TimeSeriesPoint[] | nu
  * Read cached live alerts
  */
 export function getCachedLiveAlerts(): Alert[] | null {
-  if (!memoryAlerts) {
-    try {
-      if (fs.existsSync(ALERTS_FILE)) {
-        const raw = fs.readFileSync(ALERTS_FILE, "utf-8");
-        memoryAlerts = JSON.parse(raw);
-      }
-    } catch (err) {
-      console.warn("Could not read live alerts cache:", err);
+  try {
+    if (fs.existsSync(ALERTS_FILE)) {
+      const raw = fs.readFileSync(ALERTS_FILE, "utf-8");
+      memoryAlerts = JSON.parse(raw);
     }
+  } catch (err) {
+    console.warn("Could not read live alerts cache:", err);
+  }
+
+  // Also merge any dispatched alerts from dispatched-alerts.json
+  try {
+    const dispatchedFile = path.join(LIVE_DATA_DIR, "dispatched-alerts.json");
+    if (fs.existsSync(dispatchedFile)) {
+      const rawDispatched = fs.readFileSync(dispatchedFile, "utf-8");
+      const dispatchedList: Alert[] = JSON.parse(rawDispatched);
+      if (dispatchedList && dispatchedList.length > 0) {
+        const map = new Map<string, Alert>();
+        (memoryAlerts || []).forEach((a) => map.set(a.id, a));
+        dispatchedList.forEach((a) => map.set(a.id, a));
+        return Array.from(map.values());
+      }
+    }
+  } catch (err) {
+    // Continue cleanly
   }
 
   return memoryAlerts;

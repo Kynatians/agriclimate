@@ -1,4 +1,4 @@
-# AgriSentinel
+# AgriClimate
 ## NASA Satellite-Powered Climate Intelligence Platform for Agricultural Resilience
 
 **Document Type:** Product & Technical Planning Document
@@ -28,7 +28,7 @@
 
 Climate change has fundamentally disrupted agricultural production cycles globally, threatening farming economies across Asia, Africa, Latin America, and beyond. Long-term droughts, sudden flash floods, cyclones, and erratic rainfall patterns are destroying harvests, destabilizing food supply chains, and threatening rural livelihoods at scale.
 
-**AgriSentinel** is a NASA satellite data-powered climate intelligence and early warning platform designed for two complementary user groups: smallholder farmers who need simple, actionable guidance; and agricultural extension officers who need deep analytical control. Rather than building two separate applications, AgriSentinel uses a **single unified application** with a **mode-switching architecture** — a persistent toggle that transitions between the Farmer View and the Officer Control Panel, sharing the same underlying data engine while presenting radically different interfaces optimised for each user's cognitive context and device capability.
+**AgriClimate** is a NASA satellite data-powered climate intelligence and early warning platform designed for two complementary user groups: smallholder farmers who need simple, actionable guidance; and agricultural extension officers who need deep analytical control. Rather than building two separate applications, AgriClimate uses a **single unified application** with a **mode-switching architecture** — a persistent toggle that transitions between the Farmer View and the Officer Control Panel, sharing the same underlying data engine while presenting radically different interfaces optimised for each user's cognitive context and device capability.
 
 The platform leverages NASA's orbital remote-sensing infrastructure — including MODIS, Landsat, SMAP, GPM, and POWER datasets — to deliver **block-level precision climate and soil intelligence** that ground-based weather station networks are structurally incapable of providing.
 
@@ -103,9 +103,9 @@ Despite their utility, existing platforms share five critical structural weaknes
 
 5. **Reactive, not predictive**: Most alerts are dispatched when events are already underway or imminent. The 48–72 hour advance warning window consistently achievable through satellite modeling is not being utilized.
 
-### 3.3 AgriSentinel's Differentiation
+### 3.3 AgriClimate's Differentiation
 
-| Capability | BAMIS / Existing | AgriSentinel |
+| Capability | BAMIS / Existing | AgriClimate |
 |---|---|---|
 | Data resolution | District / 20–50 km² | Block / ≤1 km² |
 | Data source | Ground weather stations | NASA orbital satellites |
@@ -123,7 +123,7 @@ Despite their utility, existing platforms share five critical structural weaknes
 
 ## 4. Proposed Solution
 
-**AgriSentinel** is a unified, dual-mode climate intelligence platform with the following components:
+**AgriClimate** is a unified, dual-mode climate intelligence platform with the following components:
 
 - A **single mobile and web application** with a mode switch — **Farmer View** and **Officer Control Panel** — within the same codebase and data layer.
 - An **SMS alert system** for non-smartphone users who cannot access the app.
@@ -142,7 +142,7 @@ The unified app model is a deliberate architectural choice for a prototype conte
 
 ### 5.1 NASA Dataset Inventory
 
-| Dataset | Platform | Parameters Derived | Use Case in AgriSentinel |
+| Dataset | Platform | Parameters Derived | Use Case in AgriClimate |
 |---|---|---|---|
 | **MODIS** (MOD11/MOD13) | Terra & Aqua | Land Surface Temperature, NDVI, Cloud Fraction | Drought stress, vegetation health, cloud tracking |
 | **Landsat 8/9** (OLI/TIRS) | Landsat | NDVI, NDWI, LST, Soil Reflectance | Crop mapping, water body extent, soil composition |
@@ -432,11 +432,11 @@ The "Why this land?" field is auto-generated from the scoring breakdown — it r
 
 ### 7.1 Unified App with Mode Switch
 
-AgriSentinel is a single application — one codebase, one data session, one login — that presents two distinct interfaces via a persistent **mode toggle** in the top navigation bar. The toggle is always accessible regardless of the current screen.
+AgriClimate is a single application — one codebase, one data session, one login — that presents two distinct interfaces via a persistent **mode toggle** in the top navigation bar. The toggle is always accessible regardless of the current screen.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  🌾 AgriSentinel          [ FARMER | OFFICER ]   🔔  👤 │
+│  🌾 AgriClimate           [ FARMER | OFFICER ]   🔔  👤 │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -463,7 +463,7 @@ The Farmer View is designed for clarity, low cognitive load, and rapid informati
 
 ```
 ┌───────────────────────────────────────┐
-│  🌾 AgriSentinel      [FARMER|Officer]│
+│  🌾 AgriClimate       [FARMER|Officer]│
 │─────────────────────────────────────  │
 │  📍 [Region], [Block Name] — Tue 27 Sep│
 │                                       │
@@ -527,7 +527,7 @@ The Officer Control Panel is a full-screen, information-dense interface designed
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│  🌾 AgriSentinel                          [Farmer | OFFICER]           🔔 15  👤 Officer │
+│  🌾 AgriClimate                           [Farmer | OFFICER]           🔔 15  👤 Officer │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                        │
 │  ┌──────────────────┐  ┌──────────────────────────────────────────┐  ┌──────────────┐ │
@@ -879,4 +879,4 @@ NASA datasets are free to access and redistribute for non-commercial, research, 
 
 ---
 
-*AgriSentinel — Prepared by Kynatium Labs | v2.0 | September 2026*
+*AgriClimate — Prepared by Kynatium Labs | v2.0 | September 2026*

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AgriSentinel : NASA Satellite Climate Intelligence",
+  title: "AgriClimate : NASA Satellite Climate Intelligence",
   description:
     "Empowering rural farmers and district agricultural officers with deterministic NASA satellite intelligence for agricultural resilience.",
 };

@@ -64,6 +64,10 @@ export const AlertSchema = z.object({
   detail: LocalizedTextSchema,
   issuedAt: z.string(),
   expiresAt: z.string(),
+  dispatchedBy: z.string().optional(),
+  officerNote: z.string().optional(),
+  channels: z.array(z.string()).optional(),
+  isOfficerDispatched: z.boolean().optional(),
 });
 
 export const TimeSeriesPointSchema = z.object({

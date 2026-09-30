@@ -26,15 +26,17 @@ export function OfficerShell({
   alerts,
   timeSeriesMap = {},
 }: OfficerShellProps) {
-  const { selectedBlockId, setSelectedBlockId } = useUiStore();
+  const {
+    selectedBlockId,
+    setSelectedBlockId,
+    officerTab: mobileTab,
+    setOfficerTab: setMobileTab,
+  } = useUiStore();
 
   const [composerOpen, setComposerOpen] = React.useState(false);
   const [reportOpen, setReportOpen] = React.useState(false);
   const [activeAlertToAnnotate, setActiveAlertToAnnotate] = React.useState<Alert | null>(null);
   const [activeBlockForAlert, setActiveBlockForAlert] = React.useState<Block | null>(null);
-
-  // Mobile active tab
-  const [mobileTab, setMobileTab] = React.useState<string>("map");
 
   const handleOpenComposer = (alert?: Alert) => {
     setActiveAlertToAnnotate(alert || null);
@@ -88,7 +90,7 @@ export function OfficerShell({
       <div className="flex lg:hidden flex-col h-full w-full">
         <Tabs
           value={mobileTab}
-          onValueChange={setMobileTab}
+          onValueChange={(val) => setMobileTab(val as "map" | "control" | "data")}
           className="flex flex-col h-full w-full"
         >
           {/* Top Mobile Viewport Tab Switcher */}

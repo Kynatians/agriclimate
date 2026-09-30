@@ -46,7 +46,7 @@ export function ReportModal({
                   Official District Climate Intelligence Report
                 </DialogTitle>
                 <DialogDescription className="text-xs">
-                  AgriSentinel NASA Telemetry Briefing · Kurigram District
+                  AgriClimate NASA Telemetry Briefing · Kurigram District
                 </DialogDescription>
               </div>
             </div>
@@ -194,7 +194,7 @@ export function ReportModal({
           {/* Provenance Stamp */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-[var(--border-subtle)] pt-3 text-[10px] text-[var(--fg-muted)]">
             <SourceLabel source="NASA POWER, SMAP L4, MODIS MOD13Q1, GPM IMERG" />
-            <span>Kynatium Labs AgriSentinel Intelligence Engine</span>
+            <span>Kynatium Labs AgriClimate Intelligence Engine</span>
           </div>
         </div>
       </DialogContent>

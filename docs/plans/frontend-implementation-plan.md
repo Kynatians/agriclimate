@@ -1,6 +1,6 @@
-# AgriSentinel — Frontend Implementation Plan
+# AgriClimate — Frontend Implementation Plan
 **Platform:** NASA Satellite-Powered Climate Intelligence Platform for Agricultural Resilience  
-**Author:** Lead Frontend Engineer & Planner, AgriSentinel (Kynatium Labs)  
+**Author:** Lead Frontend Engineer & Planner, AgriClimate (Kynatium Labs)  
 **Date:** September 2026  
 **Status:** Ready for Review (Draft Implementation Plan — Code Implementation Blocked Pending Approval)  
 **Target Repository:** `kynatians/agriclimate`  
@@ -138,7 +138,7 @@ In strict accordance with `.agents/skills/design-taste/SKILL.md` and `.agents/sk
 
 ### 4.2 Color Palette & Semantic Tokens (OKLCH Base)
 
-In adherence to the **single accent lock** and **no pure black/white** rules, AgriSentinel uses a tailored palette anchored in earthy slate neutrals, an authoritative forest-emerald primary accent, and colorblind-safe semantic status tokens.
+In adherence to the **single accent lock** and **no pure black/white** rules, AgriClimate uses a tailored palette anchored in earthy slate neutrals, an authoritative forest-emerald primary accent, and colorblind-safe semantic status tokens.
 
 ```css
 /* app/globals.css */
@@ -273,7 +273,7 @@ Every interactive button, card, input, and selector must explicitly implement al
 The following tree represents the exact planned structure of all frontend and internal data handling code, following the locked structure in tech-spec §3.
 
 ```
-agrisentinel/
+agriclimate/
 ├── app/
 │   ├── (farmer)/
 │   │   ├── layout.tsx                     # Farmer shell: mobile viewport container, bottom nav, VoiceFab

@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
 export async function GET() {
   return NextResponse.json(
     {
-      service: "AgriSentinel Live NASA Synchronization Service",
+      service: "AgriClimate Live NASA Synchronization Service",
       status: "operational",
       endpoints: {
         power: "NASA POWER Daily REST (GEOS-FP)",

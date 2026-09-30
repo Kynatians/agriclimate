@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Alert } from "@/lib/dal/types";
+import { useUiStore } from "@/lib/stores/ui";
 import { AlertCard } from "./AlertCard";
 import { useTranslation } from "@/lib/i18n/client";
 import { Filter, Search, BellOff, ShieldAlert, AlertTriangle, Droplets, Waves, Flame } from "lucide-react";
@@ -21,14 +22,14 @@ export function AlertsListView({
   onDismissAlert,
 }: AlertsListViewProps) {
   const { t, getLocalized } = useTranslation();
+  const { dismissedAlertIds, dismissAlert } = useUiStore();
   const [selectedSeverity, setSelectedSeverity] = React.useState<string>("all");
   const [selectedType, setSelectedType] = React.useState<string>("all");
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [dismissedIds, setDismissedIds] = React.useState<Set<string>>(new Set());
   const [activeAlert, setActiveAlert] = React.useState<Alert | null>(null);
 
   const handleDismiss = (id: string) => {
-    setDismissedIds((prev) => new Set([...prev, id]));
+    dismissAlert(id);
     if (onDismissAlert) {
       onDismissAlert(id);
     }
@@ -36,7 +37,7 @@ export function AlertsListView({
 
   const filteredAlerts = React.useMemo(() => {
     return alerts.filter((alert) => {
-      if (dismissedIds.has(alert.id)) return false;
+      if (dismissedAlertIds.includes(alert.id)) return false;
       if (selectedSeverity !== "all" && alert.severity !== selectedSeverity) return false;
       if (selectedType !== "all" && alert.type !== selectedType) return false;
       if (searchQuery.trim()) {
@@ -47,11 +48,12 @@ export function AlertsListView({
       }
       return true;
     });
-  }, [alerts, dismissedIds, selectedSeverity, selectedType, searchQuery, getLocalized]);
+  }, [alerts, dismissedAlertIds, selectedSeverity, selectedType, searchQuery, getLocalized]);
 
-  const highSeverityCount = alerts.filter((a) => !dismissedIds.has(a.id) && a.severity === "high").length;
-  const droughtCount = alerts.filter((a) => !dismissedIds.has(a.id) && a.type === "drought").length;
-  const floodCount = alerts.filter((a) => !dismissedIds.has(a.id) && (a.type === "flood" || a.type === "waterlogging")).length;
+  const activeAlerts = alerts.filter((a) => !dismissedAlertIds.includes(a.id));
+  const highSeverityCount = activeAlerts.filter((a) => a.severity === "high").length;
+  const droughtCount = activeAlerts.filter((a) => a.type === "drought").length;
+  const floodCount = activeAlerts.filter((a) => a.type === "flood" || a.type === "waterlogging").length;
 
   return (
     <div className={cn("space-y-6 pb-12", className)}>
@@ -67,14 +69,14 @@ export function AlertsListView({
                 {t("alerts.title", "Climate Risk Alerts & Direct Advisories")}
               </h1>
               <p className="text-xs sm:text-sm text-[var(--fg-secondary)] mt-0.5">
-                {t("alerts.subtitle", "Active deterministic advisories for drought, root-zone deficits, and flood surges")}
+                {t("alerts.subtitle", "Official agricultural advisories dispatched by the Upazila Agriculture Office (DAE)")}
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-[var(--status-danger-bg)] px-3 py-1 text-xs font-mono font-bold text-[var(--status-danger)] border border-[var(--status-danger)]/30">
-              {alerts.length - dismissedIds.size} Active Advisories
+              {activeAlerts.length} Officer Advisories
             </span>
           </div>
         </div>
@@ -83,7 +85,7 @@ export function AlertsListView({
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="flex items-center gap-3 rounded-xl bg-[var(--bg-surface-subtle)] p-3 border border-[var(--border-subtle)]">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--bg-surface)] text-[var(--primary)] font-bold">
-              {alerts.length - dismissedIds.size}
+              {activeAlerts.length}
             </div>
             <div>
               <span className="text-[10px] uppercase font-bold text-[var(--fg-muted)] tracking-wider block">Total Active</span>
@@ -167,10 +169,10 @@ export function AlertsListView({
               <BellOff className="h-7 w-7" />
             </div>
             <h3 className="mt-4 text-base font-bold text-[var(--fg-primary)]">
-              {t("alerts.noneFound", "No active alerts matching your criteria")}
+              {t("alerts.noneFound", "No active official advisories for this selection")}
             </h3>
             <p className="mt-1 text-xs text-[var(--fg-secondary)] max-w-sm">
-              {t("alerts.noneFoundDetail", "Soil and climate metrics in this block remain within normal seasonal tolerance bands.")}
+              {t("alerts.noneFoundDetail", "Soil and climate metrics in this block remain within normal seasonal tolerance bands, and no emergency bulletins have been broadcasted by DAE.")}
             </p>
           </div>
         ) : (
@@ -200,6 +202,11 @@ export function AlertsListView({
                   <span className="text-xs text-[var(--fg-muted)] font-mono">
                     Lead time: {activeAlert.leadTimeHours}h
                   </span>
+                  {activeAlert.dispatchedBy && (
+                    <span className="text-[10px] font-bold text-[var(--primary)] font-mono ml-auto">
+                      {activeAlert.dispatchedBy}
+                    </span>
+                  )}
                 </div>
                 <DialogTitle className="text-xl font-bold">
                   {getLocalized(activeAlert.headline)}
@@ -210,6 +217,17 @@ export function AlertsListView({
               </DialogHeader>
 
               <div className="space-y-4 py-2 text-sm text-[var(--fg-primary)]">
+                {activeAlert.officerNote && (
+                  <div className="rounded-xl border border-[var(--primary)]/30 bg-[var(--primary-subtle)]/30 p-3.5">
+                    <h4 className="font-bold text-xs text-[var(--primary)] uppercase tracking-wider mb-1">
+                      Direct Officer Instruction Note
+                    </h4>
+                    <p className="text-xs sm:text-sm leading-relaxed text-[var(--fg-primary)] font-medium">
+                      "{activeAlert.officerNote}"
+                    </p>
+                  </div>
+                )}
+
                 <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] p-4">
                   <h4 className="font-bold text-xs text-[var(--primary)] uppercase tracking-wider mb-2">
                     {t("alerts.recommendedAction", "Recommended Action for Farmers")}
@@ -226,6 +244,11 @@ export function AlertsListView({
                 <div className="flex items-center justify-between text-xs text-[var(--fg-muted)] border-t border-[var(--border-subtle)] pt-3 font-mono">
                   <span>Issued: {new Date(activeAlert.issuedAt).toLocaleDateString()}</span>
                   <span>Target: {activeAlert.blockId === "all" ? "District-Wide" : activeAlert.blockId}</span>
+                  {activeAlert.channels && (
+                    <span className="uppercase text-[10px] text-[var(--primary)] font-bold">
+                      Via: {activeAlert.channels.join(", ")}
+                    </span>
+                  )}
                 </div>
               </div>
 

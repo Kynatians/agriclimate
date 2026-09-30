@@ -1,5 +1,5 @@
 // lib/dal/types.ts
-// Single source of truth for AgriSentinel domain model per tech spec §4
+// Single source of truth for AgriClimate domain model per tech spec §4
 
 export type LocalizedText = Record<string, string>; // e.g. { en: "...", bn: "..." }
 
@@ -62,6 +62,10 @@ export interface Alert {
   detail: LocalizedText;
   issuedAt: string;              // ISO timestamp
   expiresAt: string;             // ISO timestamp
+  dispatchedBy?: string;         // e.g. "Upazila Agriculture Office (DAE)"
+  officerNote?: string;          // Specific officer advice attached during dispatch
+  channels?: string[];           // ["sms", "push", "ivr"]
+  isOfficerDispatched?: boolean; // true if reviewed & broadcasted from officer panel
 }
 
 export interface TimeSeriesPoint {

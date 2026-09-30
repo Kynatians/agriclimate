@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Block, BlockMetrics, DistrictSummary, Alert, CropRecommendation, TimeSeriesPoint, IrrigationPlan } from "@/lib/dal/types";
-import { useUiStore } from "@/lib/stores/ui";
+import { useUiStore, initStoreSync, restoreStateFromUrl } from "@/lib/stores/ui";
 import { FarmerView } from "@/components/farmer/FarmerView";
 import { OfficerShell } from "@/components/officer/OfficerShell";
 
@@ -26,10 +26,26 @@ export function AppModeSwitch({
   irrigationPlan,
 }: AppModeSwitchProps) {
   const mode = useUiStore((state) => state.mode);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    const cleanup = initStoreSync();
+    setMounted(true);
+    return cleanup;
+  }, []);
+
+  const fromUrl = React.useMemo(() => {
+    if (typeof window !== "undefined") {
+      return restoreStateFromUrl();
+    }
+    return null;
+  }, []);
+
+  const currentMode = mounted ? mode : (fromUrl?.mode || mode);
 
   return (
     <div className="w-full">
-      {mode === "farmer" ? (
+      {currentMode === "farmer" ? (
         <FarmerView
           blocks={blocks}
           metricsMap={metricsMap}

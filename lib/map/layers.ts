@@ -92,7 +92,7 @@ export const MAP_LAYERS: Record<LayerId, LayerDefinition> = {
     shortName: "Pump Priority",
     unit: "tier",
     description: "Deterministic irrigation rota allocating solar hours to high-deficit blocks.",
-    source: "AgriSentinel Hydro-Scheduler",
+    source: "AgriClimate Hydro-Scheduler",
     paletteType: "sequential",
     stops: SUNSET_PALETTE,
     getValue: (m) => (m.cwsi > 0.65 ? 0.9 : m.cwsi > 0.4 ? 0.5 : 0.2),

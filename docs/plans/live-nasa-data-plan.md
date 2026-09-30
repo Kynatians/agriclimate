@@ -1,4 +1,4 @@
-# AgriSentinel: Live NASA Satellite Data Ingestion Plan
+# AgriClimate: Live NASA Satellite Data Ingestion Plan
 
 **Author:** Lead Frontend & Systems Architect, Kynatium Labs  
 **Target:** Live NASA Satellite Telemetry Integration (NASA POWER, FIRMS, SMAP, MODIS, GPM IMERG, Landsat)  
@@ -24,7 +24,7 @@ NASA satellite missions operate on diverse orbits, revisit intervals, data forma
 - Heavy scientific rasters (50MB+ HDF5 granules) cannot be parsed in the browser.
 
 ### 1.3 The Solution: The Hybrid Ingestion & DAL Adapter Architecture
-AgriSentinel will implement a dual-layer live data architecture:
+AgriClimate will implement a dual-layer live data architecture:
 1. **Server-Side Ingestion Pipeline (`scripts/ingest/` & `/api/sync/live-nasa`):**
    - High-performance, scheduled background fetchers for all target NASA datasets across the Kurigram District bounding box (`[89.5, 25.6, 89.9, 26.05]`) and the 12 block centroids.
    - Spatial zonal sampling: transforms raw rasters/time-series into typed block metrics (`BlockMetrics`, `TimeSeriesPoint[]`).
@@ -122,7 +122,7 @@ Ingestion credentials must be strictly isolated from client-side bundles and ver
 
 ```bash
 # ==============================================================================
-# AgriSentinel Live NASA Data Integration Credentials
+# AgriClimate Live NASA Data Integration Credentials
 # ==============================================================================
 
 # Data Source Mode: 'static' (frozen seed data), 'live' (direct live NASA), 'hybrid' (live with seed fallback)
@@ -150,7 +150,7 @@ CACHE_TTL_FIRMS=3600       # 1 hour
 CACHE_TTL_SATELLITE=86400  # 24 hours (MODIS/SMAP)
 
 # Cron Security Token for Automated Ingest Trigger
-CRON_SECRET_KEY=agrisentinel_cron_secure_token_sample
+CRON_SECRET_KEY=agriclimate_cron_secure_token_sample
 ```
 
 ---

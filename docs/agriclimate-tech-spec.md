@@ -1,6 +1,6 @@
-# AgriSentinel — Technical Specification
+# AgriClimate — Technical Specification
 
-**Companion to:** `agrisentinel.md` (Product & Planning, v2.3)
+**Companion to:** `agriclimate.md` (Product & Planning, v2.3)
 **Doc type:** Engineering spec — build contract for developers and coding agents
 **Version:** 1.0 · September 2026 · Kynatium Labs
 **Status:** Locked for prototype build
@@ -92,7 +92,7 @@ This is the **build contract**. The product doc says *what* and *why*; this says
 ## 3. Repository structure
 
 ```
-agrisentinel/
+agriclimate/
 ├── app/
 │   ├── (marketing)/              # optional landing; low priority
 │   ├── (farmer)/                 # Farmer View route group
@@ -723,4 +723,4 @@ NDVI (vegetation index) · NDWI (water index) · SPI (precipitation index) · FS
 
 ---
 
-*AgriSentinel Technical Specification — Kynatium Labs · v1.0 · Sept 2026. Companion to product doc v2.3. Locked decisions D1–D4 govern; changes require a version bump.*
+*AgriClimate Technical Specification — Kynatium Labs · v1.0 · Sept 2026. Companion to product doc v2.3. Locked decisions D1–D4 govern; changes require a version bump.*

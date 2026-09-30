@@ -26,7 +26,7 @@ def search_landsat():
     req = urllib.request.Request(
         STAC_ENDPOINT,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json", "User-Agent": "AgriSentinel-Ingest/1.0"}
+        headers={"Content-Type": "application/json", "User-Agent": "AgriClimate-Ingest/1.0"}
     )
 
     try:

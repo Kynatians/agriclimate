@@ -36,7 +36,7 @@ def fetch_point(lon: float, lat: float, days_back: int = 30):
     query_str = "&".join(f"{k}={v}" for k, v in params.items())
     url = f"{POWER_BASE_URL}?{query_str}"
 
-    req = Request(url, headers={"User-Agent": "AgriSentinel-Ingest/1.0"})
+    req = Request(url, headers={"User-Agent": "AgriClimate-Ingest/1.0"})
     try:
         with urlopen(req, timeout=10) as resp:
             if resp.status == 200:

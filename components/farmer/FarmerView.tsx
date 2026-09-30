@@ -53,8 +53,15 @@ export function FarmerView({
   irrigationPlan,
 }: FarmerViewProps) {
   const { t } = useTranslation();
-  const { selectedBlockId, setSelectedBlockId } = useUiStore();
-  const [activeTab, setActiveTab] = React.useState<FarmerTab>("home");
+  const {
+    selectedBlockId,
+    setSelectedBlockId,
+    farmerTab: activeTab,
+    setFarmerTab: setActiveTab,
+    addDispatchedAlert,
+    dismissedAlertIds,
+    dismissAlert,
+  } = useUiStore();
   const [isRecoOpen, setIsRecoOpen] = React.useState(false);
   const [isIrrigationOpen, setIsIrrigationOpen] = React.useState(false);
 
@@ -64,11 +71,54 @@ export function FarmerView({
   const currentMetrics = metricsMap[currentBlockId] || Object.values(metricsMap)[0];
   const currentRecos = recommendationsMap[currentBlockId] || [];
 
-  // Active block alerts
-  const blockAlerts = alerts.filter(
-    (a) => a.blockId === currentBlockId || a.blockId === "all"
+  // Dispatched alerts from the Officer Panel (Zustand store)
+  const dispatchedFromStore = useUiStore((state) => state.dispatchedAlerts);
+
+  // Sync dispatched alerts from server API on mount
+  React.useEffect(() => {
+    fetch("/api/alerts/dispatch")
+      .then((res) => res.json())
+      .then((data: Alert[]) => {
+        if (Array.isArray(data)) {
+          data.forEach((alert) => {
+            if (alert.isOfficerDispatched) {
+              addDispatchedAlert(alert);
+            }
+          });
+        }
+      })
+      .catch(() => {});
+  }, [addDispatchedAlert]);
+
+  // In Farmer View, ONLY alerts dispatched by the Officer Panel are shown
+  const officerAlerts = React.useMemo(() => {
+    const map = new Map<string, Alert>();
+
+    // 1. Initial alerts from server marked as dispatched by the officer
+    alerts.forEach((a) => {
+      if (a.isOfficerDispatched === true) {
+        map.set(a.id, a);
+      }
+    });
+
+    // 2. Dispatched alerts from the officer panel
+    dispatchedFromStore.forEach((a) => {
+      if (a.isOfficerDispatched === true) {
+        map.set(a.id, a);
+      }
+    });
+
+    return Array.from(map.values());
+  }, [alerts, dispatchedFromStore]);
+
+  // Active block alerts: ONLY officer-dispatched alerts targeted to this block or district-wide 'all'
+  // excluding alerts dismissed by the user
+  const blockAlerts = officerAlerts.filter(
+    (a) =>
+      !dismissedAlertIds.includes(a.id) &&
+      (a.blockId === currentBlockId || a.blockId === "all")
   );
-  const topAlert = blockAlerts[0] || alerts[0];
+  const topAlert = blockAlerts[0] || null;
 
   const rainProb = currentMetrics ? Math.min(95, Math.max(10, Math.round(currentMetrics.precip7dForecast * 1.5))) : 50;
 
@@ -305,13 +355,45 @@ export function FarmerView({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               {/* Left / Primary Column (7 or 8 cols): Detailed Telemetry & Regional Radar */}
               <div className="lg:col-span-7 xl:col-span-8 space-y-6">
-                {/* Urgent Alert Banner (if any) */}
-                {topAlert && (
+                {/* Urgent Alert Banner or Normal Monitored Status */}
+                {topAlert ? (
                   <div className="animate-in fade-in slide-in-from-top-2 duration-300">
                     <AlertCard
                       alert={topAlert}
                       onView={() => setActiveTab("alerts")}
+                      onDismiss={(id) => dismissAlert(id)}
                     />
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--status-success-bg)] text-[var(--status-success)]">
+                        <CheckCircle2 className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-bold text-[var(--fg-primary)]">
+                            Field Status: Normal • Monitored by DAE
+                          </span>
+                          <span className="rounded-full bg-[var(--status-success-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--status-success)] font-mono">
+                            No Active Warnings
+                          </span>
+                        </div>
+                        <p className="text-xs text-[var(--fg-muted)] mt-0.5">
+                          Upazila Agriculture Office has not issued any emergency warnings for this block. Satellite telemetry remains within seasonal norms.
+                        </p>
+                      </div>
+                    </div>
+                    {officerAlerts.filter((a) => !dismissedAlertIds.includes(a.id)).length > 0 && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setActiveTab("alerts")}
+                        className="text-xs shrink-0 self-start sm:self-auto cursor-pointer"
+                      >
+                        All District Bulletins ({officerAlerts.filter((a) => !dismissedAlertIds.includes(a.id)).length})
+                      </Button>
+                    )}
                   </div>
                 )}
 
@@ -419,7 +501,7 @@ export function FarmerView({
 
         {activeTab === "alerts" && (
           <div className="animate-in fade-in duration-200">
-            <AlertsListView alerts={alerts} />
+            <AlertsListView alerts={officerAlerts} />
           </div>
         )}
       </main>

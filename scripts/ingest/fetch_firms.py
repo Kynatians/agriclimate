@@ -22,7 +22,7 @@ def main():
     print(f"Querying NASA FIRMS for Kurigram bbox [{KURIGRAM_BBOX}]...")
 
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "AgriSentinel-Ingest/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "AgriClimate-Ingest/1.0"})
         with urllib.request.urlopen(req, timeout=10) as resp:
             if resp.status == 200:
                 csv_data = resp.read().decode("utf-8")

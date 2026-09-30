@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AlertTriangle, Clock, ChevronRight, X } from "lucide-react";
+import { AlertTriangle, Clock, ChevronRight, X, ShieldAlert, Radio, Send } from "lucide-react";
 import { Alert } from "@/lib/dal/types";
 import { MetricBadge } from "@/components/shared/MetricBadge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,22 @@ export function AlertCard({ alert, onView, onDismiss, className }: AlertCardProp
         className
       )}
     >
+      {/* Official Officer Dispatch Banner Header */}
+      <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)]/60 pb-2.5">
+        <div className="flex items-center gap-1.5">
+          <ShieldAlert className="h-4 w-4 text-[var(--status-danger)]" />
+          <span className="text-[11px] font-bold tracking-tight text-[var(--fg-primary)]">
+            {alert.dispatchedBy || "Official Advisory • Upazila Agriculture Office (DAE)"}
+          </span>
+        </div>
+        {alert.channels && alert.channels.length > 0 && (
+          <span className="flex items-center gap-1 rounded-md bg-[var(--bg-surface)] px-2 py-0.5 text-[9px] font-mono font-bold text-[var(--fg-muted)] border border-[var(--border-subtle)] uppercase">
+            <Radio className="h-2.5 w-2.5 text-[var(--primary)]" />
+            {alert.channels.join(" · ")}
+          </span>
+        )}
+      </div>
+
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--status-danger-bg)] text-[var(--status-danger)]">
@@ -69,6 +85,19 @@ export function AlertCard({ alert, onView, onDismiss, className }: AlertCardProp
           {getLocalized(alert.detail)}
         </p>
       </div>
+
+      {/* Officer Custom Note Callout (if added by officer during dispatch) */}
+      {alert.officerNote && (
+        <div className="rounded-xl border border-[var(--primary)]/30 bg-[var(--primary-subtle)]/30 p-3 text-xs">
+          <div className="flex items-center gap-1.5 font-bold text-[var(--primary)] uppercase tracking-wider text-[10px] mb-1">
+            <Send className="h-3 w-3" />
+            Officer Advisory Note
+          </div>
+          <p className="text-[var(--fg-primary)] leading-relaxed font-medium">
+            "{alert.officerNote}"
+          </p>
+        </div>
+      )}
 
       <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
         {onView && (

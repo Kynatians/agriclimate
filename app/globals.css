@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* AgriSentinel Base Theme - Light */
+  /* AgriClimate Base Theme - Light */
   --bg-app: oklch(0.985 0.005 130);
   --bg-surface: oklch(1.0 0 0);
   --bg-surface-subtle: oklch(0.965 0.008 130);
