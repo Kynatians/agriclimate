@@ -1,13 +1,6 @@
 {
   "blk_kurigram_01": [
     {
-      "date": "2026-08-29",
-      "ndvi": 0.53,
-      "soilMoisture": 37,
-      "precip": 4.9,
-      "lst": 30.3
-    },
-    {
       "date": "2026-08-30",
       "ndvi": 0.56,
       "soilMoisture": 39,
@@ -206,9 +199,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.53,
-      "soilMoisture": 35.7,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 36.1,
+      "precip": 1.1,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -216,16 +209,16 @@
       "soilMoisture": 35.7,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.53,
+      "soilMoisture": 35.7,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_02": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.55,
-      "soilMoisture": 35.7,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.58,
@@ -425,9 +418,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.55,
-      "soilMoisture": 33.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 34.2,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -435,16 +428,16 @@
       "soilMoisture": 33.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.55,
+      "soilMoisture": 33.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_03": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.58,
-      "soilMoisture": 38.2,
-      "precip": 4.9,
-      "lst": 30.3
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.61,
@@ -644,9 +637,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.58,
-      "soilMoisture": 36.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 37.3,
+      "precip": 1.1,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -654,16 +647,16 @@
       "soilMoisture": 36.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.58,
+      "soilMoisture": 36.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_04": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.51,
-      "soilMoisture": 34.2,
-      "precip": 4.9,
-      "lst": 30.3
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.54,
@@ -863,9 +856,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.51,
-      "soilMoisture": 32.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 33.3,
+      "precip": 1.1,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -873,16 +866,16 @@
       "soilMoisture": 32.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.51,
+      "soilMoisture": 32.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_05": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.52,
-      "soilMoisture": 35.2,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.55,
@@ -1082,9 +1075,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.52,
-      "soilMoisture": 33.4,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 33.7,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -1092,16 +1085,16 @@
       "soilMoisture": 33.4,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.52,
+      "soilMoisture": 33.4,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_06": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.49,
-      "soilMoisture": 33.7,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.52,
@@ -1301,9 +1294,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.49,
-      "soilMoisture": 31.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 32.2,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -1311,16 +1304,16 @@
       "soilMoisture": 31.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.49,
+      "soilMoisture": 31.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_07": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.54,
-      "soilMoisture": 36.2,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.57,
@@ -1520,9 +1513,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.54,
-      "soilMoisture": 34.4,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 34.7,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -1530,16 +1523,16 @@
       "soilMoisture": 34.4,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.54,
+      "soilMoisture": 34.4,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_08": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.54,
-      "soilMoisture": 37.2,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.57,
@@ -1739,9 +1732,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.54,
-      "soilMoisture": 35.4,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 35.7,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -1749,16 +1742,16 @@
       "soilMoisture": 35.4,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.54,
+      "soilMoisture": 35.4,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_09": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.57,
-      "soilMoisture": 38.7,
-      "precip": 4.5,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.6,
@@ -1958,9 +1951,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.57,
-      "soilMoisture": 36.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 37.2,
+      "precip": 0.6,
+      "lst": 28.2
     },
     {
       "date": "2026-09-28",
@@ -1968,16 +1961,16 @@
       "soilMoisture": 36.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.57,
+      "soilMoisture": 36.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_10": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.51,
-      "soilMoisture": 33.8,
-      "precip": 2.2,
-      "lst": 29.2
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.54,
@@ -2177,9 +2170,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.51,
-      "soilMoisture": 32.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 33.1,
+      "precip": 0.6,
+      "lst": 28.1
     },
     {
       "date": "2026-09-28",
@@ -2187,16 +2180,16 @@
       "soilMoisture": 32.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.51,
+      "soilMoisture": 32.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_11": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.51,
-      "soilMoisture": 40.4,
-      "precip": 3.8,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.54,
@@ -2396,9 +2389,9 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.51,
-      "soilMoisture": 38.9,
-      "precip": 0,
-      "lst": -999
+      "soilMoisture": 39.3,
+      "precip": 1,
+      "lst": 27.9
     },
     {
       "date": "2026-09-28",
@@ -2406,16 +2399,16 @@
       "soilMoisture": 38.9,
       "precip": 0,
       "lst": -999
+    },
+    {
+      "date": "2026-09-29",
+      "ndvi": 0.51,
+      "soilMoisture": 38.9,
+      "precip": 0,
+      "lst": -999
     }
   ],
   "blk_kurigram_12": [
-    {
-      "date": "2026-08-29",
-      "ndvi": 0.53,
-      "soilMoisture": 39.4,
-      "precip": 3.8,
-      "lst": 29.7
-    },
     {
       "date": "2026-08-30",
       "ndvi": 0.56,
@@ -2615,12 +2608,19 @@
     {
       "date": "2026-09-27",
       "ndvi": 0.53,
+      "soilMoisture": 38.3,
+      "precip": 1,
+      "lst": 27.9
+    },
+    {
+      "date": "2026-09-28",
+      "ndvi": 0.53,
       "soilMoisture": 37.9,
       "precip": 0,
       "lst": -999
     },
     {
-      "date": "2026-09-28",
+      "date": "2026-09-29",
       "ndvi": 0.53,
       "soilMoisture": 37.9,
       "precip": 0,

@@ -18,6 +18,8 @@ export type SeverityFilter = "all" | "high" | "medium" | "low";
 export type CropFilter = "all" | "rice" | "wheat" | "maize" | "vegetable" | "cash";
 export type PeriodFilter = "24h" | "7d" | "30d";
 
+export type MapBasemap = "osm" | "satellite" | "hybrid" | "topo";
+
 export interface UiState {
   mode: AppMode;
   setMode: (mode: AppMode) => void;
@@ -25,10 +27,20 @@ export interface UiState {
   setSelectedBlockId: (id: string | null) => void;
   hoveredBlockId: string | null;
   setHoveredBlockId: (id: string | null) => void;
+  selectedDisasterId: string | null;
+  setSelectedDisasterId: (id: string | null) => void;
   activeLayers: LayerId[];
   toggleLayer: (layer: LayerId) => void;
   layerOpacities: Record<LayerId, number>;
   setLayerOpacity: (layer: LayerId, opacity: number) => void;
+  mapBasemap: MapBasemap;
+  setMapBasemap: (basemap: MapBasemap) => void;
+  showDisasterZones: boolean;
+  toggleDisasterZones: () => void;
+  showAlertBeacons: boolean;
+  toggleAlertBeacons: () => void;
+  showBlockBoundaries: boolean;
+  toggleBlockBoundaries: () => void;
   filters: {
     severity: SeverityFilter;
     crop: CropFilter;
@@ -48,6 +60,8 @@ export const useUiStore = create<UiState>((set) => ({
   setSelectedBlockId: (id) => set({ selectedBlockId: id }),
   hoveredBlockId: null,
   setHoveredBlockId: (id) => set({ hoveredBlockId: id }),
+  selectedDisasterId: null,
+  setSelectedDisasterId: (id) => set({ selectedDisasterId: id }),
   activeLayers: ["ndvi", "soilMoisture"],
   toggleLayer: (layer) =>
     set((state) => {
@@ -71,6 +85,17 @@ export const useUiStore = create<UiState>((set) => ({
     set((state) => ({
       layerOpacities: { ...state.layerOpacities, [layer]: opacity },
     })),
+  mapBasemap: "osm",
+  setMapBasemap: (mapBasemap) => set({ mapBasemap }),
+  showDisasterZones: true,
+  toggleDisasterZones: () =>
+    set((state) => ({ showDisasterZones: !state.showDisasterZones })),
+  showAlertBeacons: true,
+  toggleAlertBeacons: () =>
+    set((state) => ({ showAlertBeacons: !state.showAlertBeacons })),
+  showBlockBoundaries: true,
+  toggleBlockBoundaries: () =>
+    set((state) => ({ showBlockBoundaries: !state.showBlockBoundaries })),
   filters: {
     severity: "all",
     crop: "all",
@@ -92,3 +117,4 @@ export const useUiStore = create<UiState>((set) => ({
       return { theme: next };
     }),
 }));
+

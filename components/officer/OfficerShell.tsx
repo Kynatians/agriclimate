@@ -66,7 +66,9 @@ export function OfficerShell({
           <MapCanvas
             blocks={blocks}
             metricsMap={metricsMap}
+            alerts={alerts}
             onBlockSelect={(id) => setSelectedBlockId(id)}
+            onAlertSelect={handleOpenComposer}
           />
         </div>
 
@@ -121,10 +123,12 @@ export function OfficerShell({
             <MapCanvas
               blocks={blocks}
               metricsMap={metricsMap}
+              alerts={alerts}
               onBlockSelect={(id) => {
                 setSelectedBlockId(id);
                 setMobileTab("data"); // auto-switch to data tab when block is clicked
               }}
+              onAlertSelect={handleOpenComposer}
             />
           </TabsContent>
 

@@ -1,7 +1,7 @@
 [
   {
     "blockId": "blk_kurigram_01",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.42,
       "baseline": 0.54,
@@ -20,8 +20,8 @@
       "anomaly": -10.6,
       "trend": "declining"
     },
-    "precip7dActual": 30.2,
-    "precip7dForecast": 18.1,
+    "precip7dActual": 26.7,
+    "precip7dForecast": 16,
     "lst": -999,
     "spi": -1.35,
     "cwsi": 0.95,
@@ -31,7 +31,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.648Z"
+        "lastUpdate": "2026-09-30T07:07:59.860Z"
       },
       {
         "metric": "soilMoisture",
@@ -55,7 +55,7 @@
   },
   {
     "blockId": "blk_kurigram_02",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.58,
       "baseline": 0.56,
@@ -74,8 +74,8 @@
       "anomaly": 0.8,
       "trend": "improving"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": 0.15,
     "cwsi": 0.95,
@@ -85,7 +85,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.649Z"
+        "lastUpdate": "2026-09-30T07:08:00.961Z"
       },
       {
         "metric": "soilMoisture",
@@ -109,7 +109,7 @@
   },
   {
     "blockId": "blk_kurigram_03",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.62,
       "baseline": 0.59,
@@ -128,8 +128,8 @@
       "anomaly": 2.2,
       "trend": "improving"
     },
-    "precip7dActual": 30.2,
-    "precip7dForecast": 18.1,
+    "precip7dActual": 26.7,
+    "precip7dForecast": 16,
     "lst": -999,
     "spi": 0.65,
     "cwsi": 0.95,
@@ -139,7 +139,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.650Z"
+        "lastUpdate": "2026-09-30T07:08:01.532Z"
       },
       {
         "metric": "soilMoisture",
@@ -163,7 +163,7 @@
   },
   {
     "blockId": "blk_kurigram_04",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.48,
       "baseline": 0.52,
@@ -182,8 +182,8 @@
       "anomaly": -3.5,
       "trend": "declining"
     },
-    "precip7dActual": 30.2,
-    "precip7dForecast": 18.1,
+    "precip7dActual": 26.7,
+    "precip7dForecast": 16,
     "lst": -999,
     "spi": -0.42,
     "cwsi": 0.95,
@@ -193,7 +193,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.651Z"
+        "lastUpdate": "2026-09-30T07:08:02.601Z"
       },
       {
         "metric": "soilMoisture",
@@ -217,7 +217,7 @@
   },
   {
     "blockId": "blk_kurigram_05",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.55,
       "baseline": 0.53,
@@ -236,8 +236,8 @@
       "anomaly": 0.4,
       "trend": "stable"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": 0.08,
     "cwsi": 0.95,
@@ -247,7 +247,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.651Z"
+        "lastUpdate": "2026-09-30T07:08:03.691Z"
       },
       {
         "metric": "soilMoisture",
@@ -271,7 +271,7 @@
   },
   {
     "blockId": "blk_kurigram_06",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.51,
       "baseline": 0.5,
@@ -290,8 +290,8 @@
       "anomaly": -0.2,
       "trend": "stable"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": -0.12,
     "cwsi": 0.95,
@@ -301,7 +301,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.652Z"
+        "lastUpdate": "2026-09-30T07:08:04.747Z"
       },
       {
         "metric": "soilMoisture",
@@ -325,7 +325,7 @@
   },
   {
     "blockId": "blk_kurigram_07",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.46,
       "baseline": 0.55,
@@ -344,8 +344,8 @@
       "anomaly": -7,
       "trend": "declining"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": -0.92,
     "cwsi": 0.95,
@@ -355,7 +355,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.653Z"
+        "lastUpdate": "2026-09-30T07:08:05.311Z"
       },
       {
         "metric": "soilMoisture",
@@ -379,7 +379,7 @@
   },
   {
     "blockId": "blk_kurigram_08",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.57,
       "baseline": 0.55,
@@ -398,8 +398,8 @@
       "anomaly": 1.7,
       "trend": "improving"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": 0.85,
     "cwsi": 0.95,
@@ -409,7 +409,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.653Z"
+        "lastUpdate": "2026-09-30T07:08:06.371Z"
       },
       {
         "metric": "soilMoisture",
@@ -433,7 +433,7 @@
   },
   {
     "blockId": "blk_kurigram_09",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.6,
       "baseline": 0.58,
@@ -452,8 +452,8 @@
       "anomaly": 5.5,
       "trend": "improving"
     },
-    "precip7dActual": 39.7,
-    "precip7dForecast": 23.8,
+    "precip7dActual": 35.1,
+    "precip7dForecast": 21.1,
     "lst": -999,
     "spi": 1.45,
     "cwsi": 0.95,
@@ -463,7 +463,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.654Z"
+        "lastUpdate": "2026-09-30T07:08:06.923Z"
       },
       {
         "metric": "soilMoisture",
@@ -487,7 +487,7 @@
   },
   {
     "blockId": "blk_kurigram_10",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.53,
       "baseline": 0.52,
@@ -506,8 +506,8 @@
       "anomaly": -0.5,
       "trend": "stable"
     },
-    "precip7dActual": 49,
-    "precip7dForecast": 29.4,
+    "precip7dActual": 42.4,
+    "precip7dForecast": 25.4,
     "lst": -999,
     "spi": 0.05,
     "cwsi": 0.95,
@@ -517,7 +517,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.655Z"
+        "lastUpdate": "2026-09-30T07:08:07.985Z"
       },
       {
         "metric": "soilMoisture",
@@ -541,7 +541,7 @@
   },
   {
     "blockId": "blk_kurigram_11",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.44,
       "baseline": 0.52,
@@ -560,8 +560,8 @@
       "anomaly": 8.5,
       "trend": "improving"
     },
-    "precip7dActual": 40.6,
-    "precip7dForecast": 24.4,
+    "precip7dActual": 34.5,
+    "precip7dForecast": 20.7,
     "lst": -999,
     "spi": 1.72,
     "cwsi": 0.95,
@@ -571,7 +571,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.655Z"
+        "lastUpdate": "2026-09-30T07:08:09.104Z"
       },
       {
         "metric": "soilMoisture",
@@ -595,7 +595,7 @@
   },
   {
     "blockId": "blk_kurigram_12",
-    "asOf": "2026-09-28",
+    "asOf": "2026-09-29",
     "ndvi": {
       "value": 0.49,
       "baseline": 0.54,
@@ -614,8 +614,8 @@
       "anomaly": 7.8,
       "trend": "improving"
     },
-    "precip7dActual": 40.6,
-    "precip7dForecast": 24.4,
+    "precip7dActual": 34.5,
+    "precip7dForecast": 20.7,
     "lst": -999,
     "spi": 1.6,
     "cwsi": 0.95,
@@ -625,7 +625,7 @@
         "metric": "weather_and_solar",
         "dataset": "NASA POWER Daily (GEOS-FP)",
         "resolution": "0.5deg x 0.625deg",
-        "lastUpdate": "2026-09-29T16:56:36.656Z"
+        "lastUpdate": "2026-09-30T07:08:10.182Z"
       },
       {
         "metric": "soilMoisture",
