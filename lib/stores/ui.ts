@@ -30,6 +30,8 @@ export interface UiState {
   selectedDisasterId: string | null;
   setSelectedDisasterId: (id: string | null) => void;
   activeLayers: LayerId[];
+  activeLayerId: LayerId;
+  setActiveLayer: (layer: LayerId) => void;
   toggleLayer: (layer: LayerId) => void;
   layerOpacities: Record<LayerId, number>;
   setLayerOpacity: (layer: LayerId, opacity: number) => void;
@@ -62,15 +64,42 @@ export const useUiStore = create<UiState>((set) => ({
   setHoveredBlockId: (id) => set({ hoveredBlockId: id }),
   selectedDisasterId: null,
   setSelectedDisasterId: (id) => set({ selectedDisasterId: id }),
-  activeLayers: ["ndvi", "soilMoisture"],
+  activeLayers: [
+    "ndvi",
+    "soilMoisture",
+    "floodRisk",
+    "cropHealth",
+    "precipForecast",
+    "pumpRouting",
+    "fireEvents",
+  ],
+  activeLayerId: "ndvi",
+  setActiveLayer: (layer) =>
+    set((state) => ({
+      activeLayerId: layer,
+      activeLayers: state.activeLayers.includes(layer)
+        ? state.activeLayers
+        : [...state.activeLayers, layer],
+    })),
   toggleLayer: (layer) =>
     set((state) => {
       const exists = state.activeLayers.includes(layer);
-      return {
-        activeLayers: exists
-          ? state.activeLayers.filter((l) => l !== layer)
-          : [...state.activeLayers, layer],
-      };
+      if (exists) {
+        const nextActiveLayers = state.activeLayers.filter((l) => l !== layer);
+        const nextActiveId =
+          state.activeLayerId === layer
+            ? (nextActiveLayers[0] ?? layer)
+            : state.activeLayerId;
+        return {
+          activeLayers: nextActiveLayers,
+          activeLayerId: nextActiveId,
+        };
+      } else {
+        return {
+          activeLayers: [...state.activeLayers, layer],
+          activeLayerId: layer,
+        };
+      }
     }),
   layerOpacities: {
     ndvi: 0.75,

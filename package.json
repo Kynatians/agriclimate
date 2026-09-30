@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "postinstall": "mkdir -p public/maplibre && cp -n node_modules/maplibre-gl/dist/maplibre-gl-worker* public/maplibre/ && cp -n node_modules/maplibre-gl/dist/maplibre-gl-shared* public/maplibre/"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { MapCanvas } from "@/components/map/MapCanvas";
 import { Block, BlockMetrics, Alert } from "@/lib/dal/types";
+import { useUiStore } from "@/lib/stores/ui";
 
 const mockBlocks: Block[] = [
   {
@@ -125,5 +126,90 @@ describe("MapCanvas Component", () => {
     expect(screen.getByText(/Active Map Indicators/i)).toBeDefined();
     expect(screen.getByText(/Flood Inundation/i)).toBeDefined();
     expect(screen.getByText(/High Alert/i)).toBeDefined();
+  });
+
+  it("dynamically switches active GIS satellite overlay when activeLayerId updates", () => {
+    act(() => {
+      useUiStore.getState().setActiveLayer("floodRisk");
+    });
+
+    const { rerender } = render(
+      <MapCanvas
+        blocks={mockBlocks}
+        metricsMap={mockMetrics}
+        alerts={mockAlerts}
+      />
+    );
+
+    // Layer header banner updates to Flood Risk
+    expect(screen.getByText(/Layer: Flood Risk \(FSS\)/i)).toBeDefined();
+    // Legend updates to Flood Risk stops
+    expect(screen.getAllByText(/Flood Risk \(FSS\)/i).length).toBeGreaterThanOrEqual(1);
+
+    // Switch to Soil Moisture
+    act(() => {
+      useUiStore.getState().setActiveLayer("soilMoisture");
+    });
+
+    rerender(
+      <MapCanvas
+        blocks={mockBlocks}
+        metricsMap={mockMetrics}
+        alerts={mockAlerts}
+      />
+    );
+    expect(screen.getAllByText(/Layer: Soil Moisture/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.queryByText(/Hidden/i)).toBeNull();
+  });
+
+  it("ensures area indicator visual overlay is visible by default without (Hidden) status", () => {
+    act(() => {
+      useUiStore.getState().setActiveLayer("ndvi");
+    });
+
+    render(
+      <MapCanvas
+        blocks={mockBlocks}
+        metricsMap={mockMetrics}
+        alerts={mockAlerts}
+      />
+    );
+
+    // Layer name should be clearly visible and not marked as Hidden
+    expect(screen.getByText("Layer: NDVI Anomaly")).toBeDefined();
+    expect(screen.queryByText(/NDVI Anomaly \(Hidden\)/i)).toBeNull();
+  });
+
+  it("handles toggling block boundaries visibility properly", () => {
+    act(() => {
+      useUiStore.setState({ showBlockBoundaries: false });
+    });
+
+    const { rerender } = render(
+      <MapCanvas
+        blocks={mockBlocks}
+        metricsMap={mockMetrics}
+        alerts={mockAlerts}
+      />
+    );
+
+    // When boundaries are explicitly disabled, it shows (Hidden)
+    expect(screen.getByText(/Layer: NDVI Anomaly \(Hidden\)/i)).toBeDefined();
+
+    // Toggle boundaries back on
+    act(() => {
+      useUiStore.setState({ showBlockBoundaries: true });
+    });
+
+    rerender(
+      <MapCanvas
+        blocks={mockBlocks}
+        metricsMap={mockMetrics}
+        alerts={mockAlerts}
+      />
+    );
+
+    // When boundaries are restored, the active visual layer is shown
+    expect(screen.getByText("Layer: NDVI Anomaly")).toBeDefined();
   });
 });

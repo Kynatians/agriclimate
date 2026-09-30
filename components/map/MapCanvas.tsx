@@ -50,10 +50,14 @@ export function MapCanvas({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const maplibreContainerRef = React.useRef<HTMLDivElement>(null);
   const maplibreInstanceRef = React.useRef<any>(null);
+  const maplibreglClassRef = React.useRef<any>(null);
+  const markersRef = React.useRef<any[]>([]);
   const svgRef = React.useRef<SVGSVGElement>(null);
 
   const {
     activeLayers,
+    activeLayerId: storeActiveLayerId,
+    setActiveLayer,
     selectedBlockId,
     setSelectedBlockId,
     hoveredBlockId,
@@ -88,17 +92,19 @@ export function MapCanvas({
   const [isDragging, setIsDragging] = React.useState(false);
   const [dragStart, setDragStart] = React.useState({ x: 0, y: 0 });
 
-  const activeLayerId: LayerId = activeLayers[0] || "ndvi";
+  const activeLayerId: LayerId = storeActiveLayerId || activeLayers[0] || "ndvi";
+  const isOverlayVisible = showBlockBoundaries && (activeLayers.includes(activeLayerId) || activeLayers.length > 0);
+
   const baseOpacity = layerOpacities[activeLayerId] ?? 0.75;
 
   // Progressive reveal upon zoom:
-  // At zoom >= 12, soften telemetry fill opacity so high-res OpenStreetMap / satellite photography shines through!
+  // At zoom >= 11, soften telemetry fill opacity proportionally so high-res OpenStreetMap / satellite photography shines through!
   const effectiveOpacity = React.useMemo(() => {
-    if (zoomLevel >= 13) return 0.28;
-    if (zoomLevel >= 12) return 0.38;
-    if (zoomLevel >= 11) return 0.55;
-    return baseOpacity;
-  }, [zoomLevel, baseOpacity]);
+    if (!isOverlayVisible) return 0;
+    const zoomScaleFactor =
+      zoomLevel >= 13 ? 0.6 : zoomLevel >= 12 ? 0.72 : zoomLevel >= 11 ? 0.85 : 1.0;
+    return Math.max(0.45, baseOpacity * zoomScaleFactor);
+  }, [zoomLevel, baseOpacity, isOverlayVisible]);
 
   // Geographic bounds calculation for projection & fallback
   const bounds = React.useMemo(() => {
@@ -116,7 +122,7 @@ export function MapCanvas({
     return { minLon, maxLon, minLat, maxLat };
   }, [blocks]);
 
-  // Project lon/lat to SVG 800x650 coordinate space
+  // Project lon/lat to SVG 800x650 coordinate space (for fallback when !hasWebGL)
   const project = React.useCallback(
     (lon: number, lat: number) => {
       const width = 800;
@@ -128,12 +134,429 @@ export function MapCanvas({
     [bounds]
   );
 
+  const activeAlertsWithCentroid = React.useMemo(() => {
+    return alerts
+      .map((alert) => {
+        const block = blocks.find((b) => b.id === alert.blockId);
+        return {
+          alert,
+          block,
+          centroid: block ? block.centroid : null,
+        };
+      })
+      .filter((a): a is { alert: Alert; block: Block; centroid: [number, number] } => !!a.centroid);
+  }, [alerts, blocks]);
+
+  const handleBlockClick = React.useCallback(
+    (block: Block) => {
+      const nextId = selectedBlockId === block.id ? null : block.id;
+      setSelectedBlockId(nextId);
+      if (onBlockSelect && nextId) {
+        onBlockSelect(nextId);
+      }
+    },
+    [selectedBlockId, setSelectedBlockId, onBlockSelect]
+  );
+
+  const handleAlertBeaconClick = React.useCallback(
+    (alert: Alert) => {
+      setActiveAlertCard(alert);
+      setActiveDisasterCard(null);
+      setSelectedBlockId(alert.blockId);
+      if (onAlertSelect) {
+        onAlertSelect(alert);
+      }
+    },
+    [onAlertSelect, setSelectedBlockId]
+  );
+
+  const handleDisasterZoneClick = React.useCallback(
+    (disaster: DisasterZone) => {
+      setActiveDisasterCard(disaster);
+      setActiveAlertCard(null);
+      setSelectedDisasterId(disaster.id);
+    },
+    [setSelectedDisasterId]
+  );
+
+  // Synchronize GeoJSON Land Overlays, Disasters, and Boundary Highlight lines with MapLibre GL
+  const syncLayersToMap = React.useCallback(
+    (map: any) => {
+      if (!map || !map.isStyleLoaded()) return;
+
+      try {
+        // 1. Blocks GeoJSON Source & Choropleth Layers
+        const blocksGeoJson = {
+          type: "FeatureCollection" as const,
+          features: blocks.map((b) => ({
+            type: "Feature" as const,
+            id: b.id,
+            geometry: b.geometry,
+            properties: {
+              id: b.id,
+              name: b.name,
+              subDistrict: b.subDistrict,
+              farmerCount: b.farmerCount,
+              primaryCrop: b.primaryCrop,
+              fillColor: getBlockFillColor(metricsMap[b.id], activeLayerId),
+            },
+          })),
+        };
+
+        if (!map.getSource("blocks-source")) {
+          map.addSource("blocks-source", {
+            type: "geojson",
+            data: blocksGeoJson,
+          });
+        } else {
+          (map.getSource("blocks-source") as any).setData(blocksGeoJson);
+        }
+
+        // Fill layer
+        if (!map.getLayer("blocks-fill")) {
+          map.addLayer({
+            id: "blocks-fill",
+            type: "fill",
+            source: "blocks-source",
+            paint: {
+              "fill-color": ["get", "fillColor"],
+              "fill-opacity": effectiveOpacity,
+            },
+            layout: {
+              visibility: isOverlayVisible ? "visible" : "none",
+            },
+          });
+
+          // Block click interaction
+          map.on("click", "blocks-fill", (e: any) => {
+            if (e.features && e.features[0]) {
+              const id = e.features[0].properties.id;
+              const block = blocks.find((b) => b.id === id);
+              if (block) handleBlockClick(block);
+            }
+          });
+
+          // Block hover tooltip
+          map.on("mousemove", "blocks-fill", (e: any) => {
+            if (e.features && e.features[0]) {
+              const id = e.features[0].properties.id;
+              const block = blocks.find((b) => b.id === id);
+              if (block) {
+                setHoveredBlockId(id);
+                setTooltipState({
+                  block,
+                  x: e.point.x,
+                  y: e.point.y,
+                });
+              }
+            }
+          });
+
+          map.on("mouseleave", "blocks-fill", () => {
+            map.getCanvas().style.cursor = "";
+            setHoveredBlockId(null);
+            setTooltipState(null);
+          });
+
+          map.on("mouseenter", "blocks-fill", () => {
+            map.getCanvas().style.cursor = "pointer";
+          });
+        } else {
+          map.setPaintProperty("blocks-fill", "fill-color", ["get", "fillColor"]);
+          map.setPaintProperty("blocks-fill", "fill-opacity", effectiveOpacity);
+          map.setLayoutProperty(
+            "blocks-fill",
+            "visibility",
+            isOverlayVisible ? "visible" : "none"
+          );
+        }
+
+        // Boundary lines layer
+        if (!map.getLayer("blocks-line")) {
+          map.addLayer({
+            id: "blocks-line",
+            type: "line",
+            source: "blocks-source",
+            paint: {
+              "line-color":
+                mapBasemap === "satellite" || mapBasemap === "hybrid"
+                  ? "#38bdf8"
+                  : "#0284c7",
+              "line-width": 2.5,
+              "line-opacity": showBlockBoundaries ? 0.9 : 0,
+            },
+            layout: {
+              visibility: showBlockBoundaries ? "visible" : "none",
+            },
+          });
+        } else {
+          map.setPaintProperty(
+            "blocks-line",
+            "line-color",
+            mapBasemap === "satellite" || mapBasemap === "hybrid"
+              ? "#38bdf8"
+              : "#0284c7"
+          );
+          map.setPaintProperty("blocks-line", "line-width", 2.5);
+          map.setPaintProperty(
+            "blocks-line",
+            "line-opacity",
+            showBlockBoundaries ? 0.9 : 0
+          );
+          map.setLayoutProperty(
+            "blocks-line",
+            "visibility",
+            showBlockBoundaries ? "visible" : "none"
+          );
+        }
+
+        // Selected block highlight outline layer
+        if (!map.getLayer("blocks-selected-line")) {
+          map.addLayer({
+            id: "blocks-selected-line",
+            type: "line",
+            source: "blocks-source",
+            paint: {
+              "line-color": "#38bdf8",
+              "line-width": 3.5,
+              "line-opacity": 0.95,
+            },
+            filter: ["==", ["get", "id"], selectedBlockId || ""],
+            layout: {
+              visibility: selectedBlockId && showBlockBoundaries ? "visible" : "none",
+            },
+          });
+        } else {
+          map.setFilter("blocks-selected-line", ["==", ["get", "id"], selectedBlockId || ""]);
+          map.setLayoutProperty(
+            "blocks-selected-line",
+            "visibility",
+            selectedBlockId && showBlockBoundaries ? "visible" : "none"
+          );
+        }
+
+        // 2. Disaster Hazard Zones GeoJSON Source & Layers
+        const disastersGeoJson = {
+          type: "FeatureCollection" as const,
+          features: DISASTER_ZONES.map((z) => ({
+            type: "Feature" as const,
+            id: z.id,
+            geometry: z.geometry,
+            properties: {
+              id: z.id,
+              name: z.name,
+              type: z.type,
+              color: z.type === "flood" ? "#06b6d4" : "#f59e0b",
+              fillColor: z.type === "flood" ? "#0891b2" : "#d97706",
+            },
+          })),
+        };
+
+        if (!map.getSource("disasters-source")) {
+          map.addSource("disasters-source", {
+            type: "geojson",
+            data: disastersGeoJson,
+          });
+        } else {
+          (map.getSource("disasters-source") as any).setData(disastersGeoJson);
+        }
+
+        if (!map.getLayer("disasters-fill")) {
+          map.addLayer({
+            id: "disasters-fill",
+            type: "fill",
+            source: "disasters-source",
+            paint: {
+              "fill-color": ["get", "fillColor"],
+              "fill-opacity": 0.28,
+            },
+            layout: {
+              visibility: showDisasterZones ? "visible" : "none",
+            },
+          });
+
+          map.on("click", "disasters-fill", (e: any) => {
+            if (e.features && e.features[0]) {
+              const id = e.features[0].properties.id;
+              const zone = DISASTER_ZONES.find((z) => z.id === id);
+              if (zone) handleDisasterZoneClick(zone);
+            }
+          });
+
+          map.on("mouseenter", "disasters-fill", () => {
+            map.getCanvas().style.cursor = "pointer";
+          });
+          map.on("mouseleave", "disasters-fill", () => {
+            map.getCanvas().style.cursor = "";
+          });
+        } else {
+          map.setLayoutProperty(
+            "disasters-fill",
+            "visibility",
+            showDisasterZones ? "visible" : "none"
+          );
+        }
+
+        if (!map.getLayer("disasters-line")) {
+          map.addLayer({
+            id: "disasters-line",
+            type: "line",
+            source: "disasters-source",
+            paint: {
+              "line-color": ["get", "color"],
+              "line-width": 2.2,
+              "line-dasharray": [3, 2],
+            },
+            layout: {
+              visibility: showDisasterZones ? "visible" : "none",
+            },
+          });
+        } else {
+          map.setLayoutProperty(
+            "disasters-line",
+            "visibility",
+            showDisasterZones ? "visible" : "none"
+          );
+        }
+      } catch (err) {
+        console.warn("Error synchronizing MapLibre layers:", err);
+      }
+    },
+    [
+      blocks,
+      metricsMap,
+      activeLayerId,
+      effectiveOpacity,
+      isOverlayVisible,
+      showBlockBoundaries,
+      showDisasterZones,
+      selectedBlockId,
+      mapBasemap,
+      handleBlockClick,
+      handleDisasterZoneClick,
+      setHoveredBlockId,
+    ]
+  );
+
+  // Synchronize HTML Markers (Centroid labels, Disaster badges, Alert Beacons) with MapLibre
+  const syncMarkersToMap = React.useCallback(
+    (map: any) => {
+      const maplibregl = maplibreglClassRef.current;
+      if (!map || !maplibregl || !hasWebGL) return;
+
+      // Clean up previous markers
+      markersRef.current.forEach((m) => m.remove());
+      markersRef.current = [];
+
+      // 1. Block centroid title chips
+      if (showBlockBoundaries) {
+        blocks.forEach((block) => {
+          const isSelected = selectedBlockId === block.id;
+          const el = document.createElement("div");
+          el.className = cn(
+            "rounded-full px-2.5 py-0.5 text-[9.5px] font-bold shadow-md cursor-pointer select-none transition-all duration-200 pointer-events-auto border",
+            isSelected
+              ? "bg-sky-500 text-white border-white ring-2 ring-white/60 scale-105"
+              : "bg-slate-900/90 text-slate-100 hover:bg-slate-800 border-white/20 hover:scale-105"
+          );
+          el.textContent = block.name;
+          el.onclick = (e) => {
+            e.stopPropagation();
+            handleBlockClick(block);
+          };
+
+          const marker = new maplibregl.Marker({ element: el })
+            .setLngLat(block.centroid)
+            .addTo(map);
+          markersRef.current.push(marker);
+        });
+      }
+
+      // 2. Disaster Zone label badges
+      if (showDisasterZones) {
+        DISASTER_ZONES.forEach((zone) => {
+          const isFlood = zone.type === "flood";
+          const isSelected = selectedDisasterId === zone.id;
+          const el = document.createElement("div");
+          el.className = cn(
+            "rounded-full px-2.5 py-0.5 text-[9px] font-bold shadow-lg cursor-pointer select-none transition-all duration-200 pointer-events-auto border flex items-center gap-1",
+            isFlood
+              ? "bg-cyan-950/95 text-cyan-200 border-cyan-400 hover:bg-cyan-900"
+              : "bg-amber-950/95 text-amber-200 border-amber-400 hover:bg-amber-900",
+            isSelected && "ring-2 ring-white scale-110"
+          );
+          el.textContent = isFlood ? "🌊 Inundation" : "☀️ Drought Deficit";
+          el.onclick = (e) => {
+            e.stopPropagation();
+            handleDisasterZoneClick(zone);
+          };
+
+          const marker = new maplibregl.Marker({ element: el })
+            .setLngLat(zone.centroid)
+            .addTo(map);
+          markersRef.current.push(marker);
+        });
+      }
+
+      // 3. Alert Beacons
+      if (showAlertBeacons) {
+        activeAlertsWithCentroid.forEach(({ alert, centroid }) => {
+          const isHigh = alert.severity === "high";
+          const el = document.createElement("div");
+          el.className =
+            "relative flex items-center justify-center cursor-pointer pointer-events-auto group";
+          el.style.width = "24px";
+          el.style.height = "24px";
+          el.innerHTML = `
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full ${
+              isHigh ? "bg-rose-500 opacity-75" : "bg-amber-500 opacity-75"
+            }"></span>
+            <span class="relative inline-flex items-center justify-center rounded-full h-5 w-5 ${
+              isHigh ? "bg-rose-600 shadow-rose-500/50" : "bg-amber-600 shadow-amber-500/50"
+            } text-white font-bold text-[10px] shadow-lg border border-white">!</span>
+          `;
+          el.onclick = (e) => {
+            e.stopPropagation();
+            handleAlertBeaconClick(alert);
+          };
+
+          const marker = new maplibregl.Marker({ element: el })
+            .setLngLat([centroid[0], centroid[1] + 0.006])
+            .addTo(map);
+          markersRef.current.push(marker);
+        });
+      }
+    },
+    [
+      blocks,
+      hasWebGL,
+      showBlockBoundaries,
+      showDisasterZones,
+      showAlertBeacons,
+      selectedBlockId,
+      selectedDisasterId,
+      activeAlertsWithCentroid,
+      handleBlockClick,
+      handleDisasterZoneClick,
+      handleAlertBeaconClick,
+    ]
+  );
+
+  // Up-to-date function references for asynchronous MapLibre callbacks
+  const syncLayersRef = React.useRef(syncLayersToMap);
+  syncLayersRef.current = syncLayersToMap;
+
+  const syncMarkersRef = React.useRef(syncMarkersToMap);
+  syncMarkersRef.current = syncMarkersToMap;
+
+  const prevBasemapRef = React.useRef(mapBasemap);
+
   // Check WebGL availability on mount
   React.useEffect(() => {
     setHasWebGL(isWebGLAvailable());
   }, []);
 
-  // 1. Initialize MapLibre GL with OpenStreetMap
+  // 1. Initialize MapLibre GL with OpenStreetMap / Satellite
   React.useEffect(() => {
     if (!hasWebGL || !maplibreContainerRef.current) return;
 
@@ -143,6 +566,20 @@ export function MapCanvas({
       try {
         const maplibreglModule: any = await import("maplibre-gl");
         const maplibregl = maplibreglModule.default || maplibreglModule;
+        maplibreglClassRef.current = maplibregl;
+
+        // Configure static worker URL served by Next.js to prevent "Worker failed to load"
+        const workerUrl =
+          typeof window !== "undefined"
+            ? `${window.location.origin}/maplibre/maplibre-gl-worker.mjs`
+            : "/maplibre/maplibre-gl-worker.mjs";
+
+        if (typeof maplibregl.setWorkerUrl === "function") {
+          maplibregl.setWorkerUrl(workerUrl);
+        }
+        if (maplibregl.config) {
+          maplibregl.config.WORKER_URL = workerUrl;
+        }
 
         mapInstance = new maplibregl.Map({
           container: maplibreContainerRef.current!,
@@ -152,6 +589,15 @@ export function MapCanvas({
           pitch: 12,
           bearing: -1,
           attributionControl: false,
+        });
+
+        // Failover safety: if worker fails in restrictive browser context, fall back to SVG overlay
+        mapInstance.on("error", (e: any) => {
+          const msg = e?.error?.message || (typeof e === "string" ? e : "");
+          if (msg.includes("Worker failed to load") || msg.includes("worker")) {
+            console.warn("MapLibre worker error detected, falling back to SVG overlay:", msg);
+            setHasWebGL(false);
+          }
         });
 
         mapInstance.addControl(
@@ -173,6 +619,17 @@ export function MapCanvas({
               { padding: 50, duration: 1200 }
             );
           }
+
+          syncLayersRef.current(mapInstance);
+          syncMarkersRef.current(mapInstance);
+        });
+
+        // Re-synchronize custom GeoJSON layers & markers whenever map style reloads
+        mapInstance.on("styledata", () => {
+          if (mapInstance && mapInstance.isStyleLoaded()) {
+            syncLayersRef.current(mapInstance);
+            syncMarkersRef.current(mapInstance);
+          }
         });
 
         // Zoom event listener for progressive reveal
@@ -183,7 +640,7 @@ export function MapCanvas({
           }
         });
       } catch (err) {
-        console.warn("MapLibre OpenStreetMap failed to initialize, using SVG fallback:", err);
+        console.warn("MapLibre failed to initialize, using SVG fallback:", err);
         setHasWebGL(false);
       }
     };
@@ -191,6 +648,8 @@ export function MapCanvas({
     initMap();
 
     return () => {
+      markersRef.current.forEach((m) => m.remove());
+      markersRef.current = [];
       if (mapInstance) {
         mapInstance.remove();
         maplibreInstanceRef.current = null;
@@ -214,116 +673,30 @@ export function MapCanvas({
       [Math.max(...lons), Math.max(...lats)],
     ];
 
-    // Smooth auto zoom to land location
     map.fitBounds(blockBounds, { padding: 80, duration: 1400 });
   }, [selectedBlockId, blocks, mapLoaded]);
 
-  // 3. Update OpenStreetMap style on basemap change
-  React.useEffect(() => {
-    if (!maplibreInstanceRef.current || !mapLoaded) return;
-    try {
-      maplibreInstanceRef.current.setStyle(getOsmMapStyle(mapBasemap));
-    } catch (err) {
-      console.warn("Failed to set OpenStreetMap style:", err);
-    }
-  }, [mapBasemap, mapLoaded]);
-
-  // 4. Sync GeoJSON Land Overlays & Disasters with MapLibre GL
+  // 3. Update basemap style ONLY when basemap actually changes (osm, satellite, hybrid, topo)
   React.useEffect(() => {
     const map = maplibreInstanceRef.current;
     if (!map || !mapLoaded) return;
+    if (prevBasemapRef.current === mapBasemap) return;
+    prevBasemapRef.current = mapBasemap;
 
     try {
-      // Blocks GeoJSON Source
-      const blocksGeoJson = {
-        type: "FeatureCollection" as const,
-        features: blocks.map((b) => ({
-          type: "Feature" as const,
-          id: b.id,
-          geometry: b.geometry,
-          properties: {
-            id: b.id,
-            name: b.name,
-            subDistrict: b.subDistrict,
-            farmerCount: b.farmerCount,
-            primaryCrop: b.primaryCrop,
-            fillColor: getBlockFillColor(metricsMap[b.id], activeLayerId),
-          },
-        })),
-      };
-
-      if (!map.getSource("blocks-source")) {
-        map.addSource("blocks-source", {
-          type: "geojson",
-          data: blocksGeoJson,
-        });
-
-        // Block fill layer
-        map.addLayer({
-          id: "blocks-fill",
-          type: "fill",
-          source: "blocks-source",
-          paint: {
-            "fill-color": ["get", "fillColor"],
-            "fill-opacity": effectiveOpacity,
-          },
-        });
-
-        // Block outline layer
-        map.addLayer({
-          id: "blocks-line",
-          type: "line",
-          source: "blocks-source",
-          paint: {
-            "line-color": "#ffffff",
-            "line-width": 1.5,
-            "line-opacity": 0.8,
-          },
-        });
-
-        // Interactivity
-        map.on("click", "blocks-fill", (e: any) => {
-          if (e.features && e.features[0]) {
-            const id = e.features[0].properties.id;
-            setSelectedBlockId(id);
-            if (onBlockSelect) onBlockSelect(id);
-          }
-        });
-
-        map.on("mouseenter", "blocks-fill", () => {
-          map.getCanvas().style.cursor = "pointer";
-        });
-
-        map.on("mouseleave", "blocks-fill", () => {
-          map.getCanvas().style.cursor = "";
-        });
-      } else {
-        (map.getSource("blocks-source") as any).setData(blocksGeoJson);
-        map.setPaintProperty("blocks-fill", "fill-opacity", effectiveOpacity);
-        map.setLayoutProperty(
-          "blocks-fill",
-          "visibility",
-          showBlockBoundaries ? "visible" : "none"
-        );
-        map.setLayoutProperty(
-          "blocks-line",
-          "visibility",
-          showBlockBoundaries ? "visible" : "none"
-        );
-      }
-    } catch (e) {
-      console.warn("Failed to update OpenStreetMap layers:", e);
+      map.setStyle(getOsmMapStyle(mapBasemap));
+    } catch (err) {
+      console.warn("Failed to set basemap style:", err);
     }
-  }, [
-    mapLoaded,
-    blocks,
-    metricsMap,
-    activeLayerId,
-    effectiveOpacity,
-    showBlockBoundaries,
-    onBlockSelect,
-    setSelectedBlockId,
-  ]);
+  }, [mapBasemap, mapLoaded]);
+
+  // 4. Update layers and markers when metrics, active overlay, or toggles change
+  React.useEffect(() => {
+    const map = maplibreInstanceRef.current;
+    if (!map || !mapLoaded) return;
+    syncLayersToMap(map);
+    syncMarkersToMap(map);
+  }, [syncLayersToMap, syncMarkersToMap, mapLoaded]);
 
   // Zoom / Pan handlers
   const handleZoomIn = () => {
@@ -379,29 +752,6 @@ export function MapCanvas({
     setIsDragging(false);
   };
 
-  const handleBlockClick = (block: Block) => {
-    const nextId = selectedBlockId === block.id ? null : block.id;
-    setSelectedBlockId(nextId);
-    if (onBlockSelect && nextId) {
-      onBlockSelect(nextId);
-    }
-  };
-
-  const handleAlertBeaconClick = (alert: Alert) => {
-    setActiveAlertCard(alert);
-    setActiveDisasterCard(null);
-    setSelectedBlockId(alert.blockId);
-    if (onAlertSelect) {
-      onAlertSelect(alert);
-    }
-  };
-
-  const handleDisasterZoneClick = (disaster: DisasterZone) => {
-    setActiveDisasterCard(disaster);
-    setActiveAlertCard(null);
-    setSelectedDisasterId(disaster.id);
-  };
-
   const handleExportPng = () => {
     if (!svgRef.current) return;
     try {
@@ -436,19 +786,6 @@ export function MapCanvas({
     }
   };
 
-  const activeAlertsWithCentroid = React.useMemo(() => {
-    return alerts
-      .map((alert) => {
-        const block = blocks.find((b) => b.id === alert.blockId);
-        return {
-          alert,
-          block,
-          centroid: block ? block.centroid : null,
-        };
-      })
-      .filter((a): a is { alert: Alert; block: Block; centroid: [number, number] } => !!a.centroid);
-  }, [alerts, blocks]);
-
   return (
     <div
       ref={containerRef}
@@ -476,7 +813,7 @@ export function MapCanvas({
       <div
         className={cn(
           "absolute inset-0 h-full w-full",
-          hasWebGL ? "pointer-events-none z-10" : "z-0"
+          hasWebGL ? "hidden pointer-events-none" : "z-0"
         )}
       >
         {!hasWebGL && (
@@ -778,7 +1115,7 @@ export function MapCanvas({
           Kurigram District GIS
         </span>
         <span className="text-[10px] text-[var(--fg-muted)] font-mono border-l border-[var(--border-subtle)] pl-2">
-          Layer: {MAP_LAYERS[activeLayerId]?.shortName}
+          Layer: {isOverlayVisible ? MAP_LAYERS[activeLayerId]?.shortName : `${MAP_LAYERS[activeLayerId]?.shortName} (Hidden)`}
         </span>
         <span className="rounded-md bg-[var(--primary-subtle)] px-1.5 py-0.5 text-[9px] font-mono font-bold text-[var(--primary)] capitalize">
           {mapBasemap === "osm" ? "OpenStreetMap" : `${mapBasemap} Imagery`}
