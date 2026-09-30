@@ -10,12 +10,15 @@ import {
   Clock,
   Sparkles,
   CalendarDays,
-  Leaf,
+  CheckCircle2,
 } from "lucide-react";
 import { Block, BlockMetrics, TimeSeriesPoint } from "@/lib/dal/types";
-import { TrendSparkline } from "@/components/shared/TrendSparkline";
 import { useTranslation } from "@/lib/i18n/client";
 import { cn } from "@/lib/utils";
+import { SoilStrataVisual } from "./SoilStrataVisual";
+import { SolarPumpingDial } from "./SolarPumpingDial";
+import { WeatherHorizonStrip } from "./WeatherHorizonStrip";
+import { CropGrowthStepper } from "./CropGrowthStepper";
 
 interface DailyDecisionsGridProps {
   metrics: BlockMetrics;
@@ -41,6 +44,7 @@ export function DailyDecisionsGrid({
   // Water calculations
   const needsIrrigation = metrics.soilMoistureSurface.anomaly < -3.0 || metrics.cwsi > 0.6;
   const soilMoisture = metrics.soilMoistureSurface.value;
+  const rootZoneMoisture = metrics.soilMoistureRootZone?.value ?? (soilMoisture + 4);
 
   // Weather calculations
   const rainProb = Math.min(95, Math.max(10, Math.round(metrics.precip7dForecast * 1.5)));
@@ -63,18 +67,18 @@ export function DailyDecisionsGrid({
   }
 
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4.5 sm:gap-6", className)}>
-      {/* 1. Water & Pumping Decision Card */}
+    <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6", className)}>
+      {/* 1. Water & Solar Pumping Decision Card */}
       <div
         onClick={onOpenIrrigation}
         className={cn(
-          "group relative flex flex-col justify-between rounded-2xl border-2 p-5 shadow-xs transition-all hover:shadow-md cursor-pointer",
+          "group relative flex flex-col justify-between rounded-2xl border-2 p-4 sm:p-5 shadow-xs transition-all hover:shadow-md cursor-pointer",
           needsIrrigation
-            ? "border-[var(--status-danger)]/50 bg-[var(--status-danger-bg)]/10 hover:border-[var(--status-danger)]"
+            ? "border-[var(--status-danger)]/50 bg-[var(--bg-surface)] hover:border-[var(--status-danger)]"
             : "border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--primary)]/70"
         )}
       >
-        <div>
+        <div className="space-y-3.5">
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]/70">
             <div className="flex items-center gap-2.5">
@@ -98,39 +102,26 @@ export function DailyDecisionsGrid({
               </div>
             </div>
 
-            <span className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase font-mono bg-[var(--primary-subtle)] text-[var(--primary)] border border-[var(--primary)]/20">
+            <span className="flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase font-mono bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
               <Zap className="h-3 w-3" />
-              Solar
+              Solar Free
             </span>
           </div>
 
-          {/* Practical Guidance */}
-          <p className="mt-3.5 text-xs text-[var(--fg-secondary)] leading-relaxed">
-            {needsIrrigation
-              ? "Root-zone deficit detected. Run solar pump for 2 hours between 17:30 and 19:30 to avoid midday heat loss."
-              : "Soil moisture is currently sufficient. No emergency pumping required for the next 48 hours."}
-          </p>
+          {/* Visual Soil Strata Cross-Section Gauge */}
+          <SoilStrataVisual
+            surfaceMoisture={soilMoisture}
+            rootZoneMoisture={rootZoneMoisture}
+            needsIrrigation={needsIrrigation}
+          />
 
-          {/* Glanceable Metrics Badges */}
-          <div className="mt-3.5 flex flex-wrap items-center gap-2 text-[11px] font-mono">
-            <span className="rounded-lg bg-[var(--bg-surface-subtle)] px-2.5 py-1 border border-[var(--border-subtle)] text-[var(--fg-primary)] font-bold">
-              💧 Soil: {soilMoisture.toFixed(0)}% VWC
-            </span>
-            <span className="rounded-lg bg-[var(--status-success-bg)] px-2.5 py-1 text-[var(--status-success)] font-bold border border-[var(--status-success)]/20">
-              ⚡ Saves 3.2L Diesel
-            </span>
-          </div>
-
-          {/* 14-Day Soil Moisture Sparkline */}
-          {timeSeries && timeSeries.length > 0 && (
-            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
-              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
-                <span>14-Day Moisture Trend</span>
-                <span className="font-mono text-[var(--status-info)] font-bold">{soilMoisture.toFixed(0)}%</span>
-              </div>
-              <TrendSparkline points={timeSeries.slice(-14)} metric="soilMoisture" color="var(--status-info)" height={28} />
-            </div>
-          )}
+          {/* Visual Solar Pumping Daylight Ribbon */}
+          <SolarPumpingDial
+            needsIrrigation={needsIrrigation}
+            recommendedHours="17:30 – 19:30"
+            durationHours={2}
+            dieselSavedLiters={3.2}
+          />
         </div>
 
         {/* Footer Tap Trigger */}
@@ -146,13 +137,13 @@ export function DailyDecisionsGrid({
       {/* 2. Weather & Sky Decision Card */}
       <div
         onClick={onOpenWeather}
-        className="group relative flex flex-col justify-between rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 shadow-xs transition-all hover:border-[var(--primary)]/70 hover:shadow-md cursor-pointer"
+        className="group relative flex flex-col justify-between rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 sm:p-5 shadow-xs transition-all hover:border-[var(--primary)]/70 hover:shadow-md cursor-pointer"
       >
-        <div>
+        <div className="space-y-3.5">
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]/70">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--status-warning-bg)] text-[var(--status-warning)] transition-transform group-hover:scale-105">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-500 transition-transform group-hover:scale-105">
                 <Sun className="h-6 w-6" />
               </div>
               <div>
@@ -175,38 +166,12 @@ export function DailyDecisionsGrid({
             </span>
           </div>
 
-          {/* Practical Guidance */}
-          <p className="mt-3.5 text-xs text-[var(--fg-secondary)] leading-relaxed">
-            {metrics.precip7dForecast > 15
-              ? `Rain chance is ${rainProb}%. Cumulative ${metrics.precip7dForecast.toFixed(0)} mm rain forecast over the next 7 days.`
-              : `Dry and clear sky. Rain chance is low (${rainProb}%), good conditions for solar pumping and field harvesting.`}
-          </p>
-
-          {/* Mini 3-Day Horizon Preview */}
-          <div className="mt-3.5 grid grid-cols-3 gap-1.5 text-center text-[10px] font-mono">
-            <div className="rounded-lg bg-[var(--primary-subtle)] p-1.5 border border-[var(--primary)]/30">
-              <span className="text-[var(--primary)] font-bold block">Today</span>
-              <span className="text-xs font-bold text-[var(--fg-primary)]">{metrics.lst.toFixed(0)}°</span>
-            </div>
-            <div className="rounded-lg bg-[var(--bg-surface-subtle)] p-1.5 border border-[var(--border-subtle)]">
-              <span className="text-[var(--fg-muted)] block">Tomorrow</span>
-              <span className="text-xs font-bold text-[var(--fg-primary)]">{Math.round(metrics.lst - 1)}°</span>
-            </div>
-            <div className="rounded-lg bg-[var(--bg-surface-subtle)] p-1.5 border border-[var(--border-subtle)]">
-              <span className="text-[var(--fg-muted)] block">Day 3</span>
-              <span className="text-xs font-bold text-[var(--fg-primary)]">{Math.round(metrics.lst + 1)}°</span>
-            </div>
-          </div>
-          {/* 14-Day Temperature Sparkline */}
-          {timeSeries && timeSeries.length > 0 && (
-            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
-              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
-                <span>14-Day Temperature Trend</span>
-                <span className="font-mono text-[var(--status-warning)] font-bold">{metrics.lst.toFixed(0)}°C</span>
-              </div>
-              <TrendSparkline points={timeSeries.slice(-14)} metric="lst" color="var(--status-warning)" height={28} />
-            </div>
-          )}
+          {/* Visual Weather Horizon & Temperature Thermometer Strip */}
+          <WeatherHorizonStrip
+            currentTemp={metrics.lst}
+            precip7dForecast={metrics.precip7dForecast}
+            rainProb={rainProb}
+          />
         </div>
 
         {/* Footer Tap Trigger */}
@@ -222,9 +187,9 @@ export function DailyDecisionsGrid({
       {/* 3. Crop Health & Care Decision Card */}
       <div
         onClick={onOpenCropCare}
-        className="group relative flex flex-col justify-between rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 shadow-xs transition-all hover:border-[var(--primary)]/70 hover:shadow-md cursor-pointer"
+        className="group relative flex flex-col justify-between rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 sm:p-5 shadow-xs transition-all hover:border-[var(--primary)]/70 hover:shadow-md cursor-pointer"
       >
-        <div>
+        <div className="space-y-3.5">
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]/70">
             <div className="flex items-center gap-2.5">
@@ -250,49 +215,25 @@ export function DailyDecisionsGrid({
               className={cn(
                 "rounded-full px-2 py-0.5 text-[9px] font-bold font-mono border uppercase",
                 isHealthy
-                  ? "bg-[var(--status-success-bg)] text-[var(--status-success)] border-[var(--status-success)]/30"
+                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
                   : isStressed
-                  ? "bg-[var(--status-danger-bg)] text-[var(--status-danger)] border-[var(--status-danger)]/30"
-                  : "bg-[var(--status-warning-bg)] text-[var(--status-warning)] border-[var(--status-warning)]/30"
+                  ? "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30"
+                  : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30"
               )}
             >
               {isHealthy ? "Healthy" : isStressed ? "Deficit" : "Watch"}
             </span>
           </div>
 
-          {/* Practical Guidance */}
-          <div className="mt-3.5 space-y-1.5">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--fg-primary)]">
-              <Leaf className="h-3.5 w-3.5 text-[var(--primary)] shrink-0" />
-              <span>{nutrientTitle}</span>
-            </div>
-            <p className="text-xs text-[var(--fg-secondary)] leading-relaxed">
-              {nutrientShortTip}
-            </p>
-          </div>
-
-          {/* Glanceable Metrics Badges */}
-          <div className="mt-3.5 flex flex-wrap items-center gap-2 text-[11px] font-mono">
-            <span className="rounded-lg bg-[var(--bg-surface-subtle)] px-2.5 py-1 border border-[var(--border-subtle)] text-[var(--fg-primary)] font-bold">
-              🌿 Canopy NDVI: {metrics.ndvi.value.toFixed(2)}
-            </span>
-            <span className="rounded-lg bg-[var(--bg-surface-subtle)] px-2.5 py-1 border border-[var(--border-subtle)] text-[var(--fg-muted)]">
-              Apply before 10 AM
-            </span>
-          </div>
-
-          {/* 14-Day NDVI Canopy Greenness Sparkline */}
-          {timeSeries && timeSeries.length > 0 && (
-            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
-              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
-                <span>14-Day Canopy Greenness (NDVI)</span>
-                <span className="font-mono text-[var(--status-success)] font-bold">
-                  {metrics.ndvi.anomaly >= 0 ? `+${metrics.ndvi.anomaly}` : metrics.ndvi.anomaly}
-                </span>
-              </div>
-              <TrendSparkline points={timeSeries.slice(-14)} metric="ndvi" color="var(--status-success)" height={28} />
-            </div>
-          )}
+          {/* Visual 4-Stage Crop Growth Stepper & Leaf Chlorophyll Vigor */}
+          <CropGrowthStepper
+            cropName={block?.primaryCrop || "Boro Rice"}
+            cropStage={block?.cropStage}
+            ndviValue={metrics.ndvi.value}
+            ndviBaseline={metrics.ndvi.baseline}
+            nutrientTitle={nutrientTitle}
+            nutrientShortTip={nutrientShortTip}
+          />
         </div>
 
         {/* Footer Tap Trigger */}
@@ -307,3 +248,4 @@ export function DailyDecisionsGrid({
     </div>
   );
 }
+
