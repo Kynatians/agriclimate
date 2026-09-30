@@ -17,6 +17,14 @@ import { FarmerBlockMap } from "./FarmerBlockMap";
 import { CropCalendarView } from "./CropCalendarView";
 import { AlertsListView } from "./AlertsListView";
 import { VoiceFab } from "./VoiceFab";
+import { FarmPulseBanner } from "./FarmPulseBanner";
+import { DailyDecisionsGrid } from "./DailyDecisionsGrid";
+import { PlanningAheadSection } from "./PlanningAheadSection";
+import { RegionalRadarSummary } from "./RegionalRadarSummary";
+import { TelemetryDetailModal } from "./TelemetryDetailModal";
+import { WeatherDetailModal } from "./WeatherDetailModal";
+import { CropCareDetailModal } from "./CropCareDetailModal";
+import { IrrigationDetailModal } from "./IrrigationDetailModal";
 import {
   Sparkles,
   MapPin,
@@ -33,7 +41,6 @@ import {
   Clock,
   Zap,
 } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -64,6 +71,9 @@ export function FarmerView({
   } = useUiStore();
   const [isRecoOpen, setIsRecoOpen] = React.useState(false);
   const [isIrrigationOpen, setIsIrrigationOpen] = React.useState(false);
+  const [isTelemetryOpen, setIsTelemetryOpen] = React.useState(false);
+  const [isWeatherOpen, setIsWeatherOpen] = React.useState(false);
+  const [isCropCareOpen, setIsCropCareOpen] = React.useState(false);
 
   // Active block
   const currentBlockId = selectedBlockId || (blocks[0] ? blocks[0].id : "blk_kurigram_01");
@@ -256,229 +266,43 @@ export function FarmerView({
       <main className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {activeTab === "home" && (
           <div className="space-y-6 animate-in fade-in duration-300">
-            {/* Top Quick Telemetry Ribbon: 5 key metrics across the full screen */}
+            {/* 1. Farm Pulse & Official Alert Banner (High-Level Summary) */}
+            <FarmPulseBanner
+              metrics={currentMetrics}
+              activeAlert={topAlert}
+              officerAlertsCount={officerAlerts.filter((a) => !dismissedAlertIds.includes(a.id)).length}
+              blockName={currentBlock?.name}
+              onViewAlerts={() => setActiveTab("alerts")}
+              onDismissAlert={(id) => dismissAlert(id)}
+              onOpenTelemetry={() => setIsTelemetryOpen(true)}
+            />
+
+            {/* 2. Today's 3 Key Farming Decisions (Water, Weather, Crop Care) */}
             {currentMetrics && (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
-                {/* 1. Air & Surface Temp */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs">
-                  <div className="flex items-center justify-between text-xs text-[var(--fg-muted)]">
-                    <span className="font-semibold uppercase tracking-wider text-[10px]">Surface Temp</span>
-                    <Sun className="h-4 w-4 text-[var(--status-warning)]" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--fg-primary)]">
-                      {currentMetrics.lst.toFixed(0)}°C
-                    </span>
-                    <span className="text-xs font-mono text-[var(--status-success)]">Optimal</span>
-                  </div>
-                  <span className="text-[11px] text-[var(--fg-muted)] block mt-0.5 truncate">
-                    NASA POWER Satellite
-                  </span>
-                </div>
-
-                {/* 2. 7-Day Rainfall Forecast */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs">
-                  <div className="flex items-center justify-between text-xs text-[var(--fg-muted)]">
-                    <span className="font-semibold uppercase tracking-wider text-[10px]">7-Day Rain</span>
-                    <CloudRain className="h-4 w-4 text-[var(--status-info)]" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--fg-primary)]">
-                      {currentMetrics.precip7dForecast.toFixed(0)} mm
-                    </span>
-                    <span className="text-xs font-mono text-[var(--fg-secondary)] font-bold">{rainProb}% rain</span>
-                  </div>
-                  <span className="text-[11px] text-[var(--fg-muted)] block mt-0.5 truncate">
-                    GPM / IMERG Reanalysis
-                  </span>
-                </div>
-
-                {/* 3. Soil Moisture */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs">
-                  <div className="flex items-center justify-between text-xs text-[var(--fg-muted)]">
-                    <span className="font-semibold uppercase tracking-wider text-[10px]">Soil Moisture</span>
-                    <Droplets className="h-4 w-4 text-[var(--status-success)]" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--fg-primary)]">
-                      {currentMetrics.soilMoistureSurface.value.toFixed(0)}%
-                    </span>
-                    <span className="text-xs font-mono text-[var(--fg-muted)]">VWC</span>
-                  </div>
-                  <span className="text-[11px] text-[var(--status-success)] font-medium block mt-0.5 truncate">
-                    Root Zone: {currentMetrics.soilMoistureRootZone.value.toFixed(0)}% Adequate
-                  </span>
-                </div>
-
-                {/* 4. Plant Water Stress (CWSI) */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs">
-                  <div className="flex items-center justify-between text-xs text-[var(--fg-muted)]">
-                    <span className="font-semibold uppercase tracking-wider text-[10px]">Water Stress</span>
-                    <Activity className="h-4 w-4 text-[var(--primary)]" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--fg-primary)]">
-                      {currentMetrics.cwsi.toFixed(2)}
-                    </span>
-                    <span className="text-xs font-mono text-[var(--fg-muted)]">/ 1.0</span>
-                  </div>
-                  <span className={cn(
-                    "text-[11px] font-medium block mt-0.5 truncate",
-                    currentMetrics.cwsi > 0.6 ? "text-[var(--status-danger)]" : "text-[var(--status-success)]"
-                  )}>
-                    {currentMetrics.cwsi > 0.6 ? "Evening Pumping Req." : "Hydration Optimal"}
-                  </span>
-                </div>
-
-                {/* 5. Crop Vigor (NDVI) */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs col-span-2 sm:col-span-1">
-                  <div className="flex items-center justify-between text-xs text-[var(--fg-muted)]">
-                    <span className="font-semibold uppercase tracking-wider text-[10px]">Canopy Vigor</span>
-                    <Sprout className="h-4 w-4 text-[var(--status-success)]" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--fg-primary)]">
-                      {currentMetrics.ndvi.value.toFixed(2)}
-                    </span>
-                    <span className="text-xs font-mono text-[var(--status-success)] font-bold">
-                      +{currentMetrics.ndvi.anomaly}
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-[var(--primary)] font-medium block mt-0.5 truncate uppercase">
-                    Trend: {currentMetrics.ndvi.trend}
-                  </span>
-                </div>
-              </div>
+              <DailyDecisionsGrid
+                metrics={currentMetrics}
+                block={currentBlock}
+                onOpenIrrigation={() => setIsIrrigationOpen(true)}
+                onOpenWeather={() => setIsWeatherOpen(true)}
+                onOpenCropCare={() => setIsCropCareOpen(true)}
+              />
             )}
 
-            {/* Main Multi-Column Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Left / Primary Column (7 or 8 cols): Detailed Telemetry & Regional Radar */}
-              <div className="lg:col-span-7 xl:col-span-8 space-y-6">
-                {/* Urgent Alert Banner or Normal Monitored Status */}
-                {topAlert ? (
-                  <div className="animate-in fade-in slide-in-from-top-2 duration-300">
-                    <AlertCard
-                      alert={topAlert}
-                      onView={() => setActiveTab("alerts")}
-                      onDismiss={(id) => dismissAlert(id)}
-                    />
-                  </div>
-                ) : (
-                  <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--status-success-bg)] text-[var(--status-success)]">
-                        <CheckCircle2 className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-bold text-[var(--fg-primary)]">
-                            Field Status: Normal • Monitored by DAE
-                          </span>
-                          <span className="rounded-full bg-[var(--status-success-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--status-success)] font-mono">
-                            No Active Warnings
-                          </span>
-                        </div>
-                        <p className="text-xs text-[var(--fg-muted)] mt-0.5">
-                          Upazila Agriculture Office has not issued any emergency warnings for this block. Satellite telemetry remains within seasonal norms.
-                        </p>
-                      </div>
-                    </div>
-                    {officerAlerts.filter((a) => !dismissedAlertIds.includes(a.id)).length > 0 && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setActiveTab("alerts")}
-                        className="text-xs shrink-0 self-start sm:self-auto cursor-pointer"
-                      >
-                        All District Bulletins ({officerAlerts.filter((a) => !dismissedAlertIds.includes(a.id)).length})
-                      </Button>
-                    )}
-                  </div>
-                )}
+            {/* 3. Planning Ahead & Next Season Companion */}
+            <PlanningAheadSection
+              recommendations={currentRecos}
+              onOpenCalendar={() => setActiveTab("calendar")}
+              onOpenRecommendations={() => setIsRecoOpen(true)}
+            />
 
-                {/* Weather & Soil Anomaly Card */}
-                {currentMetrics && (
-                  <WeatherCard
-                    metrics={currentMetrics}
-                    blockName={currentBlock ? currentBlock.name : "Kurigram"}
-                  />
-                )}
-
-                {/* Crop Condition & Multi-Spectral Telemetry Card */}
-                {currentMetrics && (
-                  <CropConditionCard
-                    metrics={currentMetrics}
-                    block={currentBlock}
-                  />
-                )}
-
-                {/* Regional Radar & Quick Block Switcher */}
-                <RegionalRadarPreview
-                  blocks={blocks}
-                  metricsMap={metricsMap}
-                  activeBlockId={currentBlockId}
-                  onSelectBlock={(id) => setSelectedBlockId(id)}
-                  onOpenMapTab={() => setActiveTab("map")}
-                />
-              </div>
-
-              {/* Right / Advisory Column (5 or 4 cols): Actionable Guidance & Agronomic Recommendations */}
-              <div className="lg:col-span-5 xl:col-span-4 space-y-6">
-                {/* Action Tiles (Solar Irrigation & Soil Nutrition) */}
-                {currentMetrics && (
-                  <HomeActionTiles
-                    metrics={currentMetrics}
-                    onOpenIrrigation={() => setIsIrrigationOpen(true)}
-                  />
-                )}
-
-                {/* Top Crop Recommendations Preview Card */}
-                {currentRecos.length > 0 && (
-                  <TopCropsPreviewCard
-                    recommendations={currentRecos}
-                    onOpenModal={() => setIsRecoOpen(true)}
-                  />
-                )}
-
-                {/* Calendar Window Teaser */}
-                <CalendarTeaserCard
-                  onViewCalendar={() => setActiveTab("calendar")}
-                />
-
-                {/* Solar Pumping Protocol Card */}
-                <div className="rounded-2xl border-2 border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 shadow-xs">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary-subtle)] text-[var(--primary)]">
-                      <Zap className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-[var(--fg-primary)] leading-tight">
-                        Solar Pump Operating Window
-                      </h4>
-                      <span className="text-[11px] text-[var(--fg-muted)]">
-                        NASA Root-Zone Deficit Optimization
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 text-xs text-[var(--fg-secondary)]">
-                    <div className="flex items-center justify-between p-2 rounded-lg bg-[var(--bg-surface-subtle)]">
-                      <span className="font-medium">Recommended Time:</span>
-                      <span className="font-mono font-bold text-[var(--status-info)]">17:30 – 19:30 (Evening)</span>
-                    </div>
-                    <div className="flex items-center justify-between p-2 rounded-lg bg-[var(--bg-surface-subtle)]">
-                      <span className="font-medium">Avoid Evaporative Window:</span>
-                      <span className="font-mono font-bold text-[var(--status-danger)]">11:00 – 14:00 (Peak Heat)</span>
-                    </div>
-                    <div className="flex items-center justify-between p-2 rounded-lg bg-[var(--bg-surface-subtle)]">
-                      <span className="font-medium">Estimated Fuel Savings:</span>
-                      <span className="font-mono font-bold text-[var(--status-success)]">3.2 Liters Diesel / cycle</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* 4. Regional Field Radar & Quick Block Switcher */}
+            <RegionalRadarSummary
+              blocks={blocks}
+              metricsMap={metricsMap}
+              activeBlockId={currentBlockId}
+              onSelectBlock={(id) => setSelectedBlockId(id)}
+              onOpenMapTab={() => setActiveTab("map")}
+            />
           </div>
         )}
 
@@ -524,69 +348,45 @@ export function FarmerView({
         blockName={currentBlock ? currentBlock.name : undefined}
       />
 
-      {/* Irrigation Detail Dialog */}
-      <Dialog open={isIrrigationOpen} onOpenChange={setIsIrrigationOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--status-info-bg)] text-[var(--status-info)]">
-                <Droplets className="h-4 w-4" />
-              </div>
-              <DialogTitle className="text-base font-bold">
-                {t("farmer.irrigationSchedule", "7-Day Irrigation Advisory")}
-              </DialogTitle>
-            </div>
-            <DialogDescription className="text-xs">
-              Optimized solar pump schedule based on NASA root-zone moisture deficit
-            </DialogDescription>
-          </DialogHeader>
+      {/* Precision Irrigation & Solar Pumping Detail Dialog */}
+      <IrrigationDetailModal
+        open={isIrrigationOpen}
+        onOpenChange={setIsIrrigationOpen}
+        metrics={currentMetrics}
+        currentBlockId={currentBlockId}
+        irrigationPlan={irrigationPlan}
+        onJumpToMap={() => setActiveTab("map")}
+      />
 
-          <div className="space-y-3 py-2 text-xs">
-            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] p-3">
-              <div className="flex items-center justify-between font-bold text-sm">
-                <span>Recommendation:</span>
-                <span className="text-[var(--status-info)]">
-                  {currentMetrics && currentMetrics.cwsi > 0.6 ? "Evening Pumping" : "Normal Rotation"}
-                </span>
-              </div>
-              <p className="mt-1 text-[var(--fg-secondary)] leading-relaxed">
-                Run solar pump for 2 hours between 17:30 and 19:30. Avoid high midday evaporation window (11:00 to 14:00) to preserve fuel and water table.
-              </p>
-            </div>
+      {/* NASA Satellite Telemetry Detail Dialog */}
+      {currentMetrics && (
+        <TelemetryDetailModal
+          open={isTelemetryOpen}
+          onOpenChange={setIsTelemetryOpen}
+          metrics={currentMetrics}
+          blockName={currentBlock?.name}
+        />
+      )}
 
-            {irrigationPlan && (
-              <div className="space-y-2 border-t border-[var(--border-subtle)] pt-2">
-                <span className="font-semibold text-[var(--fg-muted)]">Block Pumping Allocation:</span>
-                {(() => {
-                  const deployment = irrigationPlan.deployments.find((d) => d.targetBlockId === currentBlockId);
-                  return (
-                    <>
-                      <div className="flex items-center justify-between text-xs">
-                        <span>Allocated Hours:</span>
-                        <span className="font-mono font-bold">
-                          {deployment ? `${deployment.estimatedCoverageHours} hrs/cycle` : "2.0 hrs/cycle"}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <span>Sequence Priority:</span>
-                        <span className="font-mono font-bold">
-                          {deployment ? `Rank #${deployment.suggestedSequence}` : "Standard Rotation"}
-                        </span>
-                      </div>
-                    </>
-                  );
-                })()}
-              </div>
-            )}
-          </div>
+      {/* 7-Day Weather & Atmospheric Forecast Dialog */}
+      {currentMetrics && (
+        <WeatherDetailModal
+          open={isWeatherOpen}
+          onOpenChange={setIsWeatherOpen}
+          metrics={currentMetrics}
+          blockName={currentBlock?.name}
+        />
+      )}
 
-          <div className="flex justify-end pt-2">
-            <Button onClick={() => setIsIrrigationOpen(false)}>
-              {t("common.close", "Understood")}
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Crop Health & Multi-Spectral Telemetry Dialog */}
+      {currentMetrics && (
+        <CropCareDetailModal
+          open={isCropCareOpen}
+          onOpenChange={setIsCropCareOpen}
+          metrics={currentMetrics}
+          block={currentBlock}
+        />
+      )}
     </div>
   );
 }
