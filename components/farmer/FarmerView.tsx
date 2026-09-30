@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Block, BlockMetrics, Alert, CropRecommendation, IrrigationPlan } from "@/lib/dal/types";
+import { Block, BlockMetrics, Alert, CropRecommendation, TimeSeriesPoint, IrrigationPlan } from "@/lib/dal/types";
 import { useUiStore } from "@/lib/stores/ui";
 import { useTranslation } from "@/lib/i18n/client";
 import { BottomNav, FarmerTab } from "./BottomNav";
@@ -12,6 +12,7 @@ import { AlertsListView } from "./AlertsListView";
 import { VoiceFab } from "./VoiceFab";
 import { FarmPulseBanner } from "./FarmPulseBanner";
 import { DailyDecisionsGrid } from "./DailyDecisionsGrid";
+import { FarmTrendsChart } from "./FarmTrendsChart";
 import { PlanningAheadSection } from "./PlanningAheadSection";
 import { RegionalRadarSummary } from "./RegionalRadarSummary";
 import { TelemetryDetailModal } from "./TelemetryDetailModal";
@@ -34,6 +35,7 @@ interface FarmerViewProps {
   metricsMap: Record<string, BlockMetrics>;
   alerts: Alert[];
   recommendationsMap: Record<string, CropRecommendation[]>;
+  timeSeriesMap?: Record<string, TimeSeriesPoint[]>;
   irrigationPlan?: IrrigationPlan;
 }
 
@@ -42,6 +44,7 @@ export function FarmerView({
   metricsMap,
   alerts,
   recommendationsMap,
+  timeSeriesMap,
   irrigationPlan,
 }: FarmerViewProps) {
   const { t } = useTranslation();
@@ -65,6 +68,7 @@ export function FarmerView({
   const currentBlock = blocks.find((b) => b.id === currentBlockId) || blocks[0];
   const currentMetrics = metricsMap[currentBlockId] || Object.values(metricsMap)[0];
   const currentRecos = recommendationsMap[currentBlockId] || [];
+  const currentTimeSeries = timeSeriesMap?.[currentBlockId] || [];
 
   // Dispatched alerts from the Officer Panel (Zustand store)
   const dispatchedFromStore = useUiStore((state) => state.dispatchedAlerts);
@@ -260,18 +264,26 @@ export function FarmerView({
               onOpenTelemetry={() => setIsTelemetryOpen(true)}
             />
 
-            {/* 2. Today's 3 Key Farming Decisions (Water, Weather, Crop Care) */}
+            {/* 2. Today's 3 Key Farming Decisions (Water, Weather, Crop Care) with micro-trends */}
             {currentMetrics && (
               <DailyDecisionsGrid
                 metrics={currentMetrics}
                 block={currentBlock}
+                timeSeries={currentTimeSeries}
                 onOpenIrrigation={() => setIsIrrigationOpen(true)}
                 onOpenWeather={() => setIsWeatherOpen(true)}
                 onOpenCropCare={() => setIsCropCareOpen(true)}
               />
             )}
 
-            {/* 3. Planning Ahead & Next Season Companion */}
+            {/* 3. Visual Climate & Field Trends (14-Day Trajectory) */}
+            <FarmTrendsChart
+              timeSeries={currentTimeSeries}
+              metrics={currentMetrics}
+              blockName={currentBlock?.name}
+            />
+
+            {/* 4. Planning Ahead & Next Season Companion */}
             <PlanningAheadSection
               recommendations={currentRecos}
               onOpenCalendar={() => setActiveTab("calendar")}

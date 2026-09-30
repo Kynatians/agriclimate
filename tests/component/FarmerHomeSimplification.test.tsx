@@ -4,6 +4,7 @@ import { FarmPulseBanner } from "@/components/farmer/FarmPulseBanner";
 import { DailyDecisionsGrid } from "@/components/farmer/DailyDecisionsGrid";
 import { PlanningAheadSection } from "@/components/farmer/PlanningAheadSection";
 import { RegionalRadarSummary } from "@/components/farmer/RegionalRadarSummary";
+import { FarmTrendsChart } from "@/components/farmer/FarmTrendsChart";
 import { BlockMetrics, Block, CropRecommendation } from "@/lib/dal/types";
 
 const mockMetrics: BlockMetrics = {
@@ -162,5 +163,35 @@ describe("Farmer Home Simplification Flow", () => {
     const mapBtn = screen.getByRole("button", { name: /Open Full Interactive GIS Map/i });
     fireEvent.click(mapBtn);
     expect(onOpenMapTab).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders FarmTrendsChart with safe zones and allows switching metric tabs", () => {
+    const mockTimeSeries = [
+      { date: "2026-09-20", ndvi: 0.65, soilMoisture: 32.0, precip: 0.0, lst: 31.0 },
+      { date: "2026-09-21", ndvi: 0.66, soilMoisture: 31.5, precip: 4.5, lst: 30.5 },
+      { date: "2026-09-22", ndvi: 0.67, soilMoisture: 31.0, precip: 0.0, lst: 31.8 },
+      { date: "2026-09-23", ndvi: 0.68, soilMoisture: 31.0, precip: 0.0, lst: 32.4 },
+    ];
+
+    render(
+      <FarmTrendsChart
+        timeSeries={mockTimeSeries}
+        metrics={mockMetrics}
+        blockName="Kurigram Sadar"
+      />
+    );
+
+    expect(screen.getByText(/Field Health & Climate Trends/i)).toBeDefined();
+    expect(screen.getByText(/Soil Moisture Interpretation/i)).toBeDefined();
+
+    // Switch to Rainfall metric
+    const rainTab = screen.getByText(/Rainfall/i);
+    fireEvent.click(rainTab);
+    expect(screen.getByText(/Rainfall Interpretation/i)).toBeDefined();
+
+    // Switch to Crop Greenness / NDVI metric
+    const ndviTab = screen.getByText("NDVI Vegetation");
+    fireEvent.click(ndviTab);
+    expect(screen.getByText(/NDVI.*Interpretation/i)).toBeDefined();
   });
 });

@@ -51,6 +51,7 @@ export function AppModeSwitch({
           metricsMap={metricsMap}
           alerts={alerts}
           recommendationsMap={recommendationsMap}
+          timeSeriesMap={timeSeriesMap}
           irrigationPlan={irrigationPlan}
         />
       ) : (

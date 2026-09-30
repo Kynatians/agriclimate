@@ -12,13 +12,15 @@ import {
   CalendarDays,
   Leaf,
 } from "lucide-react";
-import { Block, BlockMetrics } from "@/lib/dal/types";
+import { Block, BlockMetrics, TimeSeriesPoint } from "@/lib/dal/types";
+import { TrendSparkline } from "@/components/shared/TrendSparkline";
 import { useTranslation } from "@/lib/i18n/client";
 import { cn } from "@/lib/utils";
 
 interface DailyDecisionsGridProps {
   metrics: BlockMetrics;
   block?: Block;
+  timeSeries?: TimeSeriesPoint[];
   onOpenIrrigation: () => void;
   onOpenWeather: () => void;
   onOpenCropCare: () => void;
@@ -28,6 +30,7 @@ interface DailyDecisionsGridProps {
 export function DailyDecisionsGrid({
   metrics,
   block,
+  timeSeries,
   onOpenIrrigation,
   onOpenWeather,
   onOpenCropCare,
@@ -117,6 +120,17 @@ export function DailyDecisionsGrid({
               ⚡ Saves 3.2L Diesel
             </span>
           </div>
+
+          {/* 14-Day Soil Moisture Sparkline */}
+          {timeSeries && timeSeries.length > 0 && (
+            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
+              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
+                <span>14-Day Moisture Trend</span>
+                <span className="font-mono text-[var(--status-info)] font-bold">{soilMoisture.toFixed(0)}%</span>
+              </div>
+              <TrendSparkline points={timeSeries.slice(-14)} metric="soilMoisture" color="var(--status-info)" height={28} />
+            </div>
+          )}
         </div>
 
         {/* Footer Tap Trigger */}
@@ -183,6 +197,16 @@ export function DailyDecisionsGrid({
               <span className="text-xs font-bold text-[var(--fg-primary)]">{Math.round(metrics.lst + 1)}°</span>
             </div>
           </div>
+          {/* 14-Day Temperature Sparkline */}
+          {timeSeries && timeSeries.length > 0 && (
+            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
+              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
+                <span>14-Day Temperature Trend</span>
+                <span className="font-mono text-[var(--status-warning)] font-bold">{metrics.lst.toFixed(0)}°C</span>
+              </div>
+              <TrendSparkline points={timeSeries.slice(-14)} metric="lst" color="var(--status-warning)" height={28} />
+            </div>
+          )}
         </div>
 
         {/* Footer Tap Trigger */}
@@ -256,6 +280,19 @@ export function DailyDecisionsGrid({
               Apply before 10 AM
             </span>
           </div>
+
+          {/* 14-Day NDVI Canopy Greenness Sparkline */}
+          {timeSeries && timeSeries.length > 0 && (
+            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)]/50">
+              <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)] mb-1">
+                <span>14-Day Canopy Greenness (NDVI)</span>
+                <span className="font-mono text-[var(--status-success)] font-bold">
+                  {metrics.ndvi.anomaly >= 0 ? `+${metrics.ndvi.anomaly}` : metrics.ndvi.anomaly}
+                </span>
+              </div>
+              <TrendSparkline points={timeSeries.slice(-14)} metric="ndvi" color="var(--status-success)" height={28} />
+            </div>
+          )}
         </div>
 
         {/* Footer Tap Trigger */}
