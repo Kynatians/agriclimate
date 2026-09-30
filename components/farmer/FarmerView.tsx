@@ -5,13 +5,6 @@ import { Block, BlockMetrics, Alert, CropRecommendation, IrrigationPlan } from "
 import { useUiStore } from "@/lib/stores/ui";
 import { useTranslation } from "@/lib/i18n/client";
 import { BottomNav, FarmerTab } from "./BottomNav";
-import { WeatherCard } from "./WeatherCard";
-import { CropConditionCard } from "./CropConditionCard";
-import { AlertCard } from "./AlertCard";
-import { HomeActionTiles } from "./HomeActionTiles";
-import { CalendarTeaserCard } from "./CalendarTeaserCard";
-import { TopCropsPreviewCard } from "./TopCropsPreviewCard";
-import { RegionalRadarPreview } from "./RegionalRadarPreview";
 import { CropRecommendationModal } from "./CropRecommendationModal";
 import { FarmerBlockMap } from "./FarmerBlockMap";
 import { CropCalendarView } from "./CropCalendarView";
@@ -33,15 +26,7 @@ import {
   Map as MapIcon,
   Calendar,
   AlertTriangle,
-  Sun,
-  CloudRain,
-  Sprout,
-  Activity,
-  CheckCircle2,
-  Clock,
-  Zap,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface FarmerViewProps {
@@ -129,8 +114,6 @@ export function FarmerView({
       (a.blockId === currentBlockId || a.blockId === "all")
   );
   const topAlert = blockAlerts[0] || null;
-
-  const rainProb = currentMetrics ? Math.min(95, Math.max(10, Math.round(currentMetrics.precip7dForecast * 1.5))) : 50;
 
   return (
     <div className="min-h-screen w-full bg-[var(--bg-app)] pb-24 md:pb-12 text-[var(--fg-primary)]">

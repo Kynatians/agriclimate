@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Calendar, Sparkles, ArrowRight, CheckCircle2, ChevronRight, TrendingUp } from "lucide-react";
+import { Calendar, Sparkles, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import { CropRecommendation } from "@/lib/dal/types";
 import { useTranslation } from "@/lib/i18n/client";
 import { cn } from "@/lib/utils";

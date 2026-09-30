@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Droplets, Zap, Clock, ShieldCheck, MapIcon, ArrowRight } from "lucide-react";
+import { Droplets, Zap, MapIcon, ArrowRight } from "lucide-react";
 import { BlockMetrics, IrrigationPlan } from "@/lib/dal/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CloudRain, Sun, X } from "lucide-react";
+import { Sun } from "lucide-react";
 import { BlockMetrics } from "@/lib/dal/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";

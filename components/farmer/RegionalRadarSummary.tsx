@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Layers, ArrowRight, Check, MapPin } from "lucide-react";
+import { Layers, ArrowRight, Check } from "lucide-react";
 import { Block, BlockMetrics } from "@/lib/dal/types";
 import { cn } from "@/lib/utils";
 
@@ -22,9 +22,6 @@ export function RegionalRadarSummary({
   onOpenMapTab,
   className,
 }: RegionalRadarSummaryProps) {
-  const activeBlock = blocks.find((b) => b.id === activeBlockId) || blocks[0];
-  const activeMetrics = metricsMap[activeBlockId];
-
   return (
     <div
       className={cn(

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CheckCircle2, ShieldCheck, Activity, Satellite, ArrowRight, Bell } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Satellite, ArrowRight, Bell } from "lucide-react";
 import { BlockMetrics, Alert } from "@/lib/dal/types";
 import { AlertCard } from "./AlertCard";
 import { Button } from "@/components/ui/button";

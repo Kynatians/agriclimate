@@ -3,13 +3,10 @@
 import * as React from "react";
 import {
   Droplets,
-  CloudRain,
   Sun,
   Sprout,
   ArrowRight,
   Zap,
-  CheckCircle2,
-  AlertCircle,
   Clock,
   Sparkles,
   CalendarDays,

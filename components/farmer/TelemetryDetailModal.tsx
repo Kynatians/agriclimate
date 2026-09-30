@@ -8,9 +8,6 @@ import {
   Droplets,
   Activity,
   Sprout,
-  X,
-  Info,
-  Layers,
 } from "lucide-react";
 import { BlockMetrics } from "@/lib/dal/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";

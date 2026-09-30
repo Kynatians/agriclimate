@@ -1,13 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Sprout, Leaf, Clock, X, Layers, CheckCircle2 } from "lucide-react";
+import { Sprout, Leaf, Clock } from "lucide-react";
 import { Block, BlockMetrics } from "@/lib/dal/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { CropConditionCard } from "./CropConditionCard";
 import { useTranslation } from "@/lib/i18n/client";
-import { cn } from "@/lib/utils";
 
 interface CropCareDetailModalProps {
   open: boolean;
