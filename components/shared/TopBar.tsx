@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Sprout, Sun, Moon } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import { NotificationBell } from "./NotificationBell";
@@ -30,8 +31,11 @@ export function TopBar({ alerts = [], className }: TopBarProps) {
       )}
     >
       {/* Brand & Platform Identity */}
-      <div className="flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--primary-fg)] shadow-xs">
+      <Link
+        href="/"
+        className="group flex items-center gap-3 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded-lg"
+      >
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--primary-fg)] shadow-xs transition-transform group-hover:scale-105">
           <Sprout className="h-5 w-5" />
         </div>
         <div className="flex flex-col">
@@ -47,7 +51,7 @@ export function TopBar({ alerts = [], className }: TopBarProps) {
             Kurigram Climate Resilience Pilot
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Center: Mode Switcher */}
       <div className="flex items-center">
