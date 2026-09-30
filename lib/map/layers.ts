@@ -104,11 +104,11 @@ export const MAP_LAYERS: Record<LayerId, LayerDefinition> = {
     shortName: "Fire / Heat",
     unit: "FRP (MW)",
     description: "VIIRS 375m active fire detections and crop residue burning alerts.",
-    source: "VIIRS S-NPP / NOAA-20",
+    source: "NASA FIRMS VIIRS (375m)",
     paletteType: "sequential",
     stops: SUNSET_PALETTE,
-    getValue: () => 0.05, // Kurigram seed baseline is low fire risk
-    formatValue: () => "0.0 FRP",
+    getValue: (m) => Math.min(1.0, (m.thermalFrp ?? 0) / 10),
+    formatValue: (v) => `${(v * 10).toFixed(1)} MW`,
   },
 };
 

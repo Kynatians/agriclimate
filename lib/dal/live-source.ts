@@ -29,8 +29,12 @@ import {
   getSyncMetadata,
 } from "@/lib/nasa/cache-manager";
 import { fetchPowerPoint, processPowerResponse } from "@/lib/nasa/power-client";
-import { fetchLiveFirmsAlerts } from "@/lib/nasa/firms-client";
-import { LiveSyncResult } from "@/lib/nasa/types";
+import {
+  fetchLiveFirmsAlerts,
+  fetchLiveFirmsDetections,
+  findNearestBlockId,
+} from "@/lib/nasa/firms-client";
+import { LiveSyncResult, NasaFirmsRecord } from "@/lib/nasa/types";
 
 /**
  * Triggers a live sync against NASA POWER and FIRMS endpoints
@@ -46,8 +50,10 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
 
   // 1. Fetch live FIRMS fire detections
   let liveFirmsAlerts: Alert[] = [];
+  let liveFirmsRecords: NasaFirmsRecord[] = [];
   try {
     liveFirmsAlerts = await fetchLiveFirmsAlerts();
+    liveFirmsRecords = await fetchLiveFirmsDetections();
   } catch (err) {
     errors.push("NASA FIRMS query failed; maintaining active alerts.");
   }
@@ -69,6 +75,12 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
           staticM.ndvi.baseline
         );
 
+        // Check for any active FIRMS detections for this block
+        const blockFirms = liveFirmsRecords.filter(
+          (r) => findNearestBlockId(r.latitude, r.longitude) === block.id
+        );
+        const maxFrp = blockFirms.length > 0 ? Math.max(...blockFirms.map((r) => r.frp)) : 0;
+
         // Harmonize with domain model
         const updatedMetric: BlockMetrics = {
           ...staticM,
@@ -77,6 +89,7 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
           precip7dActual: processed.precip7dActual,
           precip7dForecast: processed.precip7dForecast,
           cwsi: processed.cwsi,
+          thermalFrp: maxFrp > 0 ? maxFrp : staticM.thermalFrp ?? 0,
           sources: [
             {
               metric: "weather_and_solar",
@@ -84,7 +97,17 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
               resolution: "0.5deg x 0.625deg",
               lastUpdate: processed.lastUpdate,
             },
-            ...staticM.sources.filter((s) => s.metric !== "weather_and_solar"),
+            ...(maxFrp > 0
+              ? [
+                  {
+                    metric: "thermal",
+                    dataset: "NASA FIRMS VIIRS 375m",
+                    resolution: "375m",
+                    lastUpdate: processed.lastUpdate,
+                  },
+                ]
+              : []),
+            ...staticM.sources.filter((s) => s.metric !== "weather_and_solar" && s.metric !== "thermal"),
           ],
         };
 

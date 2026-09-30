@@ -113,7 +113,10 @@ export function processPowerResponse(
   const solarMap = p.ALLSKY_SFC_SW_DWN || {};
   const rh2mMap = p.RH2M || {};
 
-  const dates = Object.keys(t2mMap).sort();
+  // Filter out dates where NASA POWER daily has missing / delayed fill_value (-999.0)
+  const dates = Object.keys(t2mMap)
+    .filter((d) => t2mMap[d] !== undefined && t2mMap[d] > -100)
+    .sort();
   const timeSeries: TimeSeriesPoint[] = [];
 
   let precipSum7d = 0;
@@ -124,10 +127,14 @@ export function processPowerResponse(
 
   // Process chronological daily data points
   dates.forEach((dKey, idx) => {
-    const t2m = t2mMap[dKey] ?? 25.0;
-    const precip = Math.max(0, precipMap[dKey] ?? 0);
-    const solar = Math.max(0, solarMap[dKey] ?? 16.0);
-    const rh2m = clamp(rh2mMap[dKey] ?? 65.0, 10, 100);
+    const rawT2m = t2mMap[dKey];
+    const t2m = rawT2m !== undefined && rawT2m > -100 ? rawT2m : 25.0;
+    const rawPrecip = precipMap[dKey];
+    const precip = rawPrecip !== undefined && rawPrecip > -100 ? Math.max(0, rawPrecip) : 0;
+    const rawSolar = solarMap[dKey];
+    const solar = rawSolar !== undefined && rawSolar > -100 ? Math.max(0, rawSolar) : 16.0;
+    const rawRh2m = rh2mMap[dKey];
+    const rh2m = rawRh2m !== undefined && rawRh2m > -100 ? clamp(rawRh2m, 10, 100) : 65.0;
 
     // Track latest measurements
     if (idx === dates.length - 1) {

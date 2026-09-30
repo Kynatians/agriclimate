@@ -50,6 +50,7 @@ export const BlockMetricsSchema = z.object({
   spi: z.number(),
   cwsi: z.number().min(0).max(1),
   floodScore: z.number().min(0).max(1),
+  thermalFrp: z.number().optional(),
   sources: z.array(DataSourceRefSchema),
 });
 

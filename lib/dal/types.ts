@@ -48,6 +48,7 @@ export interface BlockMetrics {
   spi: number;                   // Standardized Precipitation Index (-3.0 to +3.0)
   cwsi: number;                  // Crop Water Stress Index (0 to 1)
   floodScore: number;            // Flood Susceptibility Score FSS (0 to 1)
+  thermalFrp?: number;           // Fire Radiative Power (MW) from NASA FIRMS VIIRS
   sources: DataSourceRef[];      // Data provenance per metric
 }
 

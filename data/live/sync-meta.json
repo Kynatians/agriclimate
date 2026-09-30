@@ -1,7 +1,7 @@
 {
-  "lastSyncAt": "2026-09-30T07:07:57.842Z",
+  "lastSyncAt": "2026-09-30T13:15:00.000Z",
   "source": "NASA POWER + FIRMS Live Telemetry",
   "mode": "live",
   "blocksUpdated": 12,
-  "alertsCount": 5
+  "alertsCount": 6
 }

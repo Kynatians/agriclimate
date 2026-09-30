@@ -83,5 +83,22 @@
     },
     "issuedAt": "2026-09-28T06:00:00Z",
     "expiresAt": "2026-10-01T12:00:00Z"
+  },
+  {
+    "id": "alrt_firms_20260930_01",
+    "blockId": "blk_kurigram_10",
+    "type": "fire",
+    "severity": "low",
+    "leadTimeHours": 6,
+    "headline": {
+      "en": "Thermal Anomaly Detected (5.5 MW FRP)",
+      "bn": "তাপীয় অসঙ্গতি ও আগুন সনাক্ত হয়েছে (৫.৫ মেগাওয়াট)"
+    },
+    "detail": {
+      "en": "NASA NOAA-20 VIIRS 375m sensor detected thermal signature at [26.201°N, 90.495°E] with brightness temperature 333.2 K. Crop residue or biomass burn alert.",
+      "bn": "নাসা নোয়া-২০ ভিআইআইআরএস ৩৭৫মি সেন্সরে [২৬.২০১°উ, ৯০.৪৯৫°পূ] অবস্থানে ৩৩৩.২ কেলভিন তাপমাত্রার তাপীয় উপস্থিতি সনাক্ত হয়েছে। খড় পোড়ানোর সতর্কতা।"
+    },
+    "issuedAt": "2026-09-30T07:31:00Z",
+    "expiresAt": "2026-10-01T18:00:00Z"
   }
 ]

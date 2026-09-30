@@ -458,6 +458,7 @@
     "spi": 0.05,
     "cwsi": 0.44,
     "floodScore": 0.32,
+    "thermalFrp": 5.53,
     "sources": [
       {
         "metric": "soilMoisture",
@@ -476,6 +477,12 @@
         "dataset": "GPM IMERG Late Run",
         "resolution": "10km",
         "lastUpdate": "2026-09-28T05:00:00Z"
+      },
+      {
+        "metric": "thermal",
+        "dataset": "NASA FIRMS VIIRS 375m (NOAA-20)",
+        "resolution": "375m",
+        "lastUpdate": "2026-09-30T07:31:00Z"
       }
     ]
   },
