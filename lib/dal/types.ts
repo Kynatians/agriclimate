@@ -182,3 +182,24 @@ export interface DistrictReport {
   activeAlerts: Alert[];
   irrigationPlan: IrrigationPlan;
 }
+
+// Pump Request & Transfer Workflow
+export type PumpRequestType = "new_pump" | "transfer";
+export type PumpRequestStatus = "pending" | "approved" | "rejected";
+
+export interface PumpRequest {
+  id: string;                          // e.g. "pr_1696123456789"
+  type: PumpRequestType;               // "new_pump" or "transfer"
+  status: PumpRequestStatus;
+  requesterBlockId: string;            // block the farmer is requesting FROM (their active block)
+  requesterBlockName: string;
+  targetBlockId?: string;              // for "transfer" type: the block they want the pump moved TO
+  targetBlockName?: string;
+  reason: string;                      // farmer's free-text reason
+  urgency: Severity;                   // "low" | "medium" | "high"
+  deficitSeverity?: number;            // auto-computed from block metrics (0-100)
+  requestedAt: string;                 // ISO timestamp
+  resolvedAt?: string;                 // ISO timestamp (set when approved/rejected)
+  officerNote?: string;                // officer's response note
+  resolvedBy?: string;                 // e.g. "Upazila Agriculture Office (DAE)"
+}

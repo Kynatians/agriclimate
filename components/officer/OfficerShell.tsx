@@ -58,6 +58,8 @@ export function OfficerShell({
         <div className="w-[340px] shrink-0 h-full">
           <ControlPanel
             alerts={alerts}
+            blocks={blocks}
+            metricsMap={metricsMap}
             onOpenReport={() => setReportOpen(true)}
             onOpenComposer={handleOpenComposer}
           />
@@ -115,6 +117,8 @@ export function OfficerShell({
           <TabsContent value="control" className="flex-1 overflow-y-auto m-0">
             <ControlPanel
               alerts={alerts}
+              blocks={blocks}
+              metricsMap={metricsMap}
               onOpenReport={() => setReportOpen(true)}
               onOpenComposer={handleOpenComposer}
             />

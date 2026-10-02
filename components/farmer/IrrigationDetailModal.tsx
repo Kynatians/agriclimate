@@ -15,6 +15,7 @@ interface IrrigationDetailModalProps {
   currentBlockId: string;
   irrigationPlan?: IrrigationPlan;
   onJumpToMap?: () => void;
+  onRequestPump?: () => void;
 }
 
 export function IrrigationDetailModal({
@@ -24,6 +25,7 @@ export function IrrigationDetailModal({
   currentBlockId,
   irrigationPlan,
   onJumpToMap,
+  onRequestPump,
 }: IrrigationDetailModalProps) {
   const { t } = useTranslation();
 
@@ -112,6 +114,24 @@ export function IrrigationDetailModal({
               </span>
             </div>
           </div>
+
+          {/* Request Pump / Transfer Trigger */}
+          {onRequestPump && (
+            <button
+              type="button"
+              onClick={() => {
+                onOpenChange(false);
+                onRequestPump();
+              }}
+              className="w-full flex items-center justify-between p-2.5 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-400 font-bold hover:bg-amber-500/20 transition-colors text-xs cursor-pointer"
+            >
+              <span className="flex items-center gap-1.5">
+                <Zap className="h-4 w-4 text-amber-500" />
+                {t("farmer.requestPumpAllocationOrTransfer", "Request Pump Allocation or Transfer")}
+              </span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          )}
 
           {/* Quick Jump Action */}
           {onJumpToMap && (

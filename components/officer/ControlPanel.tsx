@@ -1,16 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { Alert } from "@/lib/dal/types";
+import { Alert, Block, BlockMetrics } from "@/lib/dal/types";
 import { useUiStore, SeverityFilter, CropFilter, PeriodFilter } from "@/lib/stores/ui";
 import { LayerToggleList } from "./LayerToggleList";
 import { AlertFeed } from "./AlertFeed";
+import { PumpRequestQueue } from "./PumpRequestQueue";
 import { FileText, Send, Radio, Filter, MapPin, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface ControlPanelProps {
   alerts: Alert[];
+  blocks: Block[];
+  metricsMap: Record<string, BlockMetrics>;
   onOpenReport: () => void;
   onOpenComposer: (alert?: Alert) => void;
   className?: string;
@@ -18,6 +21,8 @@ interface ControlPanelProps {
 
 export function ControlPanel({
   alerts,
+  blocks,
+  metricsMap,
   onOpenReport,
   onOpenComposer,
   className,
@@ -103,6 +108,12 @@ export function ControlPanel({
           <span>District Report</span>
         </Button>
       </div>
+
+      {/* Solar Pump Request Queue */}
+      <PumpRequestQueue
+        blocks={blocks}
+        metricsMap={metricsMap}
+      />
 
       {/* Live NASA Sync Action */}
       <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] p-2.5 space-y-1.5">

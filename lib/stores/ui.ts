@@ -3,7 +3,7 @@
 
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { Alert } from "@/lib/dal/types";
+import { Alert, PumpRequest } from "@/lib/dal/types";
 
 export type AppMode = "farmer" | "officer";
 export type FarmerTab = "home" | "map" | "calendar" | "alerts";
@@ -44,6 +44,10 @@ export interface UiState {
   removeDispatchedAlert: (id: string) => void;
   dismissedAlertIds: string[];
   dismissAlert: (id: string) => void;
+  pumpRequests: PumpRequest[];
+  addPumpRequest: (request: PumpRequest) => void;
+  updatePumpRequest: (id: string, updates: Partial<PumpRequest>) => void;
+  removePumpRequest: (id: string) => void;
   activeLayers: LayerId[];
   activeLayerId: LayerId;
   setActiveLayer: (layer: LayerId) => void;
@@ -199,6 +203,24 @@ export const useUiStore = create<UiState>()(
             ? state.dismissedAlertIds
             : [...state.dismissedAlertIds, id],
         })),
+      pumpRequests: [],
+      addPumpRequest: (request) =>
+        set((state) => ({
+          pumpRequests: [
+            request,
+            ...state.pumpRequests.filter((r) => r.id !== request.id),
+          ],
+        })),
+      updatePumpRequest: (id, updates) =>
+        set((state) => ({
+          pumpRequests: state.pumpRequests.map((r) =>
+            r.id === id ? { ...r, ...updates } : r
+          ),
+        })),
+      removePumpRequest: (id) =>
+        set((state) => ({
+          pumpRequests: state.pumpRequests.filter((r) => r.id !== id),
+        })),
       activeLayers: [
         "ndvi",
         "soilMoisture",
@@ -304,6 +326,7 @@ export const useUiStore = create<UiState>()(
         selectedBlockId: state.selectedBlockId,
         dispatchedAlerts: state.dispatchedAlerts,
         dismissedAlertIds: state.dismissedAlertIds,
+        pumpRequests: state.pumpRequests,
         activeLayerId: state.activeLayerId,
         activeLayers: state.activeLayers,
         layerOpacities: state.layerOpacities,

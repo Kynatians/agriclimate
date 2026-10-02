@@ -1,0 +1,40 @@
+[
+  {
+    "id": "pr_1790781200000",
+    "type": "new_pump",
+    "status": "pending",
+    "requesterBlockId": "blk_kurigram_01",
+    "requesterBlockName": "Chilmari South",
+    "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+    "urgency": "high",
+    "deficitSeverity": 78,
+    "requestedAt": "2026-09-30T14:15:00.000Z"
+  },
+  {
+    "id": "pr_1790779800000",
+    "type": "transfer",
+    "status": "pending",
+    "requesterBlockId": "blk_kurigram_01",
+    "requesterBlockName": "Chilmari South",
+    "targetBlockId": "blk_kurigram_02",
+    "targetBlockName": "Chilmari North",
+    "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+    "urgency": "medium",
+    "deficitSeverity": 62,
+    "requestedAt": "2026-09-30T11:30:00.000Z"
+  },
+  {
+    "id": "pr_1790765400000",
+    "type": "new_pump",
+    "status": "approved",
+    "requesterBlockId": "blk_kurigram_01",
+    "requesterBlockName": "Chilmari South",
+    "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+    "urgency": "high",
+    "deficitSeverity": 70,
+    "requestedAt": "2026-09-29T08:00:00.000Z",
+    "resolvedAt": "2026-09-29T10:15:00.000Z",
+    "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+    "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+  }
+]

@@ -100,3 +100,23 @@ export const CropKnowledgeSchema = z.object({
   roiPerHectare: RangeSchema,
   notes: LocalizedTextSchema,
 });
+
+export const PumpRequestTypeSchema = z.enum(["new_pump", "transfer"]);
+export const PumpRequestStatusSchema = z.enum(["pending", "approved", "rejected"]);
+
+export const PumpRequestSchema = z.object({
+  id: z.string(),
+  type: PumpRequestTypeSchema,
+  status: PumpRequestStatusSchema,
+  requesterBlockId: z.string(),
+  requesterBlockName: z.string(),
+  targetBlockId: z.string().optional(),
+  targetBlockName: z.string().optional(),
+  reason: z.string().min(1),
+  urgency: SeveritySchema,
+  deficitSeverity: z.number().min(0).max(100).optional(),
+  requestedAt: z.string(),
+  resolvedAt: z.string().optional(),
+  officerNote: z.string().optional(),
+  resolvedBy: z.string().optional(),
+});

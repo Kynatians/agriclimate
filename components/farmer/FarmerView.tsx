@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Block, BlockMetrics, Alert, CropRecommendation, TimeSeriesPoint, IrrigationPlan } from "@/lib/dal/types";
+import { Block, BlockMetrics, Alert, CropRecommendation, TimeSeriesPoint, IrrigationPlan, PumpRequest } from "@/lib/dal/types";
 import { useUiStore } from "@/lib/stores/ui";
 import { useTranslation } from "@/lib/i18n/client";
 import { BottomNav, FarmerTab } from "./BottomNav";
@@ -19,10 +19,12 @@ import { TelemetryDetailModal } from "./TelemetryDetailModal";
 import { WeatherDetailModal } from "./WeatherDetailModal";
 import { CropCareDetailModal } from "./CropCareDetailModal";
 import { IrrigationDetailModal } from "./IrrigationDetailModal";
+import { PumpRequestModal } from "./PumpRequestModal";
 import {
   Sparkles,
   MapPin,
   Droplets,
+  Zap,
   Home,
   Map as MapIcon,
   Calendar,
@@ -54,11 +56,13 @@ export function FarmerView({
     farmerTab: activeTab,
     setFarmerTab: setActiveTab,
     addDispatchedAlert,
+    addPumpRequest,
     dismissedAlertIds,
     dismissAlert,
   } = useUiStore();
   const [isRecoOpen, setIsRecoOpen] = React.useState(false);
   const [isIrrigationOpen, setIsIrrigationOpen] = React.useState(false);
+  const [isPumpRequestOpen, setIsPumpRequestOpen] = React.useState(false);
   const [isTelemetryOpen, setIsTelemetryOpen] = React.useState(false);
   const [isWeatherOpen, setIsWeatherOpen] = React.useState(false);
   const [isCropCareOpen, setIsCropCareOpen] = React.useState(false);
@@ -88,6 +92,18 @@ export function FarmerView({
       })
       .catch(() => {});
   }, [addDispatchedAlert]);
+
+  // Sync pump requests for current block on mount or block change
+  React.useEffect(() => {
+    fetch("/api/pump-requests?blockId=" + currentBlockId)
+      .then((res) => res.json())
+      .then((data: PumpRequest[]) => {
+        if (Array.isArray(data)) {
+          data.forEach((req) => addPumpRequest(req));
+        }
+      })
+      .catch(() => {});
+  }, [currentBlockId, addPumpRequest]);
 
   // In Farmer View, ONLY alerts dispatched by the Officer Panel are shown
   const officerAlerts = React.useMemo(() => {
@@ -226,7 +242,17 @@ export function FarmerView({
           </nav>
 
           {/* Right: Quick Action Triggers */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setIsPumpRequestOpen(true)}
+              className="flex items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-xs font-bold text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 hover:border-amber-500/50 transition-all cursor-pointer"
+            >
+              <Zap className="h-3.5 w-3.5 text-amber-500" />
+              <span className="hidden sm:inline">{t("farmer.requestPump", "Request Pump")}</span>
+              <span className="sm:hidden">{t("farmer.pumpShort", "Pump")}</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setIsIrrigationOpen(true)}
@@ -351,6 +377,17 @@ export function FarmerView({
         currentBlockId={currentBlockId}
         irrigationPlan={irrigationPlan}
         onJumpToMap={() => setActiveTab("map")}
+        onRequestPump={() => setIsPumpRequestOpen(true)}
+      />
+
+      {/* Solar Pump Request & Transfer Dialog */}
+      <PumpRequestModal
+        open={isPumpRequestOpen}
+        onOpenChange={setIsPumpRequestOpen}
+        currentBlockId={currentBlockId}
+        currentBlockName={currentBlock?.name || ""}
+        blocks={blocks}
+        metrics={currentMetrics}
       />
 
       {/* NASA Satellite Telemetry Detail Dialog */}
