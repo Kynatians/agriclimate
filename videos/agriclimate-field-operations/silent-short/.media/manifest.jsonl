@@ -1,0 +1,19 @@
+{"id":"image_001","type":"image","path":"assets/alert-bn.jpg","source":"existing","description":"alert bn","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_002","type":"image","path":"assets/alert-en.jpg","source":"existing","description":"alert en","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_003","type":"image","path":"assets/approved.jpg","source":"existing","description":"approved","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"video_001","type":"video","path":"assets/compose-live.mp4","source":"existing","description":"compose live","duration":4,"width":620,"height":620,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_004","type":"image","path":"assets/composer.jpg","source":"existing","description":"composer","width":620,"height":620,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_005","type":"image","path":"assets/crop-detail.jpg","source":"existing","description":"crop detail","width":960,"height":750,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_006","type":"image","path":"assets/crop.jpg","source":"existing","description":"crop","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_007","type":"image","path":"assets/farmer.jpg","source":"existing","description":"farmer","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_008","type":"image","path":"assets/fire.jpg","source":"existing","description":"fire","width":1220,"height":1024,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_009","type":"image","path":"assets/growth.jpg","source":"existing","description":"growth","width":496,"height":514,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_010","type":"image","path":"assets/irrigation.jpg","source":"existing","description":"irrigation","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"video_002","type":"video","path":"assets/layers.mp4","source":"existing","description":"layers","duration":3,"width":1920,"height":1080,"provenance":{"provider":"local","adopted":true}}
+{"id":"video_003","type":"video","path":"assets/map-live.mp4","source":"existing","description":"map live","duration":3,"width":1920,"height":1024,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_011","type":"image","path":"assets/officer.jpg","source":"existing","description":"officer","width":1920,"height":1024,"provenance":{"provider":"local","adopted":true}}
+{"id":"video_004","type":"video","path":"assets/request-live.mp4","source":"existing","description":"request live","duration":4,"width":344,"height":744,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_012","type":"image","path":"assets/request.jpg","source":"existing","description":"request","width":390,"height":844,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_013","type":"image","path":"assets/review.jpg","source":"existing","description":"review","width":700,"height":700,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_014","type":"image","path":"assets/soil.jpg","source":"existing","description":"soil","width":496,"height":514,"provenance":{"provider":"local","adopted":true}}
+{"id":"image_015","type":"image","path":"assets/weather.jpg","source":"existing","description":"weather","width":496,"height":514,"provenance":{"provider":"local","adopted":true}}

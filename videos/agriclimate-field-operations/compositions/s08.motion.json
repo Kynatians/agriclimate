@@ -1,0 +1,14 @@
+{
+  "duration": 18,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#s08 .heading",
+      "bySec": 0.8
+    },
+    {
+      "kind": "staysInFrame",
+      "selector": "#s08 .heading"
+    }
+  ]
+}

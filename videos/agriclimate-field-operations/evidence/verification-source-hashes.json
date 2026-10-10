@@ -1,0 +1,110 @@
+[
+  {
+    "path": "brag-script.md",
+    "sha256": "adacb15f433e5d39a90105716c1bd396a78532640275cc358de0c2d61e4641ed"
+  },
+  {
+    "path": "data/generated/blocks.json",
+    "sha256": "0c7dfbc24cc87cb521f483b6f113fe92465ea8c17b82a286140a71b481871fe8"
+  },
+  {
+    "path": "data/generated/block-metrics.json",
+    "sha256": "2b815a3c90efd483bab9d12fa982fc83a608d59518f6e0f56c82703dce68894f"
+  },
+  {
+    "path": "data/generated/alerts.json",
+    "sha256": "8342596ac37df2d27ba27b63c3afe05f918b3f2cfb3b073a52122ae53410123b"
+  },
+  {
+    "path": "data/generated/timeseries.json",
+    "sha256": "c647013a383667bfac504d50bcd22524685162c176f68b812b052b8b8167947b"
+  },
+  {
+    "path": "lib/crops/knowledge-base.ts",
+    "sha256": "d38711c1b047d89209f6a210d598fb3d5803465e948ab466b846fa8d4fccffc8"
+  },
+  {
+    "path": "lib/map/layers.ts",
+    "sha256": "07007f7dcdace2c1d734b87fb841cd7f6ce8324dd9f3ff9257edf4ad0c593917"
+  },
+  {
+    "path": "lib/indices/css.ts",
+    "sha256": "0f7b0a1a59dccb49924d6d7fc8364721553574a7326766164aad6f7fbaf4acc1"
+  },
+  {
+    "path": "lib/indices/thresholds.ts",
+    "sha256": "fbcb5af6ed62ad8e1d7c50ba58ce952ef2e780a8e25bcf429f60b89d3693dc43"
+  },
+  {
+    "path": "lib/nasa/cache-manager.ts",
+    "sha256": "def4e586def79c0c9a966e2533280c429edd98ffeee55852cb3b6199c9c8dec6"
+  },
+  {
+    "path": "lib/nasa/power-client.ts",
+    "sha256": "9fed0e952505ba834cda0c83116c2d941abbc30d32e4cef4f2dc9116624801dc"
+  },
+  {
+    "path": "lib/nasa/firms-client.ts",
+    "sha256": "c110990941c944c02e3dced9ba37cc5b18189f72c754a71e50781c25b196919e"
+  },
+  {
+    "path": "lib/dal/index.ts",
+    "sha256": "4fe9799e7bed17e3a96a9df913215f948697a07a69460a24860fa7f4963c6574"
+  },
+  {
+    "path": "lib/dal/static-source.ts",
+    "sha256": "b014a722c26a2ad8c78785cced97d8bb45908ca684e72c9100b7a8465813c23a"
+  },
+  {
+    "path": "app/api/alerts/dispatch/route.ts",
+    "sha256": "912278ba91036610a98958ca9173776dae06b14531d1f804cb2802d4d72b852e"
+  },
+  {
+    "path": "components/officer/AlertComposer.tsx",
+    "sha256": "bb2055d5f230209c1be6e3ba5ed57cd940737942e91ec624c406fd7046facb57"
+  },
+  {
+    "path": "components/farmer/FarmerView.tsx",
+    "sha256": "ce327bc6d0efdece534bb64a739bf9f7e778207f8ac898bc3d1c26c645f602e0"
+  },
+  {
+    "path": "components/farmer/DailyDecisionsGrid.tsx",
+    "sha256": "086e4c7204e9ff7f114224feb090d2260704696c04416bde9128f715c897d07f"
+  },
+  {
+    "path": "app/api/irrigation/route.ts",
+    "sha256": "f51232cc9d5e8346cb912d3dd033616bb3def65d00acd3ca2546da90d7655ca1"
+  },
+  {
+    "path": "app/api/pump-requests/route.ts",
+    "sha256": "3e09fd3ccd6672778b218168163b1ae0abf505d6e09bbf5d08b0dce98f28c1ab"
+  },
+  {
+    "path": "app/api/pump-requests/[id]/route.ts",
+    "sha256": "f8462740ee4cef91f2169a5fbaa72ca2e15db62046115f59870067ba5e463217"
+  },
+  {
+    "path": "app/api/voice/query/route.ts",
+    "sha256": "086c85900077ac258403b01a2b023c515148ab724f82628b382aed29f2ec88c8"
+  },
+  {
+    "path": "components/shared/OfflineBanner.tsx",
+    "sha256": "7ac422802e5be43aa29e053d23bc51ee3dcabb8f5cf19808538f8387b910527a"
+  },
+  {
+    "path": "lib/stores/ui.ts",
+    "sha256": "97bfa303c2013a8d2542a1c6cfe8cb8fbd460944d7ee05937adf8017567ab1a4"
+  },
+  {
+    "path": "locales/en.json",
+    "sha256": "5f4ee2b0189cf8e31041abfdd773e8d5f0430b8b1c2c1bbc15d227f64d33a605"
+  },
+  {
+    "path": "locales/bn.json",
+    "sha256": "4c8014eeaa003b2ed839db1fd39a8f84e26146c06bfe9696851cd4a6de2b6fec"
+  },
+  {
+    "path": "package.json",
+    "sha256": "28764429b5381f12d55f39e97e57a0ef142d7815f2f9943f4f8c4fdcea242e43"
+  }
+]

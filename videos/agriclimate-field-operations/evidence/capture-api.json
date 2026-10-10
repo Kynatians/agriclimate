@@ -1,0 +1,1931 @@
+[
+  {
+    "recording": "desktop",
+    "sourceSeconds": 1.612,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 1.612,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 26.857,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 26.858,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 26.859,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 26.859,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 33.51,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 33.595,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 168.264,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "POST",
+    "status": 200,
+    "request": {
+      "id": "dispatched_1791008540623",
+      "blockId": "blk_kurigram_11",
+      "type": "flood",
+      "severity": "high",
+      "leadTimeHours": 24,
+      "headline": {
+        "en": "Flash Flood Warning: move harvested crops to high ground",
+        "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+      },
+      "detail": {
+        "en": "Flash Flood Warning: move harvested crops to high ground",
+        "bn": "Flash Flood Warning: move harvested crops to high ground"
+      },
+      "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+      "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+      "channels": [
+        "sms",
+        "push"
+      ],
+      "isOfficerDispatched": true,
+      "issuedAt": "2026-10-03T06:22:20.623Z",
+      "expiresAt": "2026-10-10T06:22:20.625Z"
+    },
+    "response": {
+      "success": true,
+      "message": "Broadcast advisory successfully transmitted to telecom gateway for block blk_kurigram_11.",
+      "alert": {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      }
+    }
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 182.072,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 182.072,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_11",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": []
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 182.157,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 182.158,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_11",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": []
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 2.601,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 2.601,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 2.787,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 2.989,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 2.989,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_11",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": []
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 31.52,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 83.805,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "POST",
+    "status": 201,
+    "request": {
+      "type": "new_pump",
+      "requesterBlockId": "blk_kurigram_01",
+      "requesterBlockName": "Chilmari South",
+      "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+      "urgency": "high"
+    },
+    "response": {
+      "success": true,
+      "message": "Pump request submitted successfully.",
+      "request": {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z"
+      }
+    }
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 281.607,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 281.608,
+    "url": "http://localhost:3457/api/pump-requests",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 300.1,
+    "url": "http://localhost:3457/api/pump-requests/pr_1791008643039",
+    "method": "PATCH",
+    "status": 200,
+    "request": {
+      "status": "approved",
+      "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+      "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+    },
+    "response": {
+      "success": true,
+      "request": {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    }
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 122.063,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 122.064,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 122.186,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 122.296,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile",
+    "sourceSeconds": 151.362,
+    "url": "http://localhost:3457/api/irrigation?districtId=kurigram",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": {
+      "districtId": "kurigram",
+      "generatedAt": "2026-10-03T06:25:10.782Z",
+      "totalDeficitBlocks": 3,
+      "availablePumps": 44,
+      "deployments": [
+        {
+          "pumpId": "pump_solar_01",
+          "targetBlockId": "blk_kurigram_01",
+          "targetBlockName": "Chilmari South",
+          "deficitSeverity": 84,
+          "estimatedCoverageHours": 34,
+          "suggestedSequence": 1
+        },
+        {
+          "pumpId": "pump_solar_02",
+          "targetBlockId": "blk_kurigram_07",
+          "targetBlockName": "Rajarhat Central",
+          "deficitSeverity": 64,
+          "estimatedCoverageHours": 26,
+          "suggestedSequence": 2
+        },
+        {
+          "pumpId": "pump_solar_03",
+          "targetBlockId": "blk_kurigram_04",
+          "targetBlockName": "Ulipur West",
+          "deficitSeverity": 32,
+          "estimatedCoverageHours": 13,
+          "suggestedSequence": 3
+        }
+      ]
+    }
+  },
+  {
+    "recording": "mobile-320",
+    "sourceSeconds": 1.449,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile-320",
+    "sourceSeconds": 1.546,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "mobile-320",
+    "sourceSeconds": 1.547,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "mobile-320",
+    "sourceSeconds": 1.581,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 389.31,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 389.311,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 389.35,
+    "url": "http://localhost:3457/api/alerts/dispatch",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "dispatched_1791008540623",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "high",
+        "leadTimeHours": 24,
+        "headline": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "উপজেলা কৃষি কার্যালয়ের জরুরি পরামর্শ বুলেটিন"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: move harvested crops to high ground",
+          "bn": "Flash Flood Warning: move harvested crops to high ground"
+        },
+        "officerNote": "Film demo advisory: move harvested crops to high ground and clear field drainage. Follow local DAE guidance.",
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-10-03T06:22:20.638Z",
+        "expiresAt": "2026-10-10T06:22:20.638Z"
+      },
+      {
+        "id": "dispatched_1790775865508",
+        "blockId": "blk_kurigram_11",
+        "type": "flood",
+        "severity": "medium",
+        "leadTimeHours": 48,
+        "headline": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+        },
+        "detail": {
+          "en": "Flash Flood Warning: Rapid Water Influx Expected",
+          "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+        },
+        "dispatchedBy": "Upazila Agriculture Office (DAE), Kurigram",
+        "channels": [
+          "sms",
+          "push"
+        ],
+        "isOfficerDispatched": true,
+        "issuedAt": "2026-09-30T13:44:25.532Z",
+        "expiresAt": "2026-10-07T13:44:25.532Z"
+      }
+    ]
+  },
+  {
+    "recording": "desktop",
+    "sourceSeconds": 389.39,
+    "url": "http://localhost:3457/api/pump-requests?blockId=blk_kurigram_01",
+    "method": "GET",
+    "status": 200,
+    "request": null,
+    "response": [
+      {
+        "id": "pr_1791008643039",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Film demo: request a shared solar pump for Chilmari South seedbeds during the evening irrigation rotation.",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T06:24:03.039Z",
+        "resolvedAt": "2026-10-03T06:24:32.673Z",
+        "officerNote": "Film demo approved: shared solar pump allocated for the next evening rotation. Coordinate setup with the field office.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      },
+      {
+        "id": "pr_1791005195808",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "blk_kurigram_01",
+        "reason": "Soil moisture 10% below baseline",
+        "urgency": "high",
+        "deficitSeverity": 72,
+        "requestedAt": "2026-10-03T05:26:35.808Z"
+      },
+      {
+        "id": "pr_1790781200000",
+        "type": "new_pump",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
+        "urgency": "high",
+        "deficitSeverity": 78,
+        "requestedAt": "2026-09-30T14:15:00.000Z"
+      },
+      {
+        "id": "pr_1790779800000",
+        "type": "transfer",
+        "status": "pending",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "targetBlockId": "blk_kurigram_02",
+        "targetBlockName": "Chilmari North",
+        "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
+        "urgency": "medium",
+        "deficitSeverity": 62,
+        "requestedAt": "2026-09-30T11:30:00.000Z"
+      },
+      {
+        "id": "pr_1790765400000",
+        "type": "new_pump",
+        "status": "approved",
+        "requesterBlockId": "blk_kurigram_01",
+        "requesterBlockName": "Chilmari South",
+        "reason": "Canal water dried up early this season. Need backup solar extraction for community seedbeds.",
+        "urgency": "high",
+        "deficitSeverity": 70,
+        "requestedAt": "2026-09-29T08:00:00.000Z",
+        "resolvedAt": "2026-09-29T10:15:00.000Z",
+        "officerNote": "Approved 10HP portable solar pump unit #02. Field tech Abdul dispatched to assist setup.",
+        "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
+      }
+    ]
+  }
+]

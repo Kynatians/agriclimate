@@ -1,0 +1,9 @@
+{
+  "renderVerified": true,
+  "durationSeconds": 28,
+  "audioStreams": 0,
+  "decode": "passed",
+  "sceneFrames": "All eight scenes inspected from the actual MP4",
+  "layoutRuntimeContrastLint": "0 errors / 0 warnings",
+  "motionReview": "Kinetic entrances, shutter occlusion and cropped/tilted screenshot planes intentionally cross their resting boxes. The heuristic animation map also co-locates hidden sub-composition roots; final scene frames were reviewed as the authoritative geometry. No blank or missing media in inspected proof frames."
+}

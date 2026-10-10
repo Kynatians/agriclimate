@@ -1,0 +1,287 @@
+hyperframes: could not determine the bundled version for @hyperframes/producer; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/core; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/producer; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/core; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"default","rawFpsSource":"default","rawFps":30,"fallbackReason":"missing"}
+[initSession:screenshot] page.goto complete (539ms)
+[initSession:screenshot] GSAP proxy flush complete (571ms)
+[initSession:screenshot] pollHfReady complete (573ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (577ms)
+[initSession:screenshot] applyVideoMetadataHints complete (578ms)
+[initSession:screenshot] media + fonts + tailwind ready (681ms)
+[initSession:screenshot] static-frame dedup: disabled (video) (693ms)
+
+Animation map: 258/283 tweens (skipped 25 micro-tweens)
+  paced-slow: 31
+  collision: 193
+  degenerate: 6
+  offscreen: 56
+  paced-fast: 56
+  staggers: 10 elements stagger with uneven intervals (42ms, 0ms, 0ms, 0ms, 0ms, 2958ms, 42ms, 2958ms, 42ms); 3 elements stagger with uneven intervals (42ms, 0ms); 8 elements stagger with uneven intervals (22ms, 20ms, 0ms, 488ms, 42ms, 0ms, 900ms); 8 elements stagger with uneven intervals (0ms, 0ms, 0ms, 8958ms, 42ms, 3958ms, 42ms); 3 elements stagger at 120ms intervals; 4 elements stagger with uneven intervals (8ms, 42ms, 0ms); 12 elements stagger with uneven intervals (42ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 2958ms, 42ms); 3 elements stagger with uneven intervals (200ms, 100ms); 6 elements stagger with uneven intervals (0ms, 0ms, 0ms, 0ms, 0ms); 7 elements stagger at 35ms intervals; 3 elements stagger with uneven intervals (42ms, 0ms); 3 elements stagger with uneven intervals (42ms, 0ms); 6 elements stagger with uneven intervals (0ms, 2958ms, 0ms, 42ms, 0ms); 3 elements stagger with uneven intervals (1118ms, 42ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 4 elements stagger with uneven intervals (42ms, 2958ms, 42ms); 14 elements stagger with uneven intervals (35ms, 7ms, 28ms, 7ms, 28ms, 7ms, 28ms, 7ms, 28ms, 7ms, 28ms, 7ms, 35ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 4 elements stagger with uneven intervals (42ms, 158ms, 42ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 4 elements stagger with uneven intervals (42ms, 6958ms, 42ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms); 6 elements stagger with uneven intervals (42ms, 78ms, 42ms, 78ms, 42ms); 4 elements stagger with uneven intervals (42ms, 2958ms, 42ms); 8 elements stagger with uneven intervals (22ms, 22ms, 22ms, 104ms, 22ms, 22ms, 22ms)
+Timeline (28.0s, each char ≈ 0.47s):
+  0s                                                    28s
+  ┼───────────────────────────────────────────────────────────┤
+  ███████                                                       div.grid x+y
+  ██                                                            #q01-map rotationY+scale+x+opacity
+  ██                                                            h1.headline x+opacity
+  ████████████████████████████████████████████████████████████  #progress scaleX
+  ███████                                                       div.grid x+y
+  ██                                                            #q01-map rotationY+scale+x+opacity
+  ███████                                                       div.grid x+y
+  ██                                                            #q01-map rotationY+scale+x+opacity
+  ███████                                                       div.grid x+y
+  ███████                                                       div.grid x+y
+  ██                                                            #q03-seven scale+rotation+opacity
+  █████████                                                     div.grid x+y
+  █████████                                                     div.grid x+y
+  █████████                                                     div.grid x+y
+  █                                                             #q06-request x+opacity
+  ███████                                                       div.grid x+y
+  ██                                                            #q07-nasa y+rotationX+opacity
+  █████████                                                     div.grid x+y
+  ██                                                            #q08-brand scale+y+opacity
+  █████████                                                     #q08-watermark rotation+scale
+  ██                                                            #q01-number scale+y+opacity
+  ██                                                            h1.headline x+opacity
+  ██                                                            h1.headline x+opacity
+  ██                                                            path attr
+  ██                                                            #q05-soil x+rotationY+y+opacity
+  ██                                                            #q01-number scale+y+opacity
+  ██                                                            #q01-number scale+y+opacity
+  ██                                                            #q03-map x+rotationY+opacity
+  ██                                                            #q04-composer x+rotationY+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            h1.headline y+opacity
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            path attr
+  ██                                                            #q02-officer x+rotationY+rotationZ+opacity
+  █                                                             span y+opacity
+  ██                                                            #q07-plan y+rotationX+opacity
+  ██                                                            span y+opacity
+  ██████                                                        #q01-scan y+opacity
+  ██                                                            #q05-weather y+opacity
+  ██                                                            span y+opacity
+  ███████                                                       #q01-scan y+opacity
+  ███████                                                       #q01-scan y+opacity
+  ██                                                            span y+opacity
+  ███                                                           #q02-farmer x+rotationY+y+opacity
+  ██                                                            #q08-line y+opacity
+  ██                                                            span y+opacity
+  ██                                                            #q07-tests y+rotationX+opacity
+  ██                                                            #q04-phone x+rotationY+opacity
+  ██                                                            span y+opacity
+  ███                                                           path.block fillOpacity
+  ██                                                            span y+opacity
+  ███                                                           path.block fillOpacity
+  ███                                                           path.block fillOpacity
+  ███                                                           #q05-crop x+rotationY+opacity
+   ████                                                         #q06-route attr
+   ██                                                           #q01-alert x+opacity
+   ██                                                           #q01-alert x+opacity
+   ██                                                           #q01-alert x+opacity
+   ██                                                           #q06-review scale+rotationY+opacity
+   ██                                                           div.stat y+scale+opacity
+   ██                                                           code.smallcode opacity
+   ██                                                           #q04-route attr
+    ██                                                          #q08-url clipPath
+    ████                                                        #q02-officer y
+    ████                                                        #q02-farmer y
+    ██                                                          #q04-packet x+opacity
+     ██                                                         #q06-approved x+opacity
+     █████                                                      div.inside scale
+     ██                                                         #q03-fire scale+opacity
+      ██                                                        #q05-growth y+opacity
+      ██                                                        #q05-weather y+opacity
+      ██                                                        #q06-stamp scale+rotation+opacity
+      ███                                                       (onUpdate driver) t
+        █                                                       #shutter-0 x
+        █                                                       #shutter-1 x
+        █                                                       #shutter-2 x
+        █                                                       #shutter-3 x
+        ███████                                                 div.grid x+y
+        █                                                       #shutter-0 x
+        ███████                                                 div.grid x+y
+        ██                                                      h1.headline y+opacity
+        █                                                       #shutter-1 x
+        ███                                                     path attr
+        █                                                       #shutter-2 x
+        ███                                                     #q02-officer x+rotationY+rotationZ+opacity
+        ██                                                      h1.headline y+opacity
+        ██                                                      #shutter-3 x
+        ███                                                     path attr
+        ███                                                     #q02-officer x+rotationY+rotationZ+opacity
+        ███                                                     #q02-farmer x+rotationY+y+opacity
+        ███                                                     #q02-farmer x+rotationY+y+opacity
+          ████                                                  #q02-officer y
+          ████                                                  #q02-farmer y
+          ████                                                  #q02-officer y
+          ████                                                  #q02-farmer y
+              █                                                 #shutter-0 x
+              █                                                 #shutter-1 x
+              ██                                                #shutter-2 x
+              ██                                                #shutter-3 x
+              ████████                                          div.grid x+y
+              ██                                                #q03-seven scale+rotation+opacity
+              ██                                                #shutter-0 x
+              ████████                                          div.grid x+y
+              ██                                                #q03-seven scale+rotation+opacity
+              ███                                               #q03-map x+rotationY+opacity
+              ██                                                h1.headline y+opacity
+              ██                                                #shutter-1 x
+               ██                                               path attr
+               █                                                #shutter-2 x
+               ██                                               #q03-map x+rotationY+opacity
+               █                                                span y+opacity
+               █                                                h1.headline y+opacity
+               █                                                #shutter-3 x
+               ██                                               path attr
+               █                                                span y+opacity
+               █                                                span y+opacity
+               █                                                span y+opacity
+               █                                                span y+opacity
+               █                                                span y+opacity
+               █                                                span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+               ██                                               span y+opacity
+                  ██                                            #q03-fire scale+opacity
+                  ██                                            #q03-fire scale+opacity
+                     █                                          #shutter-0 x
+                     █                                          #shutter-1 x
+                     █                                          #shutter-2 x
+                     █                                          #shutter-3 x
+                     █████████                                  div.grid x+y
+                     █                                          #shutter-0 x
+                     █████████                                  div.grid x+y
+                     ██                                         #q04-composer x+rotationY+opacity
+                     ██                                         h1.headline y+opacity
+                     █                                          #shutter-1 x
+                     ███                                        path attr
+                     █                                          #shutter-2 x
+                     ██                                         #q04-composer x+rotationY+opacity
+                     ██                                         h1.headline y+opacity
+                     █                                          #shutter-3 x
+                     ███                                        path attr
+                     ██                                         #q04-phone x+rotationY+opacity
+                     ███                                        #q04-phone x+rotationY+opacity
+                      ███                                       #q04-route attr
+                      ███                                       #q04-route attr
+                       ███                                      #q04-packet x+opacity
+                       ███                                      #q04-packet x+opacity
+                        █████                                   div.inside scale
+                         ████                                   div.inside scale
+                             █                                  #shutter-0 x
+                             █                                  #shutter-1 x
+                             ██                                 #shutter-2 x
+                             ██                                 #shutter-3 x
+                             ██████████                         div.grid x+y
+                             ███                                #q05-soil x+rotationY+y+opacity
+                             ██                                 #shutter-0 x
+                             ██████████                         div.grid x+y
+                             ██                                 h1.headline y+opacity
+                             ██                                 #shutter-1 x
+                              ██                                path attr
+                              ██                                #q05-soil x+rotationY+y+opacity
+                              █                                 #shutter-2 x
+                              █                                 h1.headline y+opacity
+                              █                                 #shutter-3 x
+                              ██                                path attr
+                              ██                                #q05-weather y+opacity
+                              ██                                #q05-weather y+opacity
+                              ██                                #q05-crop x+rotationY+opacity
+                              ██                                #q05-crop x+rotationY+opacity
+                                 ██                             #q05-growth y+opacity
+                                 ██                             #q05-weather y+opacity
+                                  ██                            #q05-growth y+opacity
+                                  █                             #q05-weather y+opacity
+                                      █                         #shutter-0 x
+                                      █                         #shutter-1 x
+                                      █                         #shutter-2 x
+                                      █                         #shutter-3 x
+                                      █████████                 div.grid x+y
+                                      ██                        #q06-request x+opacity
+                                      █                         #shutter-0 x
+                                      ██████████                div.grid x+y
+                                      ██                        #q06-request x+opacity
+                                      ██                        h1.headline y+opacity
+                                      █                         #shutter-1 x
+                                      ███                       path attr
+                                      █                         #shutter-2 x
+                                      ██                        h1.headline y+opacity
+                                      ██                        #shutter-3 x
+                                      ███                       path attr
+                                       ████                     #q06-route attr
+                                       ████                     #q06-route attr
+                                       ██                       #q06-review scale+rotationY+opacity
+                                       ██                       #q06-review scale+rotationY+opacity
+                                         ██                     #q06-approved x+opacity
+                                         ██                     #q06-approved x+opacity
+                                           █                    #q06-stamp scale+rotation+opacity
+                                           ██                   (onUpdate driver) t
+                                           █                    #q06-stamp scale+rotation+opacity
+                                           ██                   (onUpdate driver) t
+                                              ██                #shutter-0 x
+                                              ██                #shutter-1 x
+                                              ██                #shutter-2 x
+                                              ██                #shutter-3 x
+                                               ███████          div.grid x+y
+                                               ██               #q07-nasa y+rotationX+opacity
+                                               █                #shutter-0 x
+                                               ███████          div.grid x+y
+                                               ██               #q07-nasa y+rotationX+opacity
+                                               ██               h1.headline y+opacity
+                                               █                #shutter-1 x
+                                               ██               path attr
+                                               █                #shutter-2 x
+                                               ██               h1.headline y+opacity
+                                               █                #shutter-3 x
+                                               ██               #q07-plan y+rotationX+opacity
+                                               ██               path attr
+                                               ██               #q07-plan y+rotationX+opacity
+                                               ██               #q07-tests y+rotationX+opacity
+                                               ██               #q07-tests y+rotationX+opacity
+                                                ██              code.smallcode opacity
+                                                ██              code.smallcode opacity
+                                                     █          #shutter-0 x
+                                                     █          #shutter-1 x
+                                                     █          #shutter-2 x
+                                                     █          #shutter-3 x
+                                                     █████████  div.grid x+y
+                                                     ██         #q08-brand scale+y+opacity
+                                                     █████████  #q08-watermark rotation+scale
+                                                     █          #shutter-0 x
+                                                     █████████  div.grid x+y
+                                                     ██         #q08-brand scale+y+opacity
+                                                     █████████  #q08-watermark rotation+scale
+                                                     █          #shutter-1 x
+                                                     ███        path attr
+                                                     █          #shutter-2 x
+                                                     ██         #shutter-3 x
+                                                     ███        path attr
+                                                     ██         #q08-line y+opacity
+                                                     ███        #q08-line y+opacity
+                                                      ███       div.stat y+scale+opacity
+                                                      ███       div.stat y+scale+opacity
+                                                       ██       #q08-url clipPath
+                                                       ██       #q08-url clipPath

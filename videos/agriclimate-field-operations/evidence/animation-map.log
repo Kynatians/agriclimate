@@ -1,0 +1,274 @@
+hyperframes: could not determine the bundled version for @hyperframes/producer; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/core; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/producer; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+hyperframes: could not determine the bundled version for @hyperframes/core; using @latest.
+Set HYPERFRAMES_SKILL_PKG_VERSION=<version> to pin it.
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"default","rawFpsSource":"default","rawFps":30,"fallbackReason":"missing"}
+[initSession:screenshot] page.goto complete (572ms)
+[initSession:screenshot] GSAP proxy flush complete (733ms)
+[initSession:screenshot] pollHfReady complete (795ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (902ms)
+[initSession:screenshot] applyVideoMetadataHints complete (902ms)
+[initSession:screenshot] media + fonts + tailwind ready (1025ms)
+[initSession:screenshot] static-frame dedup: disabled (video) (1040ms)
+
+Animation map: 245/281 tweens (skipped 36 micro-tweens)
+  collision: 185
+  paced-slow: 16
+  degenerate: 5
+  offscreen: 12
+  paced-fast: 2
+  staggers: 18 elements stagger with uneven intervals (176ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 1300ms); 18 elements stagger with uneven intervals (176ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 920ms); 17 elements stagger with uneven intervals (176ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms, 0ms); 5 elements stagger with uneven intervals (76ms, 0ms, 100ms, 0ms); 5 elements stagger at 350ms intervals; 4 elements stagger with uneven intervals (176ms, 744ms, 176ms); 10 elements stagger at 175ms intervals; 4 elements stagger with uneven intervals (176ms, 1124ms, 176ms)
+Timeline (246.0s, each char ≈ 4.10s):
+  0s                                                    246s
+  ┼───────────────────────────────────────────────────────────┤
+  █                                                             div.rail opacity
+  ████                                                          (onUpdate driver) s
+  █                                                             div.body opacity
+  █                                                             h1.heading x+opacity
+  ████████████████████████████████████████████████████████████  #progress scaleX
+  █                                                             div.rail opacity
+  ████                                                          (onUpdate driver) s
+  █                                                             div.rail opacity
+  ████                                                          (onUpdate driver) s
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  ██████                                                        (onUpdate driver) t
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  ████                                                          (onUpdate driver) t
+  █                                                             div.rail opacity
+  █                                                             div.rail opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             div.body opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             h1.heading x+opacity
+  █                                                             #s01-alert y+opacity
+  █                                                             div.step y+opacity
+  █                                                             div.step y+opacity
+  █                                                             div.step y+opacity
+  █                                                             div.step y+opacity
+  █                                                             #s01-alert y+opacity
+  █                                                             #s01-alert y+opacity
+  █                                                             (onUpdate driver) n
+  █                                                             div.step opacity
+  █                                                             span.out opacity
+  █                                                             div.barfill scaleX
+  █                                                             div.barfill scaleX
+  █                                                             div.barfill scaleX
+  ██                                                            (onUpdate driver) n
+  ██                                                            div.barfill scaleX
+  ██                                                            div.barfill scaleX
+  ██                                                            div.step backgroundColor
+   █                                                            div.step backgroundColor
+   █                                                            #s13-live opacity
+   █                                                            div.camera scale
+   █                                                            div.step opacity
+   █                                                            #s13-seed borderColor+backgroundColor
+   █                                                            (onUpdate driver) n
+   █                                                            #s13-ui borderColor
+   █                                                            div.step backgroundColor
+   ██                                                           div.camera scale+x+y
+   █                                                            div.step backgroundColor
+   ██                                                           div.camera scale+x+y
+   █                                                            div.step opacity
+   █                                                            div.step backgroundColor
+   ██                                                           div.step backgroundColor
+    █                                                           div.step backgroundColor
+    █                                                           div.step backgroundColor
+    █                                                           div.step opacity
+    █                                                           div.step backgroundColor
+    ██                                                          div.step backgroundColor
+     █                                                          div.camera scale
+     █                                                          div.rail opacity
+     █                                                          div.step backgroundColor
+     █                                                          div.body opacity
+     █                                                          h1.heading x+opacity
+     █                                                          div.rail opacity
+     █                                                          div.body opacity
+     █                                                          h1.heading x+opacity
+        █                                                       #wipe x
+        █                                                       div.rail opacity
+        █                                                       div.body opacity
+        █                                                       h1.heading x+opacity
+        █                                                       #wipe x
+        █                                                       div.rail opacity
+        █                                                       div.body opacity
+        █                                                       h1.heading x+opacity
+         ███                                                    div.camera scale+x+y
+         ███                                                    div.camera scale+x+y
+            █                                                   div.rail opacity
+            █                                                   div.body opacity
+            █                                                   h1.heading x+opacity
+            █                                                   div.rail opacity
+            █                                                   div.body opacity
+            █                                                   h1.heading x+opacity
+                █                                               #wipe x
+                █                                               div.rail opacity
+                █                                               div.body opacity
+                █                                               h1.heading x+opacity
+                █                                               #wipe x
+                █                                               div.rail opacity
+                █                                               div.body opacity
+                █                                               h1.heading x+opacity
+                    █                                           div.rail opacity
+                    █                                           div.body opacity
+                    █                                           h1.heading x+opacity
+                    █                                           div.rail opacity
+                    █                                           div.body opacity
+                    █                                           h1.heading x+opacity
+                    █                                           div.step y+opacity
+                    █                                           div.step y+opacity
+                     █                                          div.camera scale
+                     █                                          div.camera scale
+                       █                                        div.camera scale
+                       █                                        div.camera scale
+                        █                                       div.rail opacity
+                        █                                       div.body opacity
+                        █                                       h1.heading x+opacity
+                        █                                       div.rail opacity
+                        █                                       div.body opacity
+                        █                                       h1.heading x+opacity
+                            █                                   div.rail opacity
+                            █                                   div.body opacity
+                            █                                   h1.heading x+opacity
+                            █                                   div.rail opacity
+                            █                                   div.body opacity
+                            █                                   h1.heading x+opacity
+                            █                                   div.step y+opacity
+                            █                                   div.step y+opacity
+                            █                                   div.step opacity
+                            █                                   div.step opacity
+                             █                                  div.step opacity
+                             █                                  div.step opacity
+                              █                                 div.step opacity
+                              █                                 div.step opacity
+                              █                                 div.step opacity
+                              █                                 div.step opacity
+                                █                               #wipe x
+                                █                               div.rail opacity
+                                █                               div.body opacity
+                                █                               h1.heading x+opacity
+                                █                               #wipe x
+                                █                               div.rail opacity
+                                █                               div.body opacity
+                                █                               h1.heading x+opacity
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                 █                              div.barfill scaleX
+                                  ██                            div.camera scale+x+y
+                                  ██                            div.camera scale+x+y
+                                     █                          div.rail opacity
+                                     ██████                     (onUpdate driver) t
+                                     █                          div.body opacity
+                                     █                          h1.heading x+opacity
+                                     █                          div.rail opacity
+                                     ███████                    (onUpdate driver) t
+                                     █                          div.body opacity
+                                     █                          h1.heading x+opacity
+                                     █                          div.step y+opacity
+                                     █                          div.step y+opacity
+                                          ██                    #wipe x
+                                          ██                    div.rail opacity
+                                          ██                    div.body opacity
+                                           █                    h1.heading x+opacity
+                                           █                    #wipe x
+                                           █                    div.rail opacity
+                                           █                    div.body opacity
+                                           █                    h1.heading x+opacity
+                                           █                    div.step y+opacity
+                                           █                    div.step y+opacity
+                                           █                    span.out opacity
+                                           █                    span.out opacity
+                                              █                 #wipe x
+                                              █                 div.rail opacity
+                                              █                 div.body opacity
+                                              █                 h1.heading x+opacity
+                                              █                 #wipe x
+                                              █                 div.rail opacity
+                                              █                 div.body opacity
+                                              █                 h1.heading x+opacity
+                                                   █            div.rail opacity
+                                                   █████        (onUpdate driver) t
+                                                   █            div.body opacity
+                                                   █            h1.heading x+opacity
+                                                   █            div.rail opacity
+                                                   █████        (onUpdate driver) t
+                                                   █            div.body opacity
+                                                   █            h1.heading x+opacity
+                                                    █           #s13-live opacity
+                                                    █           #s13-live opacity
+                                                    █           #s13-seed borderColor+backgroundColor
+                                                    █           #s13-seed borderColor+backgroundColor
+                                                    █           #s13-ui borderColor
+                                                    █           #s13-ui borderColor
+                                                       █        #wipe x
+                                                       █        div.rail opacity
+                                                       █        div.body opacity
+                                                       █        h1.heading x+opacity
+                                                       █        #wipe x
+                                                       █        div.rail opacity
+                                                       █        div.body opacity
+                                                       █        h1.heading x+opacity
+                                                       █        span.out opacity
+                                                       █        span.out opacity
+                                                          █     div.rail opacity
+                                                          █     div.body opacity
+                                                          █     h1.heading x+opacity
+                                                          █     div.rail opacity
+                                                          █     div.body opacity
+                                                          █     h1.heading x+opacity
+                                                          ██    (onUpdate driver) n
+                                                          ██    (onUpdate driver) n
+                                                           █    (onUpdate driver) n
+                                                           █    (onUpdate driver) n
+                                                           ██   (onUpdate driver) n
+                                                           ██   (onUpdate driver) n

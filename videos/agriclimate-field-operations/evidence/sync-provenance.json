@@ -1,0 +1,9 @@
+{
+  "command": "curl -X POST http://localhost:3458/api/sync/live-nasa",
+  "isolation": "Unmodified application source copied to temporary directory, separate data/live, same local environment. Original app cache untouched.",
+  "http_status": 200,
+  "observed_new_fire_alerts": 0,
+  "blocks_written": 12,
+  "fresh_power_source_records": 12,
+  "note": "Endpoint counts records saved as blocksUpdated, including fallback; zero new fire alerts does not prove no fires in the district."
+}

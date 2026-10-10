@@ -1,19 +1,43 @@
 [
   {
-    "id": "pr_1790781200000",
+    "id": "pr_1791642349302",
     "type": "new_pump",
     "status": "pending",
+    "requesterBlockId": "blk_kurigram_02",
+    "requesterBlockName": "Chilmari North",
+    "reason": "w",
+    "urgency": "medium",
+    "deficitSeverity": 38,
+    "requestedAt": "2026-10-10T14:25:49.302Z"
+  },
+  {
+    "id": "pr_1791005195808",
+    "type": "new_pump",
+    "status": "pending",
+    "requesterBlockId": "blk_kurigram_01",
+    "requesterBlockName": "blk_kurigram_01",
+    "reason": "Soil moisture 10% below baseline",
+    "urgency": "high",
+    "deficitSeverity": 72,
+    "requestedAt": "2026-10-03T05:26:35.808Z"
+  },
+  {
+    "id": "pr_1790781200000",
+    "type": "new_pump",
+    "status": "approved",
     "requesterBlockId": "blk_kurigram_01",
     "requesterBlockName": "Chilmari South",
     "reason": "Severe moisture deficit in eastern sector; rice vegetative stage wilting under heat stress. Urgent solar pump allocation requested for 40 hectares.",
     "urgency": "high",
     "deficitSeverity": 78,
-    "requestedAt": "2026-09-30T14:15:00.000Z"
+    "requestedAt": "2026-09-30T14:15:00.000Z",
+    "resolvedAt": "2026-10-10T14:26:01.462Z",
+    "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
   },
   {
     "id": "pr_1790779800000",
     "type": "transfer",
-    "status": "pending",
+    "status": "approved",
     "requesterBlockId": "blk_kurigram_01",
     "requesterBlockName": "Chilmari South",
     "targetBlockId": "blk_kurigram_02",
@@ -21,7 +45,9 @@
     "reason": "Requesting temporary transfer of idle mobile solar array from North block to Chilmari South for critical 48-hour irrigation rotation.",
     "urgency": "medium",
     "deficitSeverity": 62,
-    "requestedAt": "2026-09-30T11:30:00.000Z"
+    "requestedAt": "2026-09-30T11:30:00.000Z",
+    "resolvedAt": "2026-10-10T14:25:58.903Z",
+    "resolvedBy": "Upazila Agriculture Office (DAE), Kurigram"
   },
   {
     "id": "pr_1790765400000",

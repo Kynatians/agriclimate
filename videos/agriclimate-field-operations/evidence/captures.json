@@ -1,0 +1,2450 @@
+{
+  "createdAt": "2026-10-03T06:26:11.672Z",
+  "baseUrl": "http://localhost:3457",
+  "framework": "Real Next.js app captured by Playwright Chromium; software WebGL renders genuine MapLibre map.",
+  "styleChanges": [
+    "nextjs-portal { display: none !important; } — hides only Next.js development badge."
+  ],
+  "noResponseMocks": true,
+  "nasaSyncTriggered": false,
+  "notes": [
+    "Desktop recordings are 1920x1080; mobile is 390x844; narrow mobile is 320x740. App layout is not restyled.",
+    "Any personal-looking topbar name and old request notes are pre-existing app fixtures, not newly supplied personal data.",
+    "Cached fire alert is 5.5 MW FRP, issued 2026-09-30 and expires 2026-10-01; captured as existing cache, not newly detected fire.",
+    "New composer Bengali headline is a generic fallback, not a translation of the typed English headline. No invented bilingual translation.",
+    "Dispatch endpoint stores local JSON. Success message does not establish actual telecom SMS/push delivery.",
+    "Farmer approval is shown after reload/refetch; no push or automatic latency claim.",
+    "DailyDecisionsGrid has three cards; soil and solar instruments share the water card. Telemetry opens from the Telemetry (5) button, not the soil card.",
+    "320px header has existing horizontal overflow. Offline capture is a loaded-page offline event, not a successful cold offline reload.",
+    "Voice dialog is a real production-preview stub; clicking it does not call the 501 API.",
+    "Source time ranges use recording wall clock and may differ from frame PTS by approximately one second; converted scene files are ready for editorial review.",
+    "Actual top crop recommendation is Mungbean (BARI Mung-6), CSS 91, then Groundnut 87 and Green Chili 83. Not the Boro Rice example in the draft script.",
+    "The current crop modal shows score, harvest window, ROI, market demand and rationale; it does not expose the five score-weight bars described in the draft.",
+    "Successful read-only pickup replaces the initial scene 03 selector failure and two fire-beacon selector failures. Historical attempts remain in attempts/errors; final scene clips are the editorial sources."
+  ],
+  "recordings": [
+    {
+      "id": "desktop",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 399.24,
+      "codec": "vp8",
+      "frameRate": "25/1"
+    },
+    {
+      "id": "mobile",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 212.8,
+      "codec": "vp8",
+      "frameRate": "25/1"
+    },
+    {
+      "id": "mobile-320",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-mobile-320-raw.webm",
+      "width": 320,
+      "height": 740,
+      "durationSeconds": 60.24,
+      "codec": "vp8",
+      "frameRate": "25/1"
+    },
+    {
+      "id": "desktop-pickups",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 103.08,
+      "codec": "vp8",
+      "frameRate": "25/1"
+    },
+    {
+      "id": "fire-pickup",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-fire-pickup-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 44.72,
+      "codec": "vp8",
+      "frameRate": "25/1"
+    }
+  ],
+  "clips": [
+    {
+      "id": "01-dark-officer-map",
+      "description": "Real dark-mode district map, existing cache, all twelve block polygons.",
+      "recording": "desktop",
+      "start": 15.593,
+      "end": 25.22,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 9.88,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 15.343,
+        "endSeconds": 25.223
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 9.877,
+          "description": "BEGIN 01-dark-officer-map"
+        }
+      ]
+    },
+    {
+      "id": "02-mode-switch",
+      "description": "Continuous real officer → farmer → officer mode switch.",
+      "recording": "desktop",
+      "start": 25.226,
+      "end": 42.442,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/02-mode-switch.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.44,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 24.976,
+        "endSeconds": 42.416
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.198,
+          "description": "BEGIN 02-mode-switch"
+        },
+        {
+          "startSeconds": 1.198,
+          "endSeconds": 7.985,
+          "description": "Switch to farmer"
+        },
+        {
+          "startSeconds": 7.985,
+          "endSeconds": 11.782,
+          "description": "Switch to officer"
+        },
+        {
+          "startSeconds": 11.782,
+          "endSeconds": 17.44,
+          "description": "Reset map to district bounds"
+        }
+      ]
+    },
+    {
+      "id": "03-chilmari-officer",
+      "description": "1920×1080 cockpit: real Ulipur East hover tooltip, followed by Chilmari South selection from district roster and actual telemetry.",
+      "recording": "desktop-pickups",
+      "start": 15.466,
+      "status": "captured",
+      "end": 31.266,
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 16.04,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 15.216,
+        "endSeconds": 31.256
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.768,
+          "description": "BEGIN 03-chilmari-officer"
+        },
+        {
+          "startSeconds": 1.768,
+          "endSeconds": 5.999,
+          "description": "Hover Chilmari polygon"
+        },
+        {
+          "startSeconds": 5.999,
+          "endSeconds": 16.04,
+          "description": "Select Chilmari South from district roster"
+        }
+      ]
+    },
+    {
+      "id": "04-seven-layers-basemap",
+      "description": "All seven real layer selectors, changing legend and map, then satellite basemap.",
+      "recording": "desktop",
+      "start": 67.559,
+      "end": 111.232,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/04-seven-layers-basemap.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 43.96,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 67.309,
+        "endSeconds": 111.269
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.12,
+          "description": "BEGIN 04-seven-layers-basemap"
+        },
+        {
+          "startSeconds": 1.12,
+          "endSeconds": 5.651,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 5.651,
+          "endSeconds": 9.219,
+          "description": "Layer NDVI Anomaly"
+        },
+        {
+          "startSeconds": 9.219,
+          "endSeconds": 12.85,
+          "description": "Layer Soil Moisture"
+        },
+        {
+          "startSeconds": 12.85,
+          "endSeconds": 16.309,
+          "description": "Layer Flood Risk (FSS)"
+        },
+        {
+          "startSeconds": 16.309,
+          "endSeconds": 20.003,
+          "description": "Layer Water Stress"
+        },
+        {
+          "startSeconds": 20.003,
+          "endSeconds": 23.651,
+          "description": "Layer 7d Precip"
+        },
+        {
+          "startSeconds": 23.651,
+          "endSeconds": 27.27,
+          "description": "Layer Pump Priority"
+        },
+        {
+          "startSeconds": 27.27,
+          "endSeconds": 31.23,
+          "description": "Layer Fire / Heat"
+        },
+        {
+          "startSeconds": 31.23,
+          "endSeconds": 33.446,
+          "description": "Open basemap switcher"
+        },
+        {
+          "startSeconds": 33.446,
+          "endSeconds": 43.923,
+          "description": "Choose satellite basemap"
+        }
+      ]
+    },
+    {
+      "id": "05-cached-fire-overlay",
+      "description": "Actual cached VIIRS thermal anomaly, 5.5 MW FRP, opened from the northernmost map beacon.",
+      "recording": "fire-pickup",
+      "status": "captured",
+      "start": 24.945,
+      "end": 43.88,
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 19.16,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-fire-pickup-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 24.695,
+        "endSeconds": 43.855000000000004
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.153,
+          "description": "BEGIN 05-cached-fire-overlay"
+        },
+        {
+          "startSeconds": 4.153,
+          "endSeconds": 19.16,
+          "description": "Open cached Bhurungamari fire beacon"
+        }
+      ]
+    },
+    {
+      "id": "06-rowmari-broadcast",
+      "description": "Select Rowmari Char, fill actual advisory, send through real local dispatch API.",
+      "recording": "desktop",
+      "start": 136.224,
+      "end": 175.073,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-broadcast.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 39.08,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 135.974,
+        "endSeconds": 175.05399999999997
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 2.472,
+          "description": "BEGIN 06-rowmari-broadcast"
+        },
+        {
+          "startSeconds": 2.472,
+          "endSeconds": 6.671,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 6.671,
+          "endSeconds": 12.639,
+          "description": "Layer Flood Risk (FSS)"
+        },
+        {
+          "startSeconds": 12.639,
+          "endSeconds": 17.489,
+          "description": "Select Rowmari Char"
+        },
+        {
+          "startSeconds": 17.489,
+          "endSeconds": 31.677,
+          "description": "Open prefilled Rowmari composer"
+        },
+        {
+          "startSeconds": 31.677,
+          "endSeconds": 39.08,
+          "description": "Send real advisory broadcast"
+        }
+      ]
+    },
+    {
+      "id": "07-farmer-bengali-alert",
+      "description": "Real Bengali farmer alert and language switch; newly dispatched alert accessed through alert list.",
+      "recording": "mobile",
+      "start": 7.62,
+      "end": 26.377,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-bengali-alert.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 19,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 7.37,
+        "endSeconds": 26.37
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.196,
+          "description": "BEGIN 07-farmer-bengali-alert"
+        },
+        {
+          "startSeconds": 4.196,
+          "endSeconds": 12.377,
+          "description": "Open farmer advisories"
+        },
+        {
+          "startSeconds": 12.377,
+          "endSeconds": 19,
+          "description": "Language English"
+        }
+      ]
+    },
+    {
+      "id": "08-desktop-daily-cards",
+      "description": "Supplement: three real daily-decision cards visible together at desktop size.",
+      "recording": "desktop-pickups",
+      "start": 57.546,
+      "status": "captured",
+      "end": 73.13,
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 15.8,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 57.296,
+        "endSeconds": 73.096
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 6.308,
+          "description": "BEGIN 08-desktop-daily-cards"
+        },
+        {
+          "startSeconds": 6.308,
+          "endSeconds": 15.8,
+          "description": "Open desktop telemetry"
+        },
+        {
+          "startSeconds": 15.834,
+          "endSeconds": 15.8,
+          "description": "BEGIN 09-desktop-crop-modal"
+        }
+      ]
+    },
+    {
+      "id": "08-mobile-decisions-telemetry",
+      "description": "Chilmari mobile daily decision cards, actual telemetry modal from its real button.",
+      "recording": "mobile",
+      "start": 26.387,
+      "end": 53.187,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-decisions-telemetry.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 27.04,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 26.137,
+        "endSeconds": 53.177
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.472,
+          "description": "BEGIN 08-mobile-decisions-telemetry"
+        },
+        {
+          "startSeconds": 1.472,
+          "endSeconds": 3.804,
+          "description": "Language English"
+        },
+        {
+          "startSeconds": 3.804,
+          "endSeconds": 5.251,
+          "description": "Go to farmer home"
+        },
+        {
+          "startSeconds": 5.251,
+          "endSeconds": 15.353,
+          "description": "Scroll to Chilmari overview"
+        },
+        {
+          "startSeconds": 15.353,
+          "endSeconds": 18.653,
+          "description": "Return to telemetry button"
+        },
+        {
+          "startSeconds": 18.653,
+          "endSeconds": 27.04,
+          "description": "Open telemetry detail"
+        }
+      ]
+    },
+    {
+      "id": "09-crop-recommendations",
+      "description": "Real top-ranked crop recommendation with scores and explanations.",
+      "recording": "mobile",
+      "start": 54.218,
+      "end": 70.09,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-recommendations.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.12,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 53.968,
+        "endSeconds": 70.08800000000001
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.251,
+          "description": "BEGIN 09-crop-recommendations"
+        },
+        {
+          "startSeconds": 0.251,
+          "endSeconds": 3.616,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.616,
+          "endSeconds": 16.12,
+          "description": "Open crop recommendations"
+        }
+      ]
+    },
+    {
+      "id": "09-desktop-crop-modal",
+      "description": "Supplement: real Chilmari top crop with expanded score/explanation at readable desktop size.",
+      "recording": "desktop-pickups",
+      "start": 73.13,
+      "status": "captured",
+      "end": 90.833,
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.96,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 72.88,
+        "endSeconds": 90.84
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.187,
+          "description": "BEGIN 09-desktop-crop-modal"
+        },
+        {
+          "startSeconds": 1.187,
+          "endSeconds": 17.953,
+          "description": "Open crop recommendations"
+        },
+        {
+          "startSeconds": 17.953,
+          "endSeconds": 17.953,
+          "description": "BEGIN 11-desktop-irrigation-modal"
+        }
+      ]
+    },
+    {
+      "id": "10a-pump-request-submit",
+      "description": "Real high-urgency Chilmari request submitted by UI, no personal name.",
+      "recording": "mobile",
+      "start": 71.05,
+      "end": 90.778,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-request-submit.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 20,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 70.8,
+        "endSeconds": 90.8
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.25,
+          "description": "BEGIN 10a-pump-request-submit"
+        },
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 3.599,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.599,
+          "endSeconds": 12.712,
+          "description": "Open pump request"
+        },
+        {
+          "startSeconds": 12.712,
+          "endSeconds": 14.029,
+          "description": "Submit real pump request"
+        },
+        {
+          "startSeconds": 14.029,
+          "endSeconds": 19.978,
+          "description": "Pump API created request"
+        }
+      ]
+    },
+    {
+      "id": "10b-officer-pump-approval",
+      "description": "Officer queue opens the demo request, writes note, approves through real PATCH.",
+      "recording": "desktop",
+      "start": 284.771,
+      "end": 306.796,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pump-approval.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 22.24,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 284.521,
+        "endSeconds": 306.761
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.016,
+          "description": "BEGIN 10b-officer-pump-approval"
+        },
+        {
+          "startSeconds": 4.016,
+          "endSeconds": 14.369,
+          "description": "Review demo pump request"
+        },
+        {
+          "startSeconds": 14.369,
+          "endSeconds": 22.24,
+          "description": "Approve demo pump request"
+        }
+      ]
+    },
+    {
+      "id": "10c-farmer-pump-approved",
+      "description": "Farmer remount fetches the actual approved request and officer note.",
+      "recording": "mobile",
+      "start": 121.03,
+      "end": 137.46,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-pump-approved.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.64,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 120.78,
+        "endSeconds": 137.42000000000002
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 6.015,
+          "description": "BEGIN 10c-farmer-pump-approved"
+        },
+        {
+          "startSeconds": 6.015,
+          "endSeconds": 16.64,
+          "description": "Open updated farmer pump history"
+        }
+      ]
+    },
+    {
+      "id": "11-desktop-irrigation-modal",
+      "description": "Supplement: actual irrigation modal and allocation visible at desktop scale.",
+      "recording": "desktop-pickups",
+      "start": 90.833,
+      "status": "captured",
+      "end": 102.263,
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 11.68,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 90.583,
+        "endSeconds": 102.263
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.171,
+          "description": "BEGIN 11-desktop-irrigation-modal"
+        },
+        {
+          "startSeconds": 1.171,
+          "endSeconds": 11.68,
+          "description": "Open irrigation advisory"
+        }
+      ]
+    },
+    {
+      "id": "11-irrigation-modal",
+      "description": "Real irrigation protocol and allocation hours/sequence.",
+      "recording": "mobile",
+      "start": 138.332,
+      "end": 152.169,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 14.08,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 138.082,
+        "endSeconds": 152.162
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.251,
+          "description": "BEGIN 11-irrigation-modal"
+        },
+        {
+          "startSeconds": 0.251,
+          "endSeconds": 3.084,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.084,
+          "endSeconds": 14.08,
+          "description": "Open irrigation advisory"
+        }
+      ]
+    },
+    {
+      "id": "14-mobile-320-offline-voice",
+      "description": "Genuine 320px viewport, network offline event on already-loaded app, honest voice preview.",
+      "recording": "mobile-320",
+      "start": 7.169,
+      "end": 22.856,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline-voice.mp4",
+      "width": 320,
+      "height": 740,
+      "durationSeconds": 15.96,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-mobile-320-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 6.919,
+        "endSeconds": 22.879
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 2.926,
+          "description": "BEGIN 14-mobile-320-offline-voice"
+        },
+        {
+          "startSeconds": 2.926,
+          "endSeconds": 8.868,
+          "description": "Browser network set offline (not an offline reload)"
+        },
+        {
+          "startSeconds": 8.868,
+          "endSeconds": 15.937,
+          "description": "Open actual planned voice dialog"
+        }
+      ]
+    },
+    {
+      "id": "15-app-overview",
+      "description": "Actual app overview across officer district and farmer desktop modes.",
+      "recording": "desktop",
+      "start": 361.827,
+      "end": 398.428,
+      "status": "captured",
+      "events": [],
+      "file": "videos/agriclimate-field-operations/assets/captures/15-app-overview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 36.84,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 361.577,
+        "endSeconds": 398.41700000000003
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 3.147,
+          "description": "BEGIN 15-app-overview"
+        },
+        {
+          "startSeconds": 3.147,
+          "endSeconds": 6.182,
+          "description": "District overview"
+        },
+        {
+          "startSeconds": 6.182,
+          "endSeconds": 10.997,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 10.997,
+          "endSeconds": 15.225,
+          "description": "Layer NDVI Anomaly"
+        },
+        {
+          "startSeconds": 15.225,
+          "endSeconds": 17.86,
+          "description": "Open basemap menu"
+        },
+        {
+          "startSeconds": 17.86,
+          "endSeconds": 27.013,
+          "description": "Return to standard cartography"
+        },
+        {
+          "startSeconds": 27.013,
+          "endSeconds": 29.798,
+          "description": "Switch to farmer"
+        },
+        {
+          "startSeconds": 29.798,
+          "endSeconds": 36.84,
+          "description": "Show farmer overview"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 20.419,
+      "description": "Dark-mode Kurigram officer map at district bounds."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/02-farmer-desktop.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 32.023,
+      "description": "Same app in farmer mode."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 66.751,
+      "description": "Superseded capture attempt; use the successful final scene MP4 and still instead.",
+      "editorialUse": false
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-01.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 75.677,
+      "description": "NDVI Anomaly real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-02.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 79.231,
+      "description": "Soil Moisture real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-03.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 82.835,
+      "description": "Flood Risk (FSS) real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-04.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 86.343,
+      "description": "Water Stress real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-05.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 90.015,
+      "description": "7d Precip real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-06.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 93.645,
+      "description": "Pump Priority real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-07.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 97.282,
+      "description": "Fire / Heat real map layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-satellite-basemap.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 107.93,
+      "description": "Actual satellite raster basemap with Fire / Heat layer."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 50.725,
+      "description": "Superseded capture attempt; use the successful final scene MP4 and still instead.",
+      "editorialUse": false
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 165.224,
+      "description": "Real form: Rowmari target, high severity, SMS and app push selected; demo guidance."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-broadcast-confirmed.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 170.771,
+      "description": "Actual dispatch success UI; API prototype persists advisory locally, no telecom delivery verified."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-home-bengali.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 10.263,
+      "description": "Bengali farmer home with officer-dispatched Rowmari bulletin."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-bengali.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 15.287,
+      "description": "New advisory uses the actual generic Bengali headline fallback; field guidance remains English."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-english.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 22.574,
+      "description": "Same stored advisory rendered in English."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-home.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 33.589,
+      "description": "Chilmari mobile home."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-soil-pump-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 36.014,
+      "description": "Actual soil strata and solar-pump instruments occupy one card, not two independently arriving cards."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-weather-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 38.807,
+      "description": "Real weather horizon strip."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-crop-growth-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 41.49,
+      "description": "Real crop growth and health card."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 47.23,
+      "description": "Actual five-product telemetry detail."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal-lower.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 52.384,
+      "description": "Telemetry detail lower section."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 60.161,
+      "description": "Real recommendation ranking and top expanded crop."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal-scores.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 65.288,
+      "description": "Actual crop suitability sub-scores, explanation and risk note."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-form.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 82.263,
+      "description": "Demo request form, high urgency."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-submitted.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 84.992,
+      "description": "Actual API success, pending request stored."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-pending.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 86.976,
+      "description": "Pending request visible in history."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pending-queue.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 287.247,
+      "description": "Actual queue entry for film demo; CWSI 72%."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-review-note.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 296.386,
+      "description": "Real review modal and officer note."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-approved.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 302.994,
+      "description": "Real approved queue entry with note."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-approved.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 132.158,
+      "description": "Approved status and same officer note after real API refetch."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 143.552,
+      "description": "Real irrigation modal, fixed guidance plus computed allocation."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-allocation.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 148.329,
+      "description": "Actual allocated hours and sequence priority."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 7.345,
+      "description": "Unmodified 320px app: actual header overflow remains visible, bottom nav fits."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 12.216,
+      "description": "Actual OfflineBanner after browser network disabled; loaded UI retained."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-voice-preview.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 18.054,
+      "description": "Actual voice feature preview, explicitly planned for production; dialog does not call API."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-officer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 384.064,
+      "description": "Full real district cockpit."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-farmer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 393.627,
+      "description": "Real desktop farmer overview."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-hover.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 19.788,
+      "description": "Actual Ulipur East tooltip during a district-map hover, before selecting Chilmari South from the right-hand roster."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 25.464,
+      "description": "Real selected Chilmari NDVI 0.42, root-zone 26.2%, CWSI 0.72."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 57.723,
+      "description": "Real soil/pump, weather and crop-growth cards together."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-telemetry.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 65.656,
+      "description": "Actual telemetry modal at readable desktop scale."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 76.092,
+      "description": "Actual crop recommendation including all scoring factors."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-detail.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 84.356,
+      "description": "Crop explanations and harvest window."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 93.79,
+      "description": "Actual irrigation protocol and allocation."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-layer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 25.424,
+      "description": "Actual cached fire choropleth at district scale."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 32.255,
+      "description": "Actual cached 5.5 MW thermal anomaly opens the real advisory composer; not sent."
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-tactical-overlay.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 37.879,
+      "description": "Real thermal-anomaly tactical card after closing the composer."
+    }
+  ],
+  "errors": [
+    {
+      "recording": "desktop",
+      "type": "pageerror",
+      "error": "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>\n      <LoadingBoundary name=\"/\" loading={null}>\n        <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>\n          <HTTPAccessFallbackErrorBoundary pathname=\"/\" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>\n            <RedirectBoundary>\n              <RedirectErrorBoundary router={{...}}>\n                <InnerLayoutRouter url=\"/#officer?...\" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>\n                  <SegmentViewNode type=\"page\" pagePath=\"page.tsx\">\n                    <SegmentTrieNode>\n                    <Page>\n                      <main className=\"min-h-scre...\">\n                        <AppModeSwitch blocks={[...]} metricsMap={{...}} summary={{...}} alerts={[...]} ...>\n                          <div className=\"w-full\">\n                            <OfficerShell blocks={[...]} metricsMap={{...}} summary={{...}} alerts={[...]} ...>\n                              <div\n+                               className=\"relative flex h-[calc(100vh-3.5rem)] w-full overflow-hidden bg-[var(--bg-app)]\"\n-                               className=\"min-h-screen w-full bg-[var(--bg-app)] pb-24 md:pb-12 text-[var(--fg-primary)]\"\n                              >\n+                               <div className=\"hidden lg:flex h-full w-full\">\n-                               <header\n-                                 className=\"sticky top-14 z-20 border-b border-[var(--border-subtle)] bg-[var(--bg-su...\"\n-                               >\n                                ...\n                  ...\n                ...\n    ...\n"
+    },
+    {
+      "scene": "03-chilmari-officer",
+      "error": "locator.hover: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.maplibregl-marker').filter({ hasText: /^Chilmari South$/ }).visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"rounded-full px-2.5 py-0.5 text-[9.5px] font-bold shadow-md cursor-pointer select-none transition-all duration-200 pointer-events-auto border bg-slate-900/90 text-slate-100 hover:bg-slate-800 border-white/20 hover:scale-105 maplibregl-marker maplibregl-marker-anchor-center\">Chilmari South</div>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    32 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m       - element is visible and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying hover action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    },
+    {
+      "scene": "05-cached-fire-overlay",
+      "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.maplibregl-marker').filter({ hasText: /^Bhurungamari Border$/ }).visible().first()\u001b[22m\n\u001b[2m    20 × locator resolved to <div class=\"rounded-full px-2.5 py-0.5 text-[9.5px] font-bold shadow-md cursor-pointer select-none transition-all duration-200 pointer-events-auto border bg-slate-900/90 text-slate-100 hover:bg-slate-800 border-white/20 hover:scale-105 maplibregl-marker maplibregl-marker-anchor-center\">Bhurungamari Border</div>\u001b[22m\n\u001b[2m     - attempting click action\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - performing click action\u001b[22m\n\u001b[2m       - <html lang=\"en\" data-theme=\"light\" class=\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m     - element was detached from the DOM, retrying\u001b[22m\n"
+    },
+    {
+      "scene": "05-cached-fire-overlay",
+      "error": "No visible map alert beacons"
+    }
+  ],
+  "restoration": [
+    {
+      "file": "data/live/alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/alerts.json",
+      "originalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "finalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/block-metrics.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/block-metrics.json",
+      "originalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "finalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/dispatched-alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/dispatched-alerts.json",
+      "originalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "finalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "outcome": "original restored byte-for-byte"
+    },
+    {
+      "file": "data/live/pump-requests.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/pump-requests.json",
+      "originalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "finalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "outcome": "original restored byte-for-byte"
+    },
+    {
+      "file": "data/live/sync-meta.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/sync-meta.json",
+      "originalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "finalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/timeseries.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/timeseries.json",
+      "originalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "finalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "outcome": "unchanged"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "03-chilmari-officer",
+      "description": "Desktop 1920×1080 selects Chilmari South and displays actual telemetry.",
+      "recording": "desktop",
+      "start": 42.452,
+      "end": 67.552,
+      "status": "partial",
+      "events": [],
+      "error": "locator.hover: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.maplibregl-marker').filter({ hasText: /^Chilmari South$/ }).visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"rounded-full px-2.5 py-0.5 text-[9.5px] font-bold shadow-md cursor-pointer select-none transition-all duration-200 pointer-events-auto border bg-slate-900/90 text-slate-100 hover:bg-slate-800 border-white/20 hover:scale-105 maplibregl-marker maplibregl-marker-anchor-center\">Chilmari South</div>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    32 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m       - element is visible and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span class=\"relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-rose-600 shadow-rose-500/50 text-white font-bold text-[10px] shadow-lg border border-white\">!</span> from <div class=\"relative flex items-center justify-center cursor-pointer pointer-events-auto group maplibregl-marker maplibregl-marker-anchor-center\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying hover action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    },
+    {
+      "id": "05-cached-fire-overlay",
+      "description": "Existing cached VIIRS fire alert (5.5 MW FRP); not a fresh sync or new detection.",
+      "recording": "desktop",
+      "start": 111.238,
+      "end": 136.216,
+      "status": "partial",
+      "events": [],
+      "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.maplibregl-marker').filter({ hasText: /^Bhurungamari Border$/ }).visible().first()\u001b[22m\n\u001b[2m    20 × locator resolved to <div class=\"rounded-full px-2.5 py-0.5 text-[9.5px] font-bold shadow-md cursor-pointer select-none transition-all duration-200 pointer-events-auto border bg-slate-900/90 text-slate-100 hover:bg-slate-800 border-white/20 hover:scale-105 maplibregl-marker maplibregl-marker-anchor-center\">Bhurungamari Border</div>\u001b[22m\n\u001b[2m     - attempting click action\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - performing click action\u001b[22m\n\u001b[2m       - <html lang=\"en\" data-theme=\"light\" class=\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m     - element was detached from the DOM, retrying\u001b[22m\n"
+    },
+    {
+      "id": "05-cached-fire-overlay",
+      "description": "Real cached 5.5 MW VIIRS alert opened from its map beacon; advisory composer and tactical overlay.",
+      "recording": "desktop-pickups",
+      "start": 31.267,
+      "status": "partial",
+      "error": "No visible map alert beacons",
+      "end": 51.526,
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 20.48,
+      "sourceFile": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "sourceTimeRange": {
+        "startSeconds": 31.017,
+        "endSeconds": 51.497
+      },
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.217,
+          "description": "BEGIN 05-cached-fire-overlay"
+        },
+        {
+          "startSeconds": 1.217,
+          "endSeconds": 3.774,
+          "description": "District overview"
+        },
+        {
+          "startSeconds": 3.774,
+          "endSeconds": 8.143,
+          "description": "Reset district bounds"
+        },
+        {
+          "startSeconds": 8.143,
+          "endSeconds": 11.84,
+          "description": "Select Fire / Heat layer"
+        },
+        {
+          "startSeconds": 11.84,
+          "endSeconds": 14.49,
+          "description": "Open basemap chooser"
+        },
+        {
+          "startSeconds": 14.49,
+          "endSeconds": 20.48,
+          "description": "Satellite basemap"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 9.88,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Real dark-mode district map, existing cache, all twelve block polygons.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 9.877,
+          "description": "BEGIN 01-dark-officer-map"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/02-mode-switch.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.44,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Continuous real officer → farmer → officer mode switch.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.198,
+          "description": "BEGIN 02-mode-switch"
+        },
+        {
+          "startSeconds": 1.198,
+          "endSeconds": 7.985,
+          "description": "Switch to farmer"
+        },
+        {
+          "startSeconds": 7.985,
+          "endSeconds": 11.782,
+          "description": "Switch to officer"
+        },
+        {
+          "startSeconds": 11.782,
+          "endSeconds": 17.44,
+          "description": "Reset map to district bounds"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 16.04,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "1920×1080 cockpit: real Ulipur East hover tooltip, followed by Chilmari South selection from district roster and actual telemetry.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.768,
+          "description": "BEGIN 03-chilmari-officer"
+        },
+        {
+          "startSeconds": 1.768,
+          "endSeconds": 5.999,
+          "description": "Hover Chilmari polygon"
+        },
+        {
+          "startSeconds": 5.999,
+          "endSeconds": 16.04,
+          "description": "Select Chilmari South from district roster"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-seven-layers-basemap.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 43.96,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "All seven real layer selectors, changing legend and map, then satellite basemap.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.12,
+          "description": "BEGIN 04-seven-layers-basemap"
+        },
+        {
+          "startSeconds": 1.12,
+          "endSeconds": 5.651,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 5.651,
+          "endSeconds": 9.219,
+          "description": "Layer NDVI Anomaly"
+        },
+        {
+          "startSeconds": 9.219,
+          "endSeconds": 12.85,
+          "description": "Layer Soil Moisture"
+        },
+        {
+          "startSeconds": 12.85,
+          "endSeconds": 16.309,
+          "description": "Layer Flood Risk (FSS)"
+        },
+        {
+          "startSeconds": 16.309,
+          "endSeconds": 20.003,
+          "description": "Layer Water Stress"
+        },
+        {
+          "startSeconds": 20.003,
+          "endSeconds": 23.651,
+          "description": "Layer 7d Precip"
+        },
+        {
+          "startSeconds": 23.651,
+          "endSeconds": 27.27,
+          "description": "Layer Pump Priority"
+        },
+        {
+          "startSeconds": 27.27,
+          "endSeconds": 31.23,
+          "description": "Layer Fire / Heat"
+        },
+        {
+          "startSeconds": 31.23,
+          "endSeconds": 33.446,
+          "description": "Open basemap switcher"
+        },
+        {
+          "startSeconds": 33.446,
+          "endSeconds": 43.923,
+          "description": "Choose satellite basemap"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 19.16,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Actual cached VIIRS thermal anomaly, 5.5 MW FRP, opened from the northernmost map beacon.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.153,
+          "description": "BEGIN 05-cached-fire-overlay"
+        },
+        {
+          "startSeconds": 4.153,
+          "endSeconds": 19.16,
+          "description": "Open cached Bhurungamari fire beacon"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-broadcast.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 39.08,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Select Rowmari Char, fill actual advisory, send through real local dispatch API.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 2.472,
+          "description": "BEGIN 06-rowmari-broadcast"
+        },
+        {
+          "startSeconds": 2.472,
+          "endSeconds": 6.671,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 6.671,
+          "endSeconds": 12.639,
+          "description": "Layer Flood Risk (FSS)"
+        },
+        {
+          "startSeconds": 12.639,
+          "endSeconds": 17.489,
+          "description": "Select Rowmari Char"
+        },
+        {
+          "startSeconds": 17.489,
+          "endSeconds": 31.677,
+          "description": "Open prefilled Rowmari composer"
+        },
+        {
+          "startSeconds": 31.677,
+          "endSeconds": 39.08,
+          "description": "Send real advisory broadcast"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-bengali-alert.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 19,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Real Bengali farmer alert and language switch; newly dispatched alert accessed through alert list.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.196,
+          "description": "BEGIN 07-farmer-bengali-alert"
+        },
+        {
+          "startSeconds": 4.196,
+          "endSeconds": 12.377,
+          "description": "Open farmer advisories"
+        },
+        {
+          "startSeconds": 12.377,
+          "endSeconds": 19,
+          "description": "Language English"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 15.8,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Supplement: three real daily-decision cards visible together at desktop size.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 6.308,
+          "description": "BEGIN 08-desktop-daily-cards"
+        },
+        {
+          "startSeconds": 6.308,
+          "endSeconds": 15.8,
+          "description": "Open desktop telemetry"
+        },
+        {
+          "startSeconds": 15.834,
+          "endSeconds": 15.8,
+          "description": "BEGIN 09-desktop-crop-modal"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-decisions-telemetry.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 27.04,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Chilmari mobile daily decision cards, actual telemetry modal from its real button.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.472,
+          "description": "BEGIN 08-mobile-decisions-telemetry"
+        },
+        {
+          "startSeconds": 1.472,
+          "endSeconds": 3.804,
+          "description": "Language English"
+        },
+        {
+          "startSeconds": 3.804,
+          "endSeconds": 5.251,
+          "description": "Go to farmer home"
+        },
+        {
+          "startSeconds": 5.251,
+          "endSeconds": 15.353,
+          "description": "Scroll to Chilmari overview"
+        },
+        {
+          "startSeconds": 15.353,
+          "endSeconds": 18.653,
+          "description": "Return to telemetry button"
+        },
+        {
+          "startSeconds": 18.653,
+          "endSeconds": 27.04,
+          "description": "Open telemetry detail"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-recommendations.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.12,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Real top-ranked crop recommendation with scores and explanations.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.251,
+          "description": "BEGIN 09-crop-recommendations"
+        },
+        {
+          "startSeconds": 0.251,
+          "endSeconds": 3.616,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.616,
+          "endSeconds": 16.12,
+          "description": "Open crop recommendations"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.96,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Supplement: real Chilmari top crop with expanded score/explanation at readable desktop size.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.187,
+          "description": "BEGIN 09-desktop-crop-modal"
+        },
+        {
+          "startSeconds": 1.187,
+          "endSeconds": 17.953,
+          "description": "Open crop recommendations"
+        },
+        {
+          "startSeconds": 17.953,
+          "endSeconds": 17.953,
+          "description": "BEGIN 11-desktop-irrigation-modal"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-request-submit.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 20,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Real high-urgency Chilmari request submitted by UI, no personal name.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.25,
+          "description": "BEGIN 10a-pump-request-submit"
+        },
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 3.599,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.599,
+          "endSeconds": 12.712,
+          "description": "Open pump request"
+        },
+        {
+          "startSeconds": 12.712,
+          "endSeconds": 14.029,
+          "description": "Submit real pump request"
+        },
+        {
+          "startSeconds": 14.029,
+          "endSeconds": 19.978,
+          "description": "Pump API created request"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pump-approval.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 22.24,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Officer queue opens the demo request, writes note, approves through real PATCH.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 4.016,
+          "description": "BEGIN 10b-officer-pump-approval"
+        },
+        {
+          "startSeconds": 4.016,
+          "endSeconds": 14.369,
+          "description": "Review demo pump request"
+        },
+        {
+          "startSeconds": 14.369,
+          "endSeconds": 22.24,
+          "description": "Approve demo pump request"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-pump-approved.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.64,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Farmer remount fetches the actual approved request and officer note.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 6.015,
+          "description": "BEGIN 10c-farmer-pump-approved"
+        },
+        {
+          "startSeconds": 6.015,
+          "endSeconds": 16.64,
+          "description": "Open updated farmer pump history"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 11.68,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Supplement: actual irrigation modal and allocation visible at desktop scale.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 1.171,
+          "description": "BEGIN 11-desktop-irrigation-modal"
+        },
+        {
+          "startSeconds": 1.171,
+          "endSeconds": 11.68,
+          "description": "Open irrigation advisory"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 14.08,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Real irrigation protocol and allocation hours/sequence.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 0.251,
+          "description": "BEGIN 11-irrigation-modal"
+        },
+        {
+          "startSeconds": 0.251,
+          "endSeconds": 3.084,
+          "description": "Top farmer navigation"
+        },
+        {
+          "startSeconds": 3.084,
+          "endSeconds": 14.08,
+          "description": "Open irrigation advisory"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline-voice.mp4",
+      "width": 320,
+      "height": 740,
+      "durationSeconds": 15.96,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Genuine 320px viewport, network offline event on already-loaded app, honest voice preview.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 2.926,
+          "description": "BEGIN 14-mobile-320-offline-voice"
+        },
+        {
+          "startSeconds": 2.926,
+          "endSeconds": 8.868,
+          "description": "Browser network set offline (not an offline reload)"
+        },
+        {
+          "startSeconds": 8.868,
+          "endSeconds": 15.937,
+          "description": "Open actual planned voice dialog"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-app-overview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 36.84,
+      "kind": "scene-video",
+      "status": "captured",
+      "description": "Actual app overview across officer district and farmer desktop modes.",
+      "usefulRanges": [
+        {
+          "startSeconds": 0.25,
+          "endSeconds": 3.147,
+          "description": "BEGIN 15-app-overview"
+        },
+        {
+          "startSeconds": 3.147,
+          "endSeconds": 6.182,
+          "description": "District overview"
+        },
+        {
+          "startSeconds": 6.182,
+          "endSeconds": 10.997,
+          "description": "Reset map to district bounds"
+        },
+        {
+          "startSeconds": 10.997,
+          "endSeconds": 15.225,
+          "description": "Layer NDVI Anomaly"
+        },
+        {
+          "startSeconds": 15.225,
+          "endSeconds": 17.86,
+          "description": "Open basemap menu"
+        },
+        {
+          "startSeconds": 17.86,
+          "endSeconds": 27.013,
+          "description": "Return to standard cartography"
+        },
+        {
+          "startSeconds": 27.013,
+          "endSeconds": 29.798,
+          "description": "Switch to farmer"
+        },
+        {
+          "startSeconds": 29.798,
+          "endSeconds": 36.84,
+          "description": "Show farmer overview"
+        }
+      ]
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 20.419,
+      "description": "Dark-mode Kurigram officer map at district bounds.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/02-farmer-desktop.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 32.023,
+      "description": "Same app in farmer mode.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 66.751,
+      "description": "Superseded capture attempt; use the successful final scene MP4 and still instead.",
+      "editorialUse": false,
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-01.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 75.677,
+      "description": "NDVI Anomaly real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-02.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 79.231,
+      "description": "Soil Moisture real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-03.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 82.835,
+      "description": "Flood Risk (FSS) real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-04.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 86.343,
+      "description": "Water Stress real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-05.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 90.015,
+      "description": "7d Precip real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-06.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 93.645,
+      "description": "Pump Priority real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-07.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 97.282,
+      "description": "Fire / Heat real map layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-satellite-basemap.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 107.93,
+      "description": "Actual satellite raster basemap with Fire / Heat layer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 50.725,
+      "description": "Superseded capture attempt; use the successful final scene MP4 and still instead.",
+      "editorialUse": false,
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 165.224,
+      "description": "Real form: Rowmari target, high severity, SMS and app push selected; demo guidance.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-broadcast-confirmed.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 170.771,
+      "description": "Actual dispatch success UI; API prototype persists advisory locally, no telecom delivery verified.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-home-bengali.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 10.263,
+      "description": "Bengali farmer home with officer-dispatched Rowmari bulletin.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-bengali.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 15.287,
+      "description": "New advisory uses the actual generic Bengali headline fallback; field guidance remains English.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-english.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 22.574,
+      "description": "Same stored advisory rendered in English.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-home.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 33.589,
+      "description": "Chilmari mobile home.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-soil-pump-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 36.014,
+      "description": "Actual soil strata and solar-pump instruments occupy one card, not two independently arriving cards.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-weather-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 38.807,
+      "description": "Real weather horizon strip.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-crop-growth-card.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 41.49,
+      "description": "Real crop growth and health card.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 47.23,
+      "description": "Actual five-product telemetry detail.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal-lower.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 52.384,
+      "description": "Telemetry detail lower section.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 60.161,
+      "description": "Real recommendation ranking and top expanded crop.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal-scores.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 65.288,
+      "description": "Actual crop suitability sub-scores, explanation and risk note.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-form.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 82.263,
+      "description": "Demo request form, high urgency.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-submitted.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 84.992,
+      "description": "Actual API success, pending request stored.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-pending.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 86.976,
+      "description": "Pending request visible in history.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pending-queue.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 287.247,
+      "description": "Actual queue entry for film demo; CWSI 72%.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-review-note.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 296.386,
+      "description": "Real review modal and officer note.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-approved.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 302.994,
+      "description": "Real approved queue entry with note.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-approved.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 132.158,
+      "description": "Approved status and same officer note after real API refetch.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 143.552,
+      "description": "Real irrigation modal, fixed guidance plus computed allocation.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-allocation.png",
+      "width": 390,
+      "height": 844,
+      "recording": "mobile",
+      "sourceSeconds": 148.329,
+      "description": "Actual allocated hours and sequence priority.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 7.345,
+      "description": "Unmodified 320px app: actual header overflow remains visible, bottom nav fits.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 12.216,
+      "description": "Actual OfflineBanner after browser network disabled; loaded UI retained.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-voice-preview.png",
+      "width": 320,
+      "height": 740,
+      "recording": "mobile-320",
+      "sourceSeconds": 18.054,
+      "description": "Actual voice feature preview, explicitly planned for production; dialog does not call API.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-officer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 384.064,
+      "description": "Full real district cockpit.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-farmer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop",
+      "sourceSeconds": 393.627,
+      "description": "Real desktop farmer overview.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-hover.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 19.788,
+      "description": "Actual Ulipur East tooltip during a district-map hover, before selecting Chilmari South from the right-hand roster.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 25.464,
+      "description": "Real selected Chilmari NDVI 0.42, root-zone 26.2%, CWSI 0.72.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 57.723,
+      "description": "Real soil/pump, weather and crop-growth cards together.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-telemetry.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 65.656,
+      "description": "Actual telemetry modal at readable desktop scale.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 76.092,
+      "description": "Actual crop recommendation including all scoring factors.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-detail.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 84.356,
+      "description": "Crop explanations and harvest window.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "desktop-pickups",
+      "sourceSeconds": 93.79,
+      "description": "Actual irrigation protocol and allocation.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-layer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 25.424,
+      "description": "Actual cached fire choropleth at district scale.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 32.255,
+      "description": "Actual cached 5.5 MW thermal anomaly opens the real advisory composer; not sent.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-tactical-overlay.png",
+      "width": 1920,
+      "height": 1080,
+      "recording": "fire-pickup",
+      "sourceSeconds": 37.879,
+      "description": "Real thermal-anomaly tactical card after closing the composer.",
+      "kind": "screenshot",
+      "durationSeconds": null
+    },
+    {
+      "id": "desktop",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-desktop-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 399.24,
+      "codec": "vp8",
+      "frameRate": "25/1",
+      "kind": "raw-recording"
+    },
+    {
+      "id": "mobile",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-mobile-raw.webm",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 212.8,
+      "codec": "vp8",
+      "frameRate": "25/1",
+      "kind": "raw-recording"
+    },
+    {
+      "id": "mobile-320",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-mobile-320-raw.webm",
+      "width": 320,
+      "height": 740,
+      "durationSeconds": 60.24,
+      "codec": "vp8",
+      "frameRate": "25/1",
+      "kind": "raw-recording"
+    },
+    {
+      "id": "desktop-pickups",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-desktop-pickups-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 103.08,
+      "codec": "vp8",
+      "frameRate": "25/1",
+      "kind": "raw-recording"
+    },
+    {
+      "id": "fire-pickup",
+      "file": "videos/agriclimate-field-operations/assets/captures/capture-fire-pickup-raw.webm",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 44.72,
+      "codec": "vp8",
+      "frameRate": "25/1",
+      "kind": "raw-recording"
+    }
+  ],
+  "conversion": {
+    "codec": "H.264",
+    "crf": 18,
+    "pixelFormat": "yuv420p",
+    "audio": "none (browser-only UI capture)",
+    "pictureAlterations": "none; full-frame trims only",
+    "completedAt": "2026-10-03T06:38:43.798Z"
+  },
+  "preferredSceneFiles": {
+    "01-dark-officer-map": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.mp4",
+    "02-mode-switch": "videos/agriclimate-field-operations/assets/captures/02-mode-switch.mp4",
+    "03-chilmari-officer": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.mp4",
+    "04-seven-layers-basemap": "videos/agriclimate-field-operations/assets/captures/04-seven-layers-basemap.mp4",
+    "05-cached-fire-overlay": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay.mp4",
+    "06-rowmari-broadcast": "videos/agriclimate-field-operations/assets/captures/06-rowmari-broadcast.mp4",
+    "07-farmer-bengali-alert": "videos/agriclimate-field-operations/assets/captures/07-farmer-bengali-alert.mp4",
+    "08-desktop-daily-cards": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.mp4",
+    "08-mobile-decisions-telemetry": "videos/agriclimate-field-operations/assets/captures/08-mobile-decisions-telemetry.mp4",
+    "09-crop-recommendations": "videos/agriclimate-field-operations/assets/captures/09-crop-recommendations.mp4",
+    "09-desktop-crop-modal": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.mp4",
+    "10a-pump-request-submit": "videos/agriclimate-field-operations/assets/captures/10a-pump-request-submit.mp4",
+    "10b-officer-pump-approval": "videos/agriclimate-field-operations/assets/captures/10b-officer-pump-approval.mp4",
+    "10c-farmer-pump-approved": "videos/agriclimate-field-operations/assets/captures/10c-farmer-pump-approved.mp4",
+    "11-desktop-irrigation-modal": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.mp4",
+    "11-irrigation-modal": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.mp4",
+    "14-mobile-320-offline-voice": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline-voice.mp4",
+    "15-app-overview": "videos/agriclimate-field-operations/assets/captures/15-app-overview.mp4"
+  },
+  "dataSafety": {
+    "nasaSyncPost": false,
+    "allSixLiveFilesRestoredToOriginalHashes": true,
+    "onlyCreatedDemoRecords": [
+      "dispatched_1791008540623",
+      "pr_1791008643039"
+    ],
+    "appSourceEdits": false,
+    "appServerStopped": false
+  }
+}

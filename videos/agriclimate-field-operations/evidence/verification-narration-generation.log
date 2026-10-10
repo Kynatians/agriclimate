@@ -1,0 +1,56 @@
+Generating scene-01, af_heart, speed 1.12
+Validated scene-01: 12.181s / 14s scene
+Generating scene-02, af_heart, speed 1.12
+Generating scene-02, af_heart, speed 1.2
+scene-02 requires script tightening: 12.010667s at 1.2; limit 11.4s
+Validated scene-02: 12.011s / 12s scene
+Generating scene-03, af_heart, speed 1.12
+Generating scene-03, af_heart, speed 1.17
+Generating scene-03, af_heart, speed 1.19
+Validated scene-03: 15.211s / 16s scene
+Generating scene-04, af_heart, speed 1.12
+Generating scene-04, af_heart, speed 1.2
+scene-04 requires script tightening: 19.712s at 1.2; limit 17.4s
+Validated scene-04: 19.712s / 18s scene
+Generating scene-05, af_heart, speed 1.12
+Generating scene-05, af_heart, speed 1.2
+Validated scene-05: 13.269s / 14s scene
+Generating scene-06, af_heart, speed 1.12
+Generating scene-06, af_heart, speed 1.2
+scene-06 requires script tightening: 18.730667s at 1.2; limit 17.4s
+Validated scene-06: 18.731s / 18s scene
+Generating scene-07, af_heart, speed 1.12
+Generating scene-07, af_heart, speed 1.2
+scene-07 requires script tightening: 15.424s at 1.2; limit 15.4s
+Validated scene-07: 15.424s / 16s scene
+Generating scene-08, af_heart, speed 1.12
+Generating scene-08, af_heart, speed 1.18
+Generating scene-08, af_heart, speed 1.2
+Validated scene-08: 17.109s / 18s scene
+Generating scene-09, af_heart, speed 1.12
+Generating scene-09, af_heart, speed 1.2
+scene-09 requires script tightening: 21.504s at 1.2; limit 19.4s
+Validated scene-09: 21.504s / 20s scene
+Generating scene-10, af_heart, speed 1.12
+Validated scene-10: 21.099s / 22s scene
+Generating scene-11, af_heart, speed 1.12
+Generating scene-11, af_heart, speed 1.2
+scene-11 requires script tightening: 17.322667s at 1.2; limit 13.4s
+Validated scene-11: 17.323s / 14s scene
+Generating scene-12, af_heart, speed 1.12
+Generating scene-12, af_heart, speed 1.2
+scene-12 requires script tightening: 22.549333s at 1.2; limit 19.4s
+Validated scene-12: 22.549s / 20s scene
+Generating scene-13, af_heart, speed 1.12
+Generating scene-13, af_heart, speed 1.2
+scene-13 requires script tightening: 15.701333s at 1.2; limit 15.4s
+Validated scene-13: 15.701s / 16s scene
+Generating scene-14, af_heart, speed 1.12
+Generating scene-14, af_heart, speed 1.2
+scene-14 requires script tightening: 15.936s at 1.2; limit 13.4s
+Validated scene-14: 15.936s / 14s scene
+Generating scene-15, af_heart, speed 1.12
+Generating scene-15, af_heart, speed 1.2
+scene-15 requires script tightening: 14.250667s at 1.2; limit 13.4s
+Validated scene-15: 14.251s / 14s scene
+Complete: 15 files; 252.011s speech in 246s film.

@@ -1,0 +1,27 @@
+npm notice run npx
+npm notice run 'hyperframes' snapshot --at 7,20,34,51,67,83,100,117,136,157,175,192,210,225,242
+◆  Capturing 15 frames at [7s, 20s, 34s, 51s, 67s, 83s, 100s, 117s, 136s, 157s, 175s, 192s, 210s, 225s, 242s] from agriclimate-field-operations
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 22.1.6 256 bits), OpenGL ES 3.2)")
+
+   Fonts: 6 loaded
+   Note: added an end-of-timeline frame at 238.62s. Short beats between your --at times may still be skipped — pass them explicitly.
+
+◇  16 snapshots saved to snapshots/
+   snapshots/frame-00-at-7s.png
+   snapshots/frame-01-at-20s.png
+   snapshots/frame-02-at-34s.png
+   snapshots/frame-03-at-51s.png
+   snapshots/frame-04-at-67s.png
+   snapshots/frame-05-at-83s.png
+   snapshots/frame-06-at-100s.png
+   snapshots/frame-07-at-117s.png
+   snapshots/frame-08-at-136s.png
+   snapshots/frame-09-at-157s.png
+   snapshots/frame-10-at-175s.png
+   snapshots/frame-11-at-192s.png
+   snapshots/frame-12-at-210s.png
+   snapshots/frame-13-at-225s.png
+   snapshots/frame-14-at-242s.png
+   snapshots/frame-15-at-238.62s.png
+   contact-sheet-1..2.jpg (grid view for AI review)
+   --describe: GEMINI_API_KEY not set, skipping

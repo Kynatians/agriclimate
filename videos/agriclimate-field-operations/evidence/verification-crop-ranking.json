@@ -1,0 +1,127 @@
+{
+  "count": 20,
+  "seedTop": [
+    {
+      "name": {
+        "en": "Mungbean (BARI Mung-6)",
+        "bn": "মুগ ডাল (বারি মুগ-৬)"
+      },
+      "css": 91,
+      "subScores": {
+        "soilMoisture": 1,
+        "temperature": 1,
+        "rainfall": 0.87,
+        "solar": 0.73,
+        "ndvi": 0.78
+      },
+      "harvest": {
+        "start": "2026-11-27",
+        "end": "2026-12-09"
+      }
+    },
+    {
+      "name": {
+        "en": "Groundnut (BARI Chinabadam-8)",
+        "bn": "চীনাবাদাম (বারি চীনাবাদাম-৮)"
+      },
+      "css": 87,
+      "subScores": {
+        "soilMoisture": 1,
+        "temperature": 0.86,
+        "rainfall": 0.7,
+        "solar": 0.88,
+        "ndvi": 0.78
+      },
+      "harvest": {
+        "start": "2027-01-26",
+        "end": "2027-02-20"
+      }
+    },
+    {
+      "name": {
+        "en": "Green Chili (Bindu)",
+        "bn": "কাঁচা মরিচ (বিন্দু)"
+      },
+      "css": 83,
+      "subScores": {
+        "soilMoisture": 1,
+        "temperature": 0.86,
+        "rainfall": 0.54,
+        "solar": 0.83,
+        "ndvi": 0.78
+      },
+      "harvest": {
+        "start": "2026-12-07",
+        "end": "2027-01-26"
+      }
+    },
+    {
+      "name": {
+        "en": "Orange-fleshed Sweet Potato (BARI SP-12)",
+        "bn": "মিষ্টি আলু (কমলা বারি মিষ্টি আলু-১২)"
+      },
+      "css": 81,
+      "subScores": {
+        "soilMoisture": 1,
+        "temperature": 0.66,
+        "rainfall": 0.76,
+        "solar": 0.78,
+        "ndvi": 0.78
+      },
+      "harvest": {
+        "start": "2027-01-11",
+        "end": "2027-02-10"
+      }
+    },
+    {
+      "name": {
+        "en": "Hybrid Maize (BARI Bhutta-9)",
+        "bn": "হাইব্রিড ভুট্টা (বারি ভুট্টা-৯)"
+      },
+      "css": 78,
+      "subScores": {
+        "soilMoisture": 1,
+        "temperature": 0.66,
+        "rainfall": 0.49,
+        "solar": 0.93,
+        "ndvi": 0.78
+      },
+      "harvest": {
+        "start": "2027-02-05",
+        "end": "2027-03-02"
+      }
+    }
+  ],
+  "liveTop": [
+    {
+      "name": {
+        "en": "Mungbean (BARI Mung-6)",
+        "bn": "মুগ ডাল (বারি মুগ-৬)"
+      },
+      "css": 91
+    },
+    {
+      "name": {
+        "en": "Groundnut (BARI Chinabadam-8)",
+        "bn": "চীনাবাদাম (বারি চীনাবাদাম-৮)"
+      },
+      "css": 87
+    },
+    {
+      "name": {
+        "en": "Green Chili (Bindu)",
+        "bn": "কাঁচা মরিচ (বিন্দু)"
+      },
+      "css": 83
+    }
+  ],
+  "layers": [
+    "ndvi",
+    "soilMoisture",
+    "floodRisk",
+    "cropHealth",
+    "precipForecast",
+    "pumpRouting",
+    "fireEvents"
+  ]
+}

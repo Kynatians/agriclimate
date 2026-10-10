@@ -1,0 +1,375 @@
+{
+  "verifiedAt": "2026-10-03T06:08:54.137Z",
+  "method": "Read-only source/data inspection; pnpm test; HTTP GET irrigation; executed actual crop ranking engine.",
+  "mutatingAppCalls": [],
+  "notesFile": "evidence/verification.md",
+  "counts": {
+    "blocks": 12,
+    "farmers": 4245,
+    "pumpAssets": 44,
+    "crops": 20,
+    "mapLayers": 7,
+    "dictionaryLeavesPerLanguage": 123
+  },
+  "seedMetrics": {
+    "chilmariSouth": {
+      "blockId": "blk_kurigram_01",
+      "asOf": "2026-09-28T06:00:00Z",
+      "ndvi": {
+        "value": 0.42,
+        "baseline": 0.54,
+        "anomaly": -0.12,
+        "trend": "declining"
+      },
+      "soilMoistureSurface": {
+        "value": 24.5,
+        "baseline": 35,
+        "anomaly": -10.5,
+        "trend": "declining"
+      },
+      "soilMoistureRootZone": {
+        "value": 26.2,
+        "baseline": 36.8,
+        "anomaly": -10.6,
+        "trend": "declining"
+      },
+      "precip7dActual": 12,
+      "precip7dForecast": 18.5,
+      "lst": 33.4,
+      "spi": -1.35,
+      "cwsi": 0.72,
+      "floodScore": 0.22,
+      "sources": [
+        {
+          "metric": "soilMoisture",
+          "dataset": "NASA SMAP L3 Enhanced",
+          "resolution": "500m",
+          "lastUpdate": "2026-09-28T04:30:00Z"
+        },
+        {
+          "metric": "ndvi",
+          "dataset": "MODIS MOD13Q1 / Landsat 9",
+          "resolution": "250m",
+          "lastUpdate": "2026-09-27T10:15:00Z"
+        },
+        {
+          "metric": "precip",
+          "dataset": "GPM IMERG Late Run",
+          "resolution": "10km",
+          "lastUpdate": "2026-09-28T05:00:00Z"
+        }
+      ]
+    },
+    "rowmariChar": {
+      "blockId": "blk_kurigram_11",
+      "asOf": "2026-09-28T06:00:00Z",
+      "ndvi": {
+        "value": 0.44,
+        "baseline": 0.52,
+        "anomaly": -0.08,
+        "trend": "declining"
+      },
+      "soilMoistureSurface": {
+        "value": 46,
+        "baseline": 38,
+        "anomaly": 8,
+        "trend": "improving"
+      },
+      "soilMoistureRootZone": {
+        "value": 48.5,
+        "baseline": 40,
+        "anomaly": 8.5,
+        "trend": "improving"
+      },
+      "precip7dActual": 92,
+      "precip7dForecast": 138,
+      "lst": 26.2,
+      "spi": 1.72,
+      "cwsi": 0.2,
+      "floodScore": 0.88,
+      "sources": [
+        {
+          "metric": "soilMoisture",
+          "dataset": "NASA SMAP L3 Enhanced",
+          "resolution": "500m",
+          "lastUpdate": "2026-09-28T04:30:00Z"
+        },
+        {
+          "metric": "ndvi",
+          "dataset": "MODIS MOD13Q1 / Landsat 9",
+          "resolution": "250m",
+          "lastUpdate": "2026-09-27T10:15:00Z"
+        },
+        {
+          "metric": "precip",
+          "dataset": "GPM IMERG Late Run",
+          "resolution": "10km",
+          "lastUpdate": "2026-09-28T05:00:00Z"
+        }
+      ]
+    }
+  },
+  "seedAlert": {
+    "id": "alrt_001",
+    "blockId": "blk_kurigram_11",
+    "type": "flood",
+    "severity": "high",
+    "leadTimeHours": 48,
+    "headline": {
+      "en": "Flash Flood Warning: Rapid Water Influx Expected",
+      "bn": "আকস্মিক বন্যা সতর্কতা: দ্রুত পানি বৃদ্ধির আশঙ্কা"
+    },
+    "detail": {
+      "en": "Brahmaputra basin upstream runoff combined with 138mm 48-hour forecast rainfall indicates acute inundation risk for low-lying char fields. Elevate harvested crops and prepare drainage channels.",
+      "bn": "ব্রহ্মপুত্র অববাহিকার উজানের ঢল ও আগামী ৪৮ ঘণ্টায় ১৩৮ মিমি বৃষ্টিপাতের পূর্বাভাসে নিম্নাঞ্চল প্লাবিত হওয়ার প্রবল ঝুঁকি রয়েছে। কাটা ফসল উঁচু স্থানে রাখুন এবং নিকাশী নালা প্রস্তুত রাখুন।"
+    },
+    "issuedAt": "2026-09-28T05:00:00Z",
+    "expiresAt": "2026-09-30T18:00:00Z"
+  },
+  "timeseriesLengths": {
+    "blk_kurigram_01": 30,
+    "blk_kurigram_02": 8,
+    "blk_kurigram_03": 4,
+    "blk_kurigram_04": 3,
+    "blk_kurigram_05": 3,
+    "blk_kurigram_06": 3,
+    "blk_kurigram_07": 3,
+    "blk_kurigram_08": 3,
+    "blk_kurigram_09": 3,
+    "blk_kurigram_10": 3,
+    "blk_kurigram_11": 3,
+    "blk_kurigram_12": 3
+  },
+  "ranking": {
+    "count": 20,
+    "seedTop": [
+      {
+        "name": {
+          "en": "Mungbean (BARI Mung-6)",
+          "bn": "মুগ ডাল (বারি মুগ-৬)"
+        },
+        "css": 91,
+        "subScores": {
+          "soilMoisture": 1,
+          "temperature": 1,
+          "rainfall": 0.87,
+          "solar": 0.73,
+          "ndvi": 0.78
+        },
+        "harvest": {
+          "start": "2026-11-27",
+          "end": "2026-12-09"
+        }
+      },
+      {
+        "name": {
+          "en": "Groundnut (BARI Chinabadam-8)",
+          "bn": "চীনাবাদাম (বারি চীনাবাদাম-৮)"
+        },
+        "css": 87,
+        "subScores": {
+          "soilMoisture": 1,
+          "temperature": 0.86,
+          "rainfall": 0.7,
+          "solar": 0.88,
+          "ndvi": 0.78
+        },
+        "harvest": {
+          "start": "2027-01-26",
+          "end": "2027-02-20"
+        }
+      },
+      {
+        "name": {
+          "en": "Green Chili (Bindu)",
+          "bn": "কাঁচা মরিচ (বিন্দু)"
+        },
+        "css": 83,
+        "subScores": {
+          "soilMoisture": 1,
+          "temperature": 0.86,
+          "rainfall": 0.54,
+          "solar": 0.83,
+          "ndvi": 0.78
+        },
+        "harvest": {
+          "start": "2026-12-07",
+          "end": "2027-01-26"
+        }
+      },
+      {
+        "name": {
+          "en": "Orange-fleshed Sweet Potato (BARI SP-12)",
+          "bn": "মিষ্টি আলু (কমলা বারি মিষ্টি আলু-১২)"
+        },
+        "css": 81,
+        "subScores": {
+          "soilMoisture": 1,
+          "temperature": 0.66,
+          "rainfall": 0.76,
+          "solar": 0.78,
+          "ndvi": 0.78
+        },
+        "harvest": {
+          "start": "2027-01-11",
+          "end": "2027-02-10"
+        }
+      },
+      {
+        "name": {
+          "en": "Hybrid Maize (BARI Bhutta-9)",
+          "bn": "হাইব্রিড ভুট্টা (বারি ভুট্টা-৯)"
+        },
+        "css": 78,
+        "subScores": {
+          "soilMoisture": 1,
+          "temperature": 0.66,
+          "rainfall": 0.49,
+          "solar": 0.93,
+          "ndvi": 0.78
+        },
+        "harvest": {
+          "start": "2027-02-05",
+          "end": "2027-03-02"
+        }
+      }
+    ],
+    "liveTop": [
+      {
+        "name": {
+          "en": "Mungbean (BARI Mung-6)",
+          "bn": "মুগ ডাল (বারি মুগ-৬)"
+        },
+        "css": 91
+      },
+      {
+        "name": {
+          "en": "Groundnut (BARI Chinabadam-8)",
+          "bn": "চীনাবাদাম (বারি চীনাবাদাম-৮)"
+        },
+        "css": 87
+      },
+      {
+        "name": {
+          "en": "Green Chili (Bindu)",
+          "bn": "কাঁচা মরিচ (বিন্দু)"
+        },
+        "css": 83
+      }
+    ],
+    "layers": [
+      "ndvi",
+      "soilMoisture",
+      "floodRisk",
+      "cropHealth",
+      "precipForecast",
+      "pumpRouting",
+      "fireEvents"
+    ]
+  },
+  "irrigation": {
+    "method": "GET",
+    "url": "http://localhost:3457/api/irrigation?districtId=kurigram",
+    "httpStatus": 200,
+    "payload": {
+      "districtId": "kurigram",
+      "generatedAt": "2026-10-03T06:04:20.300Z",
+      "totalDeficitBlocks": 3,
+      "availablePumps": 44,
+      "deployments": [
+        {
+          "pumpId": "pump_solar_01",
+          "targetBlockId": "blk_kurigram_01",
+          "targetBlockName": "Chilmari South",
+          "deficitSeverity": 84,
+          "estimatedCoverageHours": 34,
+          "suggestedSequence": 1
+        },
+        {
+          "pumpId": "pump_solar_02",
+          "targetBlockId": "blk_kurigram_07",
+          "targetBlockName": "Rajarhat Central",
+          "deficitSeverity": 64,
+          "estimatedCoverageHours": 26,
+          "suggestedSequence": 2
+        },
+        {
+          "pumpId": "pump_solar_03",
+          "targetBlockId": "blk_kurigram_04",
+          "targetBlockName": "Ulipur West",
+          "deficitSeverity": 32,
+          "estimatedCoverageHours": 13,
+          "suggestedSequence": 3
+        }
+      ]
+    }
+  },
+  "tests": {
+    "command": "pnpm test",
+    "exitCode": 1,
+    "passed": 34,
+    "failed": 2,
+    "total": 36,
+    "filesPassed": 8,
+    "filesFailed": 1,
+    "log": "evidence/tests-vitest.log",
+    "failures": [
+      "FarmPulseBanner text query: Field Status: Normal & Monitored",
+      "FarmTrendsChart text query: Field Health & Climate Trends"
+    ]
+  },
+  "claims": {
+    "smsPushDelivery": "Not implemented: channel metadata plus file persistence only",
+    "translation": "No automatic translation; explicit en/bn fields or generic/same-text fallback",
+    "latency": "Not measured; mount fetch and same-browser Zustand updates; no periodic polling",
+    "defaultLocale": "en",
+    "liveOnlyMode": false,
+    "irrigationData": "static seed regardless of live/hybrid mode",
+    "hourlySync": false,
+    "revalidateSeconds": 3600,
+    "atomicCacheWrites": false,
+    "cacheSpeedMeasured": false,
+    "zodValidation": "Lazy first access, cached in module",
+    "offlineAppShell": false,
+    "offlineNotice": true,
+    "voiceQueryHttpStatus": 501,
+    "licenseFilePresent": false,
+    "readmeLicenseClaim": "MIT (not corroborated by checked-in license)",
+    "powerBackoff": "linear",
+    "currentNasaSyncPerformed": false
+  },
+  "corrections": [
+    "21 crops -> 20",
+    "Top recommendation Boro Rice -> Mungbean 91 for seed Chilmari",
+    "Four home cards -> three cards with four visual components",
+    "All metrics measured -> illustrative fixed pumping dial / heuristic weather included",
+    "Seven satellite feeds -> seven map overlays",
+    "Current flood -> expired seed warning scenario",
+    "Certain flooding -> risk warning",
+    "Nearest block distance -> coordinate-threshold assignment",
+    "Automatic bilingual translation -> supplied bilingual text only",
+    "SMS/push dispatch -> persisted channel selection only",
+    "Ninety-second delivery -> unmeasured same-browser state/mount fetch",
+    "Hourly refresh -> cache configuration, not sync job",
+    "Atomic writes -> ordinary disk writes",
+    "Sub-millisecond -> unbenchmarked cache",
+    "Module-load validation -> lazy validation",
+    "Live-only -> both live and hybrid allow fallback",
+    "Full offline app -> loaded information and offline notice only",
+    "MIT/open source claim -> source available, license not verified",
+    "12 x 30 timepoints -> uneven seed series",
+    "English/Bengali supported but English default",
+    "POWER retries linear, not exponential"
+  ],
+  "audio": {
+    "complete": true,
+    "provider": "local Kokoro-82M via HyperFrames CLI",
+    "voice": "af_heart",
+    "paidCalls": 0,
+    "files": 15,
+    "measuredSpeechDuration_s": 230.528,
+    "timelineDuration_s": 246,
+    "minimumHeadroom_s": 0.677,
+    "validationReport": "evidence/verification-audio.json"
+  }
+}

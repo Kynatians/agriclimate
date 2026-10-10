@@ -1,0 +1,50 @@
+{
+  "createdIds": [
+    "dispatched_1791008540623",
+    "pr_1791008643039"
+  ],
+  "restoration": [
+    {
+      "file": "data/live/alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/alerts.json",
+      "originalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "finalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/block-metrics.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/block-metrics.json",
+      "originalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "finalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/dispatched-alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/dispatched-alerts.json",
+      "originalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "finalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "outcome": "original restored byte-for-byte"
+    },
+    {
+      "file": "data/live/pump-requests.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/pump-requests.json",
+      "originalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "finalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "outcome": "original restored byte-for-byte"
+    },
+    {
+      "file": "data/live/sync-meta.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/sync-meta.json",
+      "originalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "finalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "outcome": "unchanged"
+    },
+    {
+      "file": "data/live/timeseries.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/timeseries.json",
+      "originalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "finalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "outcome": "unchanged"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "command": "pnpm test",
+  "date": "2026-10-03",
+  "exitCode": 1,
+  "testFiles": { "passed": 8, "failed": 1, "total": 9 },
+  "tests": { "passed": 34, "failed": 2, "total": 36 },
+  "durationSeconds": 2.1,
+  "failedFile": "tests/component/FarmerHomeSimplification.test.tsx",
+  "failures": [
+    {
+      "test": "renders FarmPulseBanner and triggers telemetry drawer callback",
+      "observedError": "Unable to find an element with the text: /Field Status: Normal & Monitored/i"
+    },
+    {
+      "test": "renders FarmTrendsChart with safe zones and allows switching metric tabs",
+      "observedError": "Unable to find an element with the text: /Field Health & Climate Trends/i"
+    }
+  ],
+  "rawOutput": "evidence/tests-vitest.log",
+  "scope": "Observed test run only. No application files or assertions were repaired or suppressed."
+}

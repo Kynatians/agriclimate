@@ -1,0 +1,92 @@
+[
+  {
+    "id": "s01",
+    "start": 0,
+    "duration": 14,
+    "title": "Two days to act."
+  },
+  {
+    "id": "s02",
+    "start": 14,
+    "duration": 12,
+    "title": "One app. Two ways to act."
+  },
+  {
+    "id": "s03",
+    "start": 26,
+    "duration": 16,
+    "title": "The field, in context."
+  },
+  {
+    "id": "s04",
+    "start": 42,
+    "duration": 18,
+    "title": "Seven layers. One map."
+  },
+  {
+    "id": "s05",
+    "start": 60,
+    "duration": 14,
+    "title": "A thermal signal from orbit."
+  },
+  {
+    "id": "s06",
+    "start": 74,
+    "duration": 18,
+    "title": "Turn a signal into advice."
+  },
+  {
+    "id": "s07",
+    "start": 92,
+    "duration": 16,
+    "title": "The warning reaches the field."
+  },
+  {
+    "id": "s08",
+    "start": 108,
+    "duration": 18,
+    "title": "What should I do today?"
+  },
+  {
+    "id": "s09",
+    "start": 126,
+    "duration": 20,
+    "title": "A score. And a reason."
+  },
+  {
+    "id": "s10",
+    "start": 146,
+    "duration": 22,
+    "title": "From request to approval."
+  },
+  {
+    "id": "s11",
+    "start": 168,
+    "duration": 14,
+    "title": "Prioritize the water deficit."
+  },
+  {
+    "id": "s12",
+    "start": 182,
+    "duration": 20,
+    "title": "Satellites in. Agronomy out."
+  },
+  {
+    "id": "s13",
+    "start": 202,
+    "duration": 16,
+    "title": "A fallback is part of the design."
+  },
+  {
+    "id": "s14",
+    "start": 218,
+    "duration": 14,
+    "title": "Show the working parts. And the gaps."
+  },
+  {
+    "id": "s15",
+    "start": 232,
+    "duration": 14,
+    "title": "The satellites are already watching."
+  }
+]

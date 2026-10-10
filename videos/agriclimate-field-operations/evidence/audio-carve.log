@@ -1,0 +1,21 @@
+bed    music-bed (name looks like music)
+voice  vo-01 (name looks like a voice)
+voice  vo-02 (name looks like a voice)
+voice  vo-03 (name looks like a voice)
+voice  vo-04 (name looks like a voice)
+voice  vo-05 (name looks like a voice)
+voice  vo-06 (name looks like a voice)
+voice  vo-07 (name looks like a voice)
+voice  vo-08 (name looks like a voice)
+voice  vo-09 (name looks like a voice)
+voice  vo-10 (name looks like a voice)
+voice  vo-11 (name looks like a voice)
+voice  vo-12 (name looks like a voice)
+voice  vo-13 (name looks like a voice)
+voice  vo-14 (name looks like a voice)
+voice  vo-15 (name looks like a voice)
+carve  strength 0.8, 15 voices
+bands  160Hz -7.4dB q2.06, 250Hz -7.4dB q2.06, 400Hz -7.4dB q2.06, 1000Hz -9.54dB q2.06, 1600Hz -14.8dB q2.06, 2500Hz -7.4dB q2.06
+level  384-point envelope, floor -17.8 dB
+lanes  7 carve
+wrote index.html (id="music-bed")

@@ -1,0 +1,70 @@
+{
+  "01": {
+    "main": {
+      "path": "assets/edits/scene-01.mp4"
+    }
+  },
+  "02": {
+    "main": {
+      "path": "assets/edits/scene-02.mp4"
+    },
+    "phone": {
+      "path": "assets/captures/07-farmer-home-bengali.png"
+    }
+  },
+  "03": {
+    "main": {
+      "path": "assets/edits/scene-03.mp4"
+    }
+  },
+  "04": {
+    "main": {
+      "path": "assets/edits/scene-04.mp4"
+    }
+  },
+  "05": {
+    "main": {
+      "path": "assets/edits/scene-05.mp4"
+    }
+  },
+  "06": {
+    "main": {
+      "path": "assets/edits/scene-06.mp4"
+    }
+  },
+  "07": {
+    "main": {
+      "path": "assets/edits/scene-07.mp4"
+    }
+  },
+  "08": {
+    "main": {
+      "path": "assets/edits/scene-08.mp4"
+    }
+  },
+  "09": {
+    "main": {
+      "path": "assets/edits/scene-09.mp4"
+    }
+  },
+  "10": {
+    "main": {
+      "path": "assets/edits/scene-10.mp4"
+    }
+  },
+  "11": {
+    "main": {
+      "path": "assets/edits/scene-11.mp4"
+    }
+  },
+  "14": {
+    "main": {
+      "path": "assets/edits/scene-14.mp4"
+    }
+  },
+  "15": {
+    "main": {
+      "path": "assets/captures/08-mobile-home.png"
+    }
+  }
+}

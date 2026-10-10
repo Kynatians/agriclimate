@@ -1,0 +1,6 @@
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-00.mp4'
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-01.mp4'
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-02.mp4'
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-03.mp4'
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-04.mp4'
+file '/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/assets/edits/s10-part-05.mp4'

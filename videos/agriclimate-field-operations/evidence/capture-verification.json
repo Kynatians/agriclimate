@@ -1,0 +1,543 @@
+{
+  "checkedAt": "2026-10-03T06:38:43.840Z",
+  "videos": [
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 9.88,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/02-mode-switch.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.44,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 16.04,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-seven-layers-basemap.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 43.96,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 19.16,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-broadcast.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 39.08,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-bengali-alert.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 19,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 15.8,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-decisions-telemetry.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 27.04,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-recommendations.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.12,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 17.96,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-request-submit.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 20,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pump-approval.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 22.24,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-pump-approved.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 16.64,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 11.68,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.mp4",
+      "width": 390,
+      "height": 844,
+      "durationSeconds": 14.08,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline-voice.mp4",
+      "width": 320,
+      "height": 740,
+      "durationSeconds": 15.96,
+      "status": "captured",
+      "decoded": true
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-app-overview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 36.84,
+      "status": "captured",
+      "decoded": true
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/01-dark-officer-map.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1369187
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/02-farmer-desktop.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 303531
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1302897
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-01.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1304971
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-02.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1304121
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-03.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1299265
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-04.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1305663
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-05.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1308698
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-06.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1287562
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-layer-07.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1285444
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/04-satellite-basemap.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1992421
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-cached-fire-overlay-blocker.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1989908
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-rowmari-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 725771
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/06-broadcast-confirmed.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 722537
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-farmer-home-bengali.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 77803
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-bengali.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 79898
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/07-new-alert-english.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 74808
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-mobile-home.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 149441
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-soil-pump-card.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 149536
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-weather-card.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 79614
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-crop-growth-card.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 78218
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 76081
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-telemetry-modal-lower.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 71067
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 76440
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-crop-modal-scores.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 78609
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-form.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 84851
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-submitted.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 82098
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10a-pump-pending.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 75835
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-pending-queue.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1694672
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-review-note.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 698348
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10b-officer-approved.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1769705
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/10c-farmer-approved.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 76488
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-modal.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 77566
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-irrigation-allocation.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 77566
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320.png",
+      "width": 320,
+      "height": 740,
+      "bytes": 121250
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-mobile-320-offline.png",
+      "width": 320,
+      "height": 740,
+      "bytes": 118406
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/14-voice-preview.png",
+      "width": 320,
+      "height": 740,
+      "bytes": 67004
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-officer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1359705
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/15-farmer-overview.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 370472
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-hover.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1331280
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/03-chilmari-officer.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 631382
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-daily-cards.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 370139
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/08-desktop-telemetry.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 320968
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 333179
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/09-desktop-crop-detail.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 328678
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/11-desktop-irrigation-modal.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 329782
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-layer.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1989186
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-composer.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 756453
+    },
+    {
+      "file": "videos/agriclimate-field-operations/assets/captures/05-fire-tactical-overlay.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 2116484
+    }
+  ],
+  "apiWrites": [
+    {
+      "method": "POST",
+      "url": "http://localhost:3457/api/alerts/dispatch",
+      "status": 200,
+      "id": "dispatched_1791008540623"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:3457/api/pump-requests",
+      "status": 201,
+      "id": "pr_1791008643039",
+      "deficitSeverity": 72,
+      "statusAfter": "pending"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://localhost:3457/api/pump-requests/pr_1791008643039",
+      "status": 200,
+      "id": "pr_1791008643039",
+      "deficitSeverity": 72,
+      "statusAfter": "approved"
+    }
+  ],
+  "restoration": [
+    {
+      "file": "data/live/alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/alerts.json",
+      "originalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "finalSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e",
+      "outcome": "unchanged",
+      "currentSha256": "3923a8712fe22b4efabcaac1b43b0a353ed8dcc74efed50681db4ed14557402e"
+    },
+    {
+      "file": "data/live/block-metrics.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/block-metrics.json",
+      "originalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "finalSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b",
+      "outcome": "unchanged",
+      "currentSha256": "bed6844ff4a64e49a22943a7e5d4802f76f3b30f7484fe1796d37f3bf6403a9b"
+    },
+    {
+      "file": "data/live/dispatched-alerts.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/dispatched-alerts.json",
+      "originalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "finalSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f",
+      "outcome": "original restored byte-for-byte",
+      "currentSha256": "6d1b565abd7b9fc9c08724c93273414bf787e91e0c2ea7b9dc7606d2c6fdc62f"
+    },
+    {
+      "file": "data/live/pump-requests.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/pump-requests.json",
+      "originalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "finalSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633",
+      "outcome": "original restored byte-for-byte",
+      "currentSha256": "3273cf7e44a1c5b78c64be8b83ee476301efd99babba03da559ee486c188d633"
+    },
+    {
+      "file": "data/live/sync-meta.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/sync-meta.json",
+      "originalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "finalSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7",
+      "outcome": "unchanged",
+      "currentSha256": "80c8c89e6e780046d665823d51e13563d2887dd95c8096d30de64695037d12b7"
+    },
+    {
+      "file": "data/live/timeseries.json",
+      "backup": "evidence/capture-backup-2026-10-03T06-19-32-563Z/timeseries.json",
+      "originalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "finalSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d",
+      "outcome": "unchanged",
+      "currentSha256": "dd7a483f35d253776e9a0dc09c4067cfb4d9293b83b0c189453c879c4ecaad9d"
+    }
+  ],
+  "errors": [],
+  "completedScenes": [
+    "01-dark-officer-map",
+    "02-mode-switch",
+    "03-chilmari-officer",
+    "04-seven-layers-basemap",
+    "05-cached-fire-overlay",
+    "06-rowmari-broadcast",
+    "07-farmer-bengali-alert",
+    "08-desktop-daily-cards",
+    "08-mobile-decisions-telemetry",
+    "09-crop-recommendations",
+    "09-desktop-crop-modal",
+    "10a-pump-request-submit",
+    "10b-officer-pump-approval",
+    "10c-farmer-pump-approved",
+    "11-desktop-irrigation-modal",
+    "11-irrigation-modal",
+    "14-mobile-320-offline-voice",
+    "15-app-overview"
+  ],
+  "incompleteScenes": [],
+  "totalVideoSeconds": 378.92,
+  "ok": true
+}

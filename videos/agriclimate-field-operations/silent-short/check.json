@@ -1,0 +1,364 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q01\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q01\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q02\" data-start=\"3\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q02\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q03\" data-start=\"6\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q03\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q04\" data-start=\"9\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q04\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q05\" data-start=\"13\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q05\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q06\" data-start=\"17\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q06\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q07\" data-start=\"21\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q07\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div data-composition-id=\"q08\" data-start=\"24\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id=\"q08\"]",
+        "dataAttributes": {},
+        "sourceFile": "/home/tahsin/Documents/GitHub/kynatians/agriclimate/videos/agriclimate-field-operations/silent-short/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      }
+    ],
+    "filesScanned": 9
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 4,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 6.125,
+        "selector": "#q03-seven",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 105.96,
+          "top": 213.19,
+          "right": 345.39,
+          "bottom": 676.81,
+          "width": 239.43,
+          "height": 463.62
+        },
+        "containerSelector": "[data-composition-id=\"q03\"] > div:nth-of-type(1) > div:nth-of-type(5)",
+        "text": "7",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/q03.html",
+        "bbox": {
+          "x": 105.96,
+          "y": 213.19,
+          "width": 239.43,
+          "height": 463.62
+        },
+        "firstSeen": 6.125,
+        "lastSeen": 6.125,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 12.5,
+        "selector": "div.inside",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1249.93,
+          "top": 209.09,
+          "right": 1598.07,
+          "bottom": 972.91,
+          "width": 348.15,
+          "height": 763.82
+        },
+        "containerSelector": "#q04-phone",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 1255,
+          "top": 225,
+          "right": 1593,
+          "bottom": 957,
+          "width": 338,
+          "height": 732
+        },
+        "overflow": {
+          "left": 5.07,
+          "right": 5.07,
+          "top": 15.91,
+          "bottom": 15.91
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/q02.html",
+        "bbox": {
+          "x": 1249.93,
+          "y": 209.09,
+          "width": 348.15,
+          "height": 763.82
+        },
+        "firstSeen": 12.5,
+        "lastSeen": 12.5,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.125,
+        "selector": "[data-composition-id=\"q06\"] > div:nth-of-type(1) > h1:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 128,
+          "top": 132.45,
+          "right": 658.98,
+          "bottom": 241.45,
+          "width": 530.98,
+          "height": 109
+        },
+        "containerSelector": "[data-composition-id=\"q06\"] > div:nth-of-type(1) > span:nth-of-type(1)",
+        "text": "Ask. Review. Approve.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/q06.html",
+        "bbox": {
+          "x": 128,
+          "y": 132.45,
+          "width": 530.98,
+          "height": 109
+        },
+        "firstSeen": 17.125,
+        "lastSeen": 17.125,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.125,
+        "selector": "[data-composition-id=\"q06\"] > div:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 658.98,
+          "top": 132.45,
+          "right": 1027.16,
+          "bottom": 241.45,
+          "width": 368.18,
+          "height": 109
+        },
+        "containerSelector": "[data-composition-id=\"q06\"] > div:nth-of-type(1) > span:nth-of-type(2)",
+        "text": "Approve.",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/q06.html",
+        "bbox": {
+          "x": 658.98,
+          "y": 132.45,
+          "width": 368.18,
+          "height": 109
+        },
+        "firstSeen": 17.125,
+        "lastSeen": 17.125,
+        "occurrences": 1,
+        "heldMs": 0
+      }
+    ],
+    "duration": 28,
+    "samples": [
+      0.8,
+      1.8,
+      4.5,
+      7.5,
+      10.8,
+      12.5,
+      14.5,
+      16.2,
+      18.3,
+      20.1,
+      22.5,
+      25.4,
+      27.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.8,
+      7.5,
+      14.5,
+      20.1,
+      27.5
+    ],
+    "checked": 65,
+    "passed": 65
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      "snapshots/frame-00-at-0.8s.png",
+      "snapshots/frame-01-at-7.5s.png",
+      "snapshots/frame-02-at-14.5s.png",
+      "snapshots/frame-03-at-20.1s.png",
+      "snapshots/frame-04-at-27.5s.png"
+    ],
+    "times": [
+      0.8,
+      7.5,
+      14.5,
+      20.1,
+      27.5
+    ],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.114",
+    "latestVersion": "0.8.114",
+    "updateAvailable": false
+  }
+}
