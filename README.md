@@ -176,7 +176,7 @@ agriclimate/
 
 ### Prerequisites
 
-- **Node.js** 20+ LTS
+- **Node.js** 22+ LTS
 - **pnpm** (version 10 or 11 recommended)
 
 ### Installation
