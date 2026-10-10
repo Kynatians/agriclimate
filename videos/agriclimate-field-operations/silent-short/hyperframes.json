@@ -1,7 +1,0 @@
-{
-  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
-  "authoringSkill": "general-video",
-  "media": {
-    "autoProxy": true
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "private": true,
-  "scripts": {
-    "check": "npx hyperframes@0.8.114 check",
-    "dev": "npx hyperframes@0.8.114 preview",
-    "render": "npx hyperframes@0.8.114 render --quality delivery --workers 4 --output ../agriclimate-28s-silent-final.mp4"
-  }
-}

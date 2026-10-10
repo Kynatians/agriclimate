@@ -1,3 +1,0 @@
-Not signed in to HeyGen (non-interactive).
-Set HEYGEN_API_KEY to use HeyGen, or workflows fall back to local engines (Kokoro voice · MusicGen music).
-AUTH_EXIT_CODE=1

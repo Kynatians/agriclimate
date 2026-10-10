@@ -1,8 +1,0 @@
-✓ 19 bundled SFX assets available
-✗ heygen not found — free-usage path: bgm/image/voice/avatar-video — fix: Install the CLI from https://developers.heygen.com/cli, then run: heygen auth login --oauth
-✗ heygen version unavailable — free-usage path: bgm/image/voice/avatar-video — fix: Install the CLI from https://developers.heygen.com/cli, then run: heygen auth login --oauth
-✗ heygen auth status unavailable — free-usage path: bgm/image/voice/avatar-video — fix: Install the CLI from https://developers.heygen.com/cli, then run: heygen auth login --oauth
-✓ ffmpeg version n8.1.2 Copyright (c) 2000-2026 the FFmpeg developers
-✓ ffprobe version n8.1.2 Copyright (c) 2007-2026 the FFmpeg developers
-✓ v22.23.1 (need >= v18.0.0)
-DOCTOR_EXIT_CODE=0

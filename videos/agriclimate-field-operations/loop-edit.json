@@ -1,8 +1,0 @@
-[
-  {"clip":"10a-pump-request-submit","start":3.2,"length":8.5,"target":4.5},
-  {"clip":"10a-pump-request-submit","start":11.7,"length":7.8,"target":3.5},
-  {"clip":"10b-officer-pump-approval","start":0.6,"length":3.7,"target":3,"crop":"380:780:0:90"},
-  {"clip":"10b-officer-pump-approval","start":4.1,"length":10.5,"target":4.5,"crop":"700:700:610:190"},
-  {"clip":"10b-officer-pump-approval","start":14.6,"length":6.0,"target":3,"crop":"700:700:610:190"},
-  {"clip":"10c-farmer-pump-approved","start":7.1,"length":8.8,"target":3.5}
-]
