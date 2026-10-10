@@ -7,9 +7,9 @@
 <p align="center">
   <a href="https://github.com/kynatians/agriclimate/actions/workflows/ci.yml">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline&mode=dark">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline&mode=light">
-      <img alt="CI" src="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline">
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&branch=main&variant=outline&mode=dark">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&branch=main&variant=outline&mode=light">
+      <img alt="CI" src="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&branch=main&variant=outline">
     </picture>
   </a>
   <picture>
