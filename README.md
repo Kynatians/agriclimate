@@ -5,11 +5,13 @@
 </picture>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?variant=outline&mode=dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?variant=outline&mode=light">
-    <img alt="CI" src="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?variant=outline">
-  </picture>
+  <a href="https://github.com/kynatians/agriclimate/actions/workflows/ci.yml">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline&mode=dark">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline&mode=light">
+      <img alt="CI" src="https://shieldcn.dev/github/ci/kynatians/agriclimate.svg?workflow=ci.yml&variant=outline">
+    </picture>
+  </a>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/License-Apache_2.0-22c55e.svg?logo=apache&variant=outline&mode=dark">
     <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/License-Apache_2.0-22c55e.svg?logo=apache&variant=outline&mode=light">
