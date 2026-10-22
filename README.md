@@ -226,6 +226,7 @@ pnpm lint
 | [Engineering Technical Specification](docs/agriclimate-tech-spec.md) | Architecture, data models, build contract (v1.0) |
 | [Frontend Implementation Plan](docs/plans/frontend-implementation-plan.md) | Component breakdown, routing, state management |
 | [Live NASA Satellite Ingestion Plan](docs/plans/live-nasa-data-plan.md) | Pipeline design for real-time satellite data sync |
+| [Project Roadmap & Status](roadmap.md) | Detailed implementation status and multi-phase roadmap |
 
 ---
 
