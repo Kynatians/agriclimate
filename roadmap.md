@@ -37,21 +37,21 @@ Data flows through a pluggable **Data Access Layer** operating in `static`, `liv
 
 ### Phase 0 — Foundation & Design System ✅
 
-- [x] Next.js 16.3 + React 19 + TypeScript + Tailwind CSS scaffold with Vitest ([vitest.config.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/vitest.config.ts))
-- [x] OKLCH semantic tokens in [globals.css](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/app/globals.css) — light/dark themes, WCAG AAA contrast, status scales
-- [x] Accessible UI primitives in [components/ui/](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/ui) — button, badge, card, dialog, sheet, select, switch, tabs, textarea, tooltip, skeleton
+- [x] Next.js 16.3 + React 19 + TypeScript + Tailwind CSS scaffold with Vitest ([vitest.config.ts](./vitest.config.ts))
+- [x] OKLCH semantic tokens in [globals.css](./app/globals.css) — light/dark themes, WCAG AAA contrast, status scales
+- [x] Accessible UI primitives in [components/ui/](./components/ui) — button, badge, card, dialog, sheet, select, switch, tabs, textarea, tooltip, skeleton
 
 ### Phase 1 — Data Contracts & DAL ✅
 
-- [x] Domain models & Zod schemas — [types.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/types.ts), [schemas.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/schemas.ts)
-- [x] Kurigram seed data — 12 blocks with GeoJSON polygons, soil profiles, time-series, alerts ([data/generated/](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/data/generated))
-- [x] DAL unified API — [static-source.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/static-source.ts), [index.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/index.ts) · validated in [dal-validation.test.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/tests/unit/dal-validation.test.ts)
+- [x] Domain models & Zod schemas — [types.ts](./lib/dal/types.ts), [schemas.ts](./lib/dal/schemas.ts)
+- [x] Kurigram seed data — 12 blocks with GeoJSON polygons, soil profiles, time-series, alerts ([data/generated/](./data/generated))
+- [x] DAL unified API — [static-source.ts](./lib/dal/static-source.ts), [index.ts](./lib/dal/index.ts) · validated in [dal-validation.test.ts](./tests/unit/dal-validation.test.ts)
 
 ### Phase 2 — Scoring Engine & Crop KB ✅
 
-- [x] Index formulas — FSS, SPI, CWSI, deficit severity · [formulas.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/indices/formulas.ts), [thresholds.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/indices/thresholds.ts) · tested in [formulas.test.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/tests/unit/formulas.test.ts)
-- [x] 24-crop regional knowledge base — [knowledge-base.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/crops/knowledge-base.ts)
-- [x] Crop Suitability Score (CSS) algorithm with bilingual narratives — [css.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/indices/css.ts) · tested in [css.test.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/tests/unit/css.test.ts)
+- [x] Index formulas — FSS, SPI, CWSI, deficit severity · [formulas.ts](./lib/indices/formulas.ts), [thresholds.ts](./lib/indices/thresholds.ts) · tested in [formulas.test.ts](./tests/unit/formulas.test.ts)
+- [x] 24-crop regional knowledge base — [knowledge-base.ts](./lib/crops/knowledge-base.ts)
+- [x] Crop Suitability Score (CSS) algorithm with bilingual narratives — [css.ts](./lib/indices/css.ts) · tested in [css.test.ts](./tests/unit/css.test.ts)
 
 ### Phase 3 — Route Handlers & API ✅
 
@@ -60,40 +60,40 @@ Data flows through a pluggable **Data Access Layer** operating in `static`, `liv
 
 ### Phase 4 — Shared Shell & i18n ✅
 
-- [x] Top bar, mode toggle, permission dialog, language switcher, notification bell, offline banner, source labels — [components/shared/](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/shared)
-- [x] Bilingual dictionaries — [en.json](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/locales/en.json), [bn.json](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/locales/bn.json) · client loader in [client.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/i18n/client.ts)
+- [x] Top bar, mode toggle, permission dialog, language switcher, notification bell, offline banner, source labels — [components/shared/](./components/shared)
+- [x] Bilingual dictionaries — [en.json](./locales/en.json), [bn.json](./locales/bn.json) · client loader in [client.ts](./lib/i18n/client.ts)
 
 ### Phase 5 — Farmer View ✅
 
-- [x] Shell & bottom nav (Home / Map / Calendar / Alerts) — [FarmerView.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/FarmerView.tsx), [BottomNav.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/BottomNav.tsx), [VoiceFab.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/VoiceFab.tsx)
+- [x] Shell & bottom nav (Home / Map / Calendar / Alerts) — [FarmerView.tsx](./components/farmer/FarmerView.tsx), [BottomNav.tsx](./components/farmer/BottomNav.tsx), [VoiceFab.tsx](./components/farmer/VoiceFab.tsx)
 - [x] Home dashboard — weather, soil strata, crop condition, daily decisions, solar pump dial, trends chart, radar summary
 - [x] Detail modals — weather, crop care, irrigation, pump request, telemetry
-- [x] Map tab — [FarmerBlockMap.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/FarmerBlockMap.tsx) · Calendar tab — [CropCalendarView.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/CropCalendarView.tsx) · Alerts tab — [AlertsListView.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/AlertsListView.tsx)
-- [x] Crop recommendations — [CropRecoCard.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/CropRecoCard.tsx), [CropRecommendationModal.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/CropRecommendationModal.tsx)
+- [x] Map tab — [FarmerBlockMap.tsx](./components/farmer/FarmerBlockMap.tsx) · Calendar tab — [CropCalendarView.tsx](./components/farmer/CropCalendarView.tsx) · Alerts tab — [AlertsListView.tsx](./components/farmer/AlertsListView.tsx)
+- [x] Crop recommendations — [CropRecoCard.tsx](./components/farmer/CropRecoCard.tsx), [CropRecommendationModal.tsx](./components/farmer/CropRecommendationModal.tsx)
 
 ### Phase 6 — Officer Control Panel ✅
 
-- [x] 3-column cockpit (desktop) / tabbed collapse (mobile) — [OfficerShell.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/OfficerShell.tsx)
-- [x] MapLibre GL engine + 7 satellite layers (NDVI, soil moisture, flood risk, CWSI, precip forecast, pump rota, thermal) — [MapCanvas.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/map/MapCanvas.tsx), [layers.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/map/layers.ts)
-- [x] Control panel with layer toggles & alert feed — [ControlPanel.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/ControlPanel.tsx), [AlertFeed.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/AlertFeed.tsx)
-- [x] Data panel — district summary & block detail with sparklines — [DataPanel.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/DataPanel.tsx)
-- [x] Alert composer + SMS dispatch — [AlertComposer.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/AlertComposer.tsx) · District reporting — [ReportModal.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/ReportModal.tsx)
-- [x] Pump request triage queue — [PumpRequestQueue.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/PumpRequestQueue.tsx)
+- [x] 3-column cockpit (desktop) / tabbed collapse (mobile) — [OfficerShell.tsx](./components/officer/OfficerShell.tsx)
+- [x] MapLibre GL engine + 7 satellite layers (NDVI, soil moisture, flood risk, CWSI, precip forecast, pump rota, thermal) — [MapCanvas.tsx](./components/map/MapCanvas.tsx), [layers.ts](./lib/map/layers.ts)
+- [x] Control panel with layer toggles & alert feed — [ControlPanel.tsx](./components/officer/ControlPanel.tsx), [AlertFeed.tsx](./components/officer/AlertFeed.tsx)
+- [x] Data panel — district summary & block detail with sparklines — [DataPanel.tsx](./components/officer/DataPanel.tsx)
+- [x] Alert composer + SMS dispatch — [AlertComposer.tsx](./components/officer/AlertComposer.tsx) · District reporting — [ReportModal.tsx](./components/officer/ReportModal.tsx)
+- [x] Pump request triage queue — [PumpRequestQueue.tsx](./components/officer/PumpRequestQueue.tsx)
 
 ### Phase 7 — Live NASA Ingestion 🔄
 
-- [x] TypeScript clients — [power-client.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/nasa/power-client.ts) (POWER API), [firms-client.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/nasa/firms-client.ts) (FIRMS API), [cache-manager.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/nasa/cache-manager.ts)
-- [x] DAL live adapter with resilient fallback — [live-source.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/live-source.ts)
-- [x] Python ingest scripts — [fetch_power.py](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/scripts/ingest/fetch_power.py), [fetch_firms.py](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/scripts/ingest/fetch_firms.py), [fetch_landsat_stac.py](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/scripts/ingest/fetch_landsat_stac.py)
+- [x] TypeScript clients — [power-client.ts](./lib/nasa/power-client.ts) (POWER API), [firms-client.ts](./lib/nasa/firms-client.ts) (FIRMS API), [cache-manager.ts](./lib/nasa/cache-manager.ts)
+- [x] DAL live adapter with resilient fallback — [live-source.ts](./lib/dal/live-source.ts)
+- [x] Python ingest scripts — [fetch_power.py](./scripts/ingest/fetch_power.py), [fetch_firms.py](./scripts/ingest/fetch_firms.py), [fetch_landsat_stac.py](./scripts/ingest/fetch_landsat_stac.py)
 - [ ] AppEEARS ingestion — `fetch_appeears.py` (MOD13Q1 NDVI, SPL4SMGP soil moisture)
 - [ ] Zonal harmonization — `build_live_dataset.py` (raster-to-vector extraction)
-- [x] On-demand sync endpoint + officer cockpit integration — [/api/sync/live-nasa](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/app/api/sync/live-nasa/route.ts)
+- [x] On-demand sync endpoint + officer cockpit integration — [route.ts](./app/api/sync/live-nasa/route.ts)
 
 ### Phase 8 — QA & Hardening 🔄
 
 - [x] Unit tests (Vitest) — CSS scoring, formulas, DAL validation, NASA client parsers
 - [x] Component tests (Testing Library) — CropRecoCard, FarmerHome, LayerToggleList, MapCanvas, ModeToggle
-- [x] CI — [ci.yml](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/.github/workflows/ci.yml) · Browser capture scripts in `scripts/`
+- [x] CI — [ci.yml](./.github/workflows/ci.yml) · Browser capture scripts in `scripts/`
 - [ ] Playwright E2E smoke suite — `tests/e2e/smoke.spec.ts`
 - [ ] Axe-Core accessibility scanning in CI
 
@@ -103,7 +103,7 @@ Data flows through a pluggable **Data Access Layer** operating in `static`, `liv
 - [ ] Telecom SMS & IVR broadcast gateways (Banglalink, Grameenphone, Robi, Twilio)
 - [ ] IoT solar pump telemetry bridge (MQTT/Modbus)
 - [ ] Cloud-optimized raster tiling (COG/PMTiles)
-- [ ] Enterprise auth & government SSO (replace [mock-session.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/auth/mock-session.ts))
+- [ ] Enterprise auth & government SSO (replace [mock-session.ts](./lib/auth/mock-session.ts))
 - [ ] PWA with 48-hour offline service worker
 - [ ] National scaling — all 64 districts, 495 upazilas
 
@@ -127,16 +127,16 @@ Data flows through a pluggable **Data Access Layer** operating in `static`, `liv
 
 | Resource | Path |
 |---|---|
-| Product spec | [agriclimate.md](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/docs/agriclimate.md) |
-| Tech spec | [agriclimate-tech-spec.md](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/docs/agriclimate-tech-spec.md) |
-| Frontend plan | [frontend-implementation-plan.md](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/docs/plans/frontend-implementation-plan.md) |
-| NASA data plan | [live-nasa-data-plan.md](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/docs/plans/live-nasa-data-plan.md) |
-| App shell | [page.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/app/page.tsx) · [layout.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/app/layout.tsx) |
-| Design tokens | [globals.css](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/app/globals.css) |
-| State store | [ui.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/stores/ui.ts) |
-| DAL | [dal/index.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/dal/index.ts) |
-| Scoring | [css.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/indices/css.ts) · [formulas.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/indices/formulas.ts) |
-| Crop KB | [knowledge-base.ts](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/crops/knowledge-base.ts) |
-| Map engine | [MapCanvas.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/map/MapCanvas.tsx) |
-| Officer cockpit | [OfficerShell.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/officer/OfficerShell.tsx) |
-| Farmer view | [FarmerView.tsx](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/farmer/FarmerView.tsx) |
+| Product spec | [agriclimate.md](./docs/agriclimate.md) |
+| Tech spec | [agriclimate-tech-spec.md](./docs/agriclimate-tech-spec.md) |
+| Frontend plan | [frontend-implementation-plan.md](./docs/plans/frontend-implementation-plan.md) |
+| NASA data plan | [live-nasa-data-plan.md](./docs/plans/live-nasa-data-plan.md) |
+| App shell | [page.tsx](./app/page.tsx) · [layout.tsx](./app/layout.tsx) |
+| Design tokens | [globals.css](./app/globals.css) |
+| State store | [ui.ts](./lib/stores/ui.ts) |
+| DAL | [index.ts](./lib/dal/index.ts) |
+| Scoring | [css.ts](./lib/indices/css.ts) · [formulas.ts](./lib/indices/formulas.ts) |
+| Crop KB | [knowledge-base.ts](./lib/crops/knowledge-base.ts) |
+| Map engine | [MapCanvas.tsx](./components/map/MapCanvas.tsx) |
+| Officer cockpit | [OfficerShell.tsx](./components/officer/OfficerShell.tsx) |
+| Farmer view | [FarmerView.tsx](./components/farmer/FarmerView.tsx) |
