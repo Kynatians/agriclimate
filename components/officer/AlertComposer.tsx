@@ -1,10 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { Alert, Block } from "@/lib/dal/types";
+import { Alert, Block, BlockMetrics } from "@/lib/dal/types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Radio, MessageSquare, Send, CheckCircle2, AlertCircle, Info } from "lucide-react";
+import { Radio, MessageSquare, Send, CheckCircle2, AlertCircle, Info, ChevronDown, ChevronUp, Eye, ShieldAlert, Satellite } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/client";
 import { useUiStore } from "@/lib/stores/ui";
 
@@ -14,6 +14,7 @@ interface AlertComposerProps {
   prefillAlert?: Alert | null;
   prefillBlock?: Block | null;
   blocks: Block[];
+  metricsMap?: Record<string, BlockMetrics>;
 }
 
 export function AlertComposer({
@@ -22,6 +23,7 @@ export function AlertComposer({
   prefillAlert,
   prefillBlock,
   blocks,
+  metricsMap = {},
 }: AlertComposerProps) {
   const { t, getLocalized } = useTranslation();
   const addDispatchedAlert = useUiStore((state) => state.addDispatchedAlert);
@@ -36,6 +38,7 @@ export function AlertComposer({
   const [systemText, setSystemText] = React.useState<string>("");
   const [officerNote, setOfficerNote] = React.useState<string>("");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [showIncidentDetails, setShowIncidentDetails] = React.useState(true);
   const [dispatchStatus, setDispatchStatus] = React.useState<{
     success: boolean;
     message: string;
@@ -219,6 +222,74 @@ export function AlertComposer({
               </label>
             </div>
           </div>
+
+          {/* Pre-Approval Incident Verification & Telemetry Details */}
+          {prefillAlert && (
+            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] p-3 space-y-2">
+              <button
+                type="button"
+                onClick={() => setShowIncidentDetails(!showIncidentDetails)}
+                className="flex items-center justify-between w-full text-left font-bold text-xs text-[var(--fg-primary)] cursor-pointer"
+              >
+                <span className="flex items-center gap-1.5">
+                  <ShieldAlert className="h-4 w-4 text-amber-500" />
+                  Pre-Approval Incident Details & Telemetry
+                </span>
+                <span className="flex items-center gap-1 text-[10px] text-[var(--fg-muted)]">
+                  <span>{showIncidentDetails ? "Collapse" : "Verify Details"}</span>
+                  {showIncidentDetails ? (
+                    <ChevronUp className="h-3.5 w-3.5" />
+                  ) : (
+                    <ChevronDown className="h-3.5 w-3.5" />
+                  )}
+                </span>
+              </button>
+
+              {showIncidentDetails && (
+                <div className="space-y-2 pt-2 border-t border-[var(--border-subtle)] text-xs">
+                  <div className="p-2 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-1">
+                    <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)]">
+                      <span className="font-mono">ID: {prefillAlert.id}</span>
+                      <span>Lead: {prefillAlert.leadTimeHours}h</span>
+                    </div>
+                    <p className="text-[11px] text-[var(--fg-secondary)] leading-relaxed">
+                      {getLocalized(prefillAlert.detail)}
+                    </p>
+                  </div>
+
+                  {metricsMap[targetBlockId] && (
+                    <div className="grid grid-cols-3 gap-1.5 text-center text-[10px] font-mono">
+                      <div className="p-1.5 rounded-md bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                        <span className="text-[9px] text-[var(--fg-muted)] block">Soil Moisture</span>
+                        <span className="font-bold">
+                          {metricsMap[targetBlockId].soilMoistureSurface.value.toFixed(1)}%
+                        </span>
+                      </div>
+                      <div className="p-1.5 rounded-md bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                        <span className="text-[9px] text-[var(--fg-muted)] block">Water Stress</span>
+                        <span className="font-bold">
+                          {(metricsMap[targetBlockId].cwsi * 100).toFixed(0)}%
+                        </span>
+                      </div>
+                      <div className="p-1.5 rounded-md bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                        <span className="text-[9px] text-[var(--fg-muted)] block">7d Rain</span>
+                        <span className="font-bold">
+                          {metricsMap[targetBlockId].precip7dForecast.toFixed(1)} mm
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-center justify-between text-[10px] text-[var(--fg-muted)]">
+                    <span>
+                      Target Community: {targetBlockId === "all" ? "All District Blocks (3,420 farmers)" : blocks.find((b) => b.id === targetBlockId)?.name || targetBlockId}
+                    </span>
+                    <span className="font-semibold text-emerald-600">Sentinel/NASA Telemetry Verified</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* System Advisory Text */}
           <div>

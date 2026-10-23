@@ -158,6 +158,7 @@ export function OfficerShell({
         prefillAlert={activeAlertToAnnotate}
         prefillBlock={activeBlockForAlert}
         blocks={blocks}
+        metricsMap={metricsMap}
       />
 
       {/* District Report Modal */}

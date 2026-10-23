@@ -1,22 +1,33 @@
 "use client";
 
 import * as React from "react";
-import { Alert } from "@/lib/dal/types";
+import { Alert, Block, BlockMetrics } from "@/lib/dal/types";
 import { useUiStore } from "@/lib/stores/ui";
 import { MetricBadge } from "@/components/shared/MetricBadge";
 import { useTranslation } from "@/lib/i18n/client";
-import { AlertTriangle, Clock, Send, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { Clock, Send, ShieldAlert, CheckCircle2, Eye, Info } from "lucide-react";
+import { IncidentDetailModal } from "./IncidentDetailModal";
 import { cn } from "@/lib/utils";
 
 interface AlertFeedProps {
   alerts: Alert[];
+  blocks?: Block[];
+  metricsMap?: Record<string, BlockMetrics>;
   onAnnotateAlert: (alert: Alert) => void;
   className?: string;
 }
 
-export function AlertFeed({ alerts, onAnnotateAlert, className }: AlertFeedProps) {
-  const { t, getLocalized } = useTranslation();
+export function AlertFeed({
+  alerts,
+  blocks = [],
+  metricsMap = {},
+  onAnnotateAlert,
+  className,
+}: AlertFeedProps) {
+  const { getLocalized } = useTranslation();
   const dispatchedAlerts = useUiStore((state) => state.dispatchedAlerts);
+
+  const [inspectingAlert, setInspectingAlert] = React.useState<Alert | null>(null);
 
   return (
     <div className={cn("space-y-2.5", className)}>
@@ -40,6 +51,8 @@ export function AlertFeed({ alerts, onAnnotateAlert, className }: AlertFeedProps
             const isDispatched = dispatchedAlerts.some(
               (d) => d.id === alert.id || (d.blockId === alert.blockId && d.type === alert.type)
             );
+            const block = blocks.find((b) => b.id === alert.blockId);
+            const alertMetrics = metricsMap[alert.blockId];
 
             return (
               <div
@@ -73,8 +86,12 @@ export function AlertFeed({ alerts, onAnnotateAlert, className }: AlertFeedProps
                   </div>
                 </div>
 
-                <div>
-                  <h5 className="text-xs font-bold text-[var(--fg-primary)] leading-snug">
+                <div
+                  onClick={() => setInspectingAlert(alert)}
+                  className="cursor-pointer group/headline"
+                  title="Click to check incident telemetry and details before approving"
+                >
+                  <h5 className="text-xs font-bold text-[var(--fg-primary)] group-hover/headline:text-[var(--primary)] transition-colors leading-snug">
                     {getLocalized(alert.headline)}
                   </h5>
                   <p className="mt-0.5 text-[11px] text-[var(--fg-secondary)] line-clamp-2 leading-relaxed">
@@ -82,30 +99,82 @@ export function AlertFeed({ alerts, onAnnotateAlert, className }: AlertFeedProps
                   </p>
                 </div>
 
+                {/* Telemetry teaser tag if metrics exist */}
+                {alertMetrics && (
+                  <div className="flex items-center gap-2 text-[10px] text-[var(--fg-muted)] font-mono bg-[var(--bg-surface-subtle)] px-2 py-1 rounded-md">
+                    <span>Soil: {alertMetrics.soilMoistureSurface.value.toFixed(0)}%</span>
+                    <span>•</span>
+                    <span>CWSI: {(alertMetrics.cwsi * 100).toFixed(0)}%</span>
+                    <span>•</span>
+                    <span>Rain: {alertMetrics.precip7dForecast.toFixed(0)}mm</span>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between pt-1 border-t border-[var(--border-subtle)]/60 text-[10px]">
-                  <span className="font-mono text-[var(--fg-muted)]">
-                    Target: {alert.blockId}
+                  <span
+                    className="font-mono text-[var(--fg-muted)] truncate max-w-[120px]"
+                    title={block ? `${block.name} (${block.subDistrict})` : alert.blockId}
+                  >
+                    Target: {block ? block.name : alert.blockId}
                   </span>
 
-                  <button
-                    type="button"
-                    onClick={() => onAnnotateAlert(alert)}
-                    className={cn(
-                      "flex items-center gap-1 rounded-md px-2 py-1 font-bold text-white shadow-xs active:scale-95 transition-all cursor-pointer",
-                      isDispatched
-                        ? "bg-[var(--status-success)] hover:bg-[var(--status-success)]/90"
-                        : "bg-[var(--primary)] hover:bg-[var(--primary-hover)]"
-                    )}
-                  >
-                    <Send className="h-2.5 w-2.5" />
-                    <span>{isDispatched ? "Broadcast Active" : "Annotate : SMS"}</span>
-                  </button>
+                  <div className="flex items-center gap-1.5">
+                    {/* Check Details button before approving */}
+                    <button
+                      type="button"
+                      onClick={() => setInspectingAlert(alert)}
+                      className="flex items-center gap-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface-subtle)] px-2 py-1 font-semibold text-[var(--fg-primary)] hover:bg-[var(--bg-surface)] hover:border-[var(--border-strong)] transition-all cursor-pointer"
+                      title="Inspect incident telemetry, satellite triggers, and mitigation advice before approving"
+                    >
+                      <Eye className="h-3 w-3 text-[var(--fg-muted)]" />
+                      <span>Details</span>
+                    </button>
+
+                    {/* Approve / Broadcast SMS Advisory button */}
+                    <button
+                      type="button"
+                      onClick={() => onAnnotateAlert(alert)}
+                      className={cn(
+                        "flex items-center gap-1 rounded-md px-2 py-1 font-bold text-white shadow-xs active:scale-95 transition-all cursor-pointer",
+                        isDispatched
+                          ? "bg-[var(--status-success)] hover:bg-[var(--status-success)]/90"
+                          : "bg-[var(--primary)] hover:bg-[var(--primary-hover)]"
+                      )}
+                    >
+                      <Send className="h-2.5 w-2.5" />
+                      <span>{isDispatched ? "Broadcast Active" : "Annotate : SMS"}</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             );
           })
         )}
       </div>
+
+      {/* Incident Detail Modal for checking facts & telemetry before approving */}
+      <IncidentDetailModal
+        open={!!inspectingAlert}
+        onOpenChange={(open) => {
+          if (!open) setInspectingAlert(null);
+        }}
+        alert={inspectingAlert}
+        block={inspectingAlert ? blocks.find((b) => b.id === inspectingAlert.blockId) : undefined}
+        metrics={inspectingAlert ? metricsMap[inspectingAlert.blockId] : undefined}
+        isDispatched={
+          inspectingAlert
+            ? dispatchedAlerts.some(
+                (d) =>
+                  d.id === inspectingAlert.id ||
+                  (d.blockId === inspectingAlert.blockId && d.type === inspectingAlert.type)
+              )
+            : false
+        }
+        onApproveAndBroadcast={(alert) => {
+          setInspectingAlert(null);
+          onAnnotateAlert(alert);
+        }}
+      />
     </div>
   );
 }

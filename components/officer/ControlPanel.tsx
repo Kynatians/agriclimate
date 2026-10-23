@@ -210,6 +210,8 @@ export function ControlPanel({
       {/* Live Alert Feed */}
       <AlertFeed
         alerts={filteredAlerts}
+        blocks={blocks}
+        metricsMap={metricsMap}
         onAnnotateAlert={onOpenComposer}
       />
     </aside>
