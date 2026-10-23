@@ -24,12 +24,15 @@ import {
   fetchLiveBlockMetrics,
   fetchLiveTimeSeries,
   fetchLiveAlerts,
-  syncNasaTelemetry,
 } from "./live-source";
 
 export * from "./types";
 export * from "./schemas";
 export { syncNasaTelemetry } from "./live-source";
+
+import { logger } from "@/lib/logger";
+
+const log = logger.child("DAL");
 
 function isLiveMode(): boolean {
   const mode = process.env.DATA_SOURCE_MODE || "hybrid";
@@ -49,8 +52,8 @@ export async function getBlockMetrics(id: string): Promise<BlockMetrics | null> 
     try {
       const live = await fetchLiveBlockMetrics(id);
       if (live) return live;
-    } catch {
-      // Fallback cleanly to static
+    } catch (err) {
+      log.warn(`Live block metrics lookup failed for ${id}, falling back to static seed`, { error: String(err) });
     }
   }
   return fetchStaticMetrics(id);
@@ -61,8 +64,8 @@ export async function getTimeSeries(id: string, days: number = 30): Promise<Time
     try {
       const live = await fetchLiveTimeSeries(id, days);
       if (live && live.length > 0) return live;
-    } catch {
-      // Fallback cleanly to static
+    } catch (err) {
+      log.warn(`Live time-series lookup failed for ${id}, falling back to static seed`, { error: String(err) });
     }
   }
   return fetchStaticTimeSeries(id, days);
@@ -78,8 +81,8 @@ export async function listAlerts(filter?: {
     try {
       const live = await fetchLiveAlerts(filter);
       if (live && live.length > 0) return live;
-    } catch {
-      // Fallback cleanly to static
+    } catch (err) {
+      log.warn("Live alerts lookup failed, falling back to static seed", { error: String(err) });
     }
   }
   return fetchStaticAlerts(filter);

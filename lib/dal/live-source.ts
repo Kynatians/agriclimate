@@ -35,11 +35,15 @@ import {
   findNearestBlockId,
 } from "@/lib/nasa/firms-client";
 import { LiveSyncResult, NasaFirmsRecord } from "@/lib/nasa/types";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("LIVE-SYNC");
 
 /**
  * Triggers a live sync against NASA POWER and FIRMS endpoints
  */
 export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyncResult> {
+  const syncTimer = log.time("syncNasaTelemetry", "Live NASA Satellite Telemetry Sync", { force });
   const blocks = await fetchStaticBlocks("kurigram");
   const staticAlerts = await fetchStaticAlerts();
 
@@ -54,7 +58,9 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
   try {
     liveFirmsAlerts = await fetchLiveFirmsAlerts();
     liveFirmsRecords = await fetchLiveFirmsDetections();
+    log.info(`NASA FIRMS sync: ${liveFirmsAlerts.length} active alerts derived`);
   } catch (err) {
+    log.warn("NASA FIRMS query failed during sync; maintaining active alerts", { error: String(err) });
     errors.push("NASA FIRMS query failed; maintaining active alerts.");
   }
 
@@ -120,6 +126,7 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
         liveTimeSeriesMap[block.id] = staticTs;
       }
     } catch (err) {
+      log.error(`Failed telemetry sync for block ${block.id}`, err);
       errors.push(`Failed telemetry sync for block ${block.id}`);
       const staticM = await fetchStaticMetrics(block.id);
       if (staticM) liveMetricsList.push(staticM);
@@ -142,6 +149,12 @@ export async function syncNasaTelemetry(force: boolean = false): Promise<LiveSyn
       alertsCount: combinedAlerts.length,
     }
   );
+
+  syncTimer.end({
+    blocksUpdated: liveMetricsList.length,
+    alertsGenerated: liveFirmsAlerts.length,
+    errorsCount: errors.length,
+  });
 
   return {
     success: liveMetricsList.length > 0,

@@ -3,8 +3,11 @@
 // Zero credentials required. Handles timeouts, retries, and domain index derivations.
 
 import { NasaPowerPointResponse } from "./types";
-import { TimeSeriesPoint, MetricValue } from "@/lib/dal/types";
+import { TimeSeriesPoint } from "@/lib/dal/types";
 import { clamp } from "@/lib/indices/formulas";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("NASA-POWER");
 
 const DEFAULT_POWER_BASE = "https://power.larc.nasa.gov/api/temporal/daily/point";
 const REQUEST_TIMEOUT_MS = 4500;
@@ -63,8 +66,10 @@ export async function fetchPowerPoint(
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    const startMs = Date.now();
 
     try {
+      log.debug(`Requesting point [${lon.toFixed(3)}, ${lat.toFixed(3)}] (attempt ${attempt + 1}/${MAX_RETRIES + 1})`);
       const res = await fetch(url, {
         signal: controller.signal,
         headers: {
@@ -75,20 +80,26 @@ export async function fetchPowerPoint(
       });
 
       clearTimeout(timer);
+      const durationMs = Date.now() - startMs;
 
       if (res.ok) {
+        log.info(`Fetched point [${lon.toFixed(3)}, ${lat.toFixed(3)}] in ${durationMs}ms (HTTP ${res.status})`);
         return (await res.json()) as NasaPowerPointResponse;
       }
 
       if (res.status === 429) {
-        // Rate limited: backoff before retry
+        log.warn(`Rate-limited (HTTP 429) for [${lon}, ${lat}], backing off ${1000 * (attempt + 1)}ms...`);
         await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
+      } else {
+        log.warn(`NASA POWER response HTTP ${res.status} for [${lon}, ${lat}] in ${durationMs}ms`);
       }
     } catch (err) {
       clearTimeout(timer);
+      const durationMs = Date.now() - startMs;
       if (attempt === MAX_RETRIES) {
-        console.warn(`NASA POWER request failed for [${lon}, ${lat}]:`, err);
+        log.error(`NASA POWER request failed after ${MAX_RETRIES + 1} attempts for [${lon}, ${lat}] (${durationMs}ms)`, err);
       } else {
+        log.warn(`NASA POWER request attempt ${attempt + 1} failed (${durationMs}ms), retrying...`);
         await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
       }
     }

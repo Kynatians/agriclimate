@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("API:voice:query");
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => ({}));
+    log.info("Voice query received (stub/placeholder)", {
+      hasPayload: Boolean(body && Object.keys(body).length > 0),
+    });
     return NextResponse.json(
       {
         placeholder: true,
@@ -12,7 +18,8 @@ export async function POST(request: NextRequest) {
       },
       { status: 501 }
     );
-  } catch {
+  } catch (err) {
+    log.error("Failed to parse voice query request", err);
     return NextResponse.json(
       {
         placeholder: true,

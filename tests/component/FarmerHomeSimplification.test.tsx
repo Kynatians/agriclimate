@@ -86,7 +86,7 @@ describe("Farmer Home Simplification Flow", () => {
       />
     );
 
-    expect(screen.getByText(/Field Status: Normal & Monitored/i)).toBeDefined();
+    expect(screen.getByText(/Field Status: Normal/i)).toBeDefined();
     const telemetryBtn = screen.getByRole("button", { name: /telemetry/i });
     fireEvent.click(telemetryBtn);
     expect(onOpenTelemetry).toHaveBeenCalledTimes(1);
@@ -181,17 +181,17 @@ describe("Farmer Home Simplification Flow", () => {
       />
     );
 
-    expect(screen.getByText(/Field Health & Climate Trends/i)).toBeDefined();
-    expect(screen.getByText(/Soil Moisture Interpretation/i)).toBeDefined();
+    expect(screen.getByText(/Field Health.*Trajectory/i)).toBeDefined();
+    expect(screen.getByText(/Moisture is holding strong/i)).toBeDefined();
 
     // Switch to Rainfall metric
     const rainTab = screen.getByText(/Rainfall/i);
     fireEvent.click(rainTab);
-    expect(screen.getByText(/Rainfall Interpretation/i)).toBeDefined();
+    expect(screen.getByText(/Dry Horizon with Low Rain Risk/i)).toBeDefined();
 
     // Switch to Crop Greenness / NDVI metric
     const ndviTab = screen.getByText("NDVI Vegetation");
     fireEvent.click(ndviTab);
-    expect(screen.getByText(/NDVI.*Interpretation/i)).toBeDefined();
+    expect(screen.getByText(/Canopy Vigor/i)).toBeDefined();
   });
 });

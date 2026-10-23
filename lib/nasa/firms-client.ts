@@ -4,6 +4,9 @@
 
 import { NasaFirmsRecord } from "./types";
 import { Alert } from "@/lib/dal/types";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("NASA-FIRMS");
 
 const KURIGRAM_REGIONAL_BBOX = {
   west: 89.2,
@@ -78,6 +81,7 @@ export async function fetchLiveFirmsDetections(
 ): Promise<NasaFirmsRecord[]> {
   const apiKey = mapApiKey || process.env.FIRMS_MAP_KEY;
   if (!apiKey || apiKey === "your_firms_map_key_here") {
+    log.info("FIRMS API key not configured (FIRMS_MAP_KEY); skipping live thermal anomaly scan");
     return [];
   }
 
@@ -86,6 +90,7 @@ export async function fetchLiveFirmsDetections(
   const allRecords: NasaFirmsRecord[] = [];
 
   for (const src of sources) {
+    const startMs = Date.now();
     try {
       const url = `https://firms.modaps.eosdis.nasa.gov/api/area/csv/${apiKey}/${src}/${west},${south},${east},${north}/${dayRange}`;
       const controller = new AbortController();
@@ -97,14 +102,18 @@ export async function fetchLiveFirmsDetections(
         next: { revalidate: 3600 },
       });
       clearTimeout(timer);
+      const durationMs = Date.now() - startMs;
 
       if (res.ok) {
         const text = await res.text();
         const records = parseFirmsCsv(text);
+        log.info(`Queried ${records.length} detections from ${src} in ${durationMs}ms`);
         allRecords.push(...records);
+      } else {
+        log.warn(`NASA FIRMS query failed for ${src} with status ${res.status} (${durationMs}ms)`);
       }
-    } catch {
-      // Continue to next source
+    } catch (err) {
+      log.warn(`NASA FIRMS query error for ${src} (${Date.now() - startMs}ms)`, { error: String(err) });
     }
   }
 

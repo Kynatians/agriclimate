@@ -1,15 +1,39 @@
 // lib/nasa/cache-manager.ts
-// In-memory and atomic file-based cache manager for live NASA satellite data
+// In-memory and atomic file-based cache manager for live NASA satellite data.
+// Compatible with Vercel serverless read-only root filesystems via /tmp caching.
 
 import fs from "fs";
 import path from "path";
 import { BlockMetrics, TimeSeriesPoint, Alert } from "@/lib/dal/types";
+import { logger } from "@/lib/logger";
 
-const LIVE_DATA_DIR = path.join(process.cwd(), "data", "live");
-const METRICS_FILE = path.join(LIVE_DATA_DIR, "block-metrics.json");
-const TIMESERIES_FILE = path.join(LIVE_DATA_DIR, "timeseries.json");
-const ALERTS_FILE = path.join(LIVE_DATA_DIR, "alerts.json");
-const META_FILE = path.join(LIVE_DATA_DIR, "sync-meta.json");
+const log = logger.child("CACHE");
+
+const IS_VERCEL = Boolean(process.env.VERCEL);
+const SEED_DATA_DIR = path.join(process.cwd(), "data", "live");
+const WRITABLE_DATA_DIR = IS_VERCEL
+  ? path.join("/tmp", "agriclimate-live")
+  : SEED_DATA_DIR;
+
+const METRICS_FILENAME = "block-metrics.json";
+const TIMESERIES_FILENAME = "timeseries.json";
+const ALERTS_FILENAME = "alerts.json";
+const META_FILENAME = "sync-meta.json";
+const DISPATCHED_FILENAME = "dispatched-alerts.json";
+
+function resolveReadFile(filename: string): string | null {
+  // Check writable /tmp directory first
+  const writablePath = path.join(WRITABLE_DATA_DIR, filename);
+  if (fs.existsSync(writablePath)) {
+    return writablePath;
+  }
+  // Check read-only seed directory next
+  const seedPath = path.join(SEED_DATA_DIR, filename);
+  if (fs.existsSync(seedPath)) {
+    return seedPath;
+  }
+  return null;
+}
 
 export interface SyncMetadata {
   lastSyncAt: string;
@@ -25,9 +49,14 @@ let memoryTimeSeries: Record<string, TimeSeriesPoint[]> | null = null;
 let memoryAlerts: Alert[] | null = null;
 let memoryMeta: SyncMetadata | null = null;
 
-function ensureDirExists() {
-  if (!fs.existsSync(LIVE_DATA_DIR)) {
-    fs.mkdirSync(LIVE_DATA_DIR, { recursive: true });
+function ensureWritableDirExists() {
+  try {
+    if (!fs.existsSync(WRITABLE_DATA_DIR)) {
+      fs.mkdirSync(WRITABLE_DATA_DIR, { recursive: true });
+      log.info(`Created live data cache directory at ${WRITABLE_DATA_DIR}`);
+    }
+  } catch (err) {
+    log.error("Failed to ensure cache directory exists", err, { dir: WRITABLE_DATA_DIR });
   }
 }
 
@@ -37,13 +66,15 @@ function ensureDirExists() {
 export function getSyncMetadata(): SyncMetadata | null {
   if (memoryMeta) return memoryMeta;
   try {
-    if (fs.existsSync(META_FILE)) {
-      const raw = fs.readFileSync(META_FILE, "utf-8");
+    const targetPath = resolveReadFile(META_FILENAME);
+    if (targetPath) {
+      const raw = fs.readFileSync(targetPath, "utf-8");
       memoryMeta = JSON.parse(raw);
+      log.debug("Read sync metadata", { sourcePath: targetPath, lastSyncAt: memoryMeta?.lastSyncAt });
       return memoryMeta;
     }
   } catch (err) {
-    console.warn("Could not read sync metadata:", err);
+    log.warn("Could not read sync metadata", { error: String(err) });
   }
   return null;
 }
@@ -55,7 +86,11 @@ export function isLiveCacheStale(maxAgeSeconds: number = 21600): boolean {
   const meta = getSyncMetadata();
   if (!meta || !meta.lastSyncAt) return true;
   const ageMs = Date.now() - new Date(meta.lastSyncAt).getTime();
-  return ageMs > maxAgeSeconds * 1000;
+  const isStale = ageMs > maxAgeSeconds * 1000;
+  if (isStale) {
+    log.info(`Live cache is stale (age: ${(ageMs / 1000).toFixed(0)}s, max: ${maxAgeSeconds}s)`);
+  }
+  return isStale;
 }
 
 /**
@@ -64,17 +99,22 @@ export function isLiveCacheStale(maxAgeSeconds: number = 21600): boolean {
 export function getCachedLiveMetrics(blockId?: string): Record<string, BlockMetrics> | BlockMetrics | null {
   if (!memoryMetrics) {
     try {
-      if (fs.existsSync(METRICS_FILE)) {
-        const raw = fs.readFileSync(METRICS_FILE, "utf-8");
+      const targetPath = resolveReadFile(METRICS_FILENAME);
+      if (targetPath) {
+        const raw = fs.readFileSync(targetPath, "utf-8");
         const list: BlockMetrics[] = JSON.parse(raw);
         const map: Record<string, BlockMetrics> = {};
         list.forEach((m) => {
           map[m.blockId] = m;
         });
         memoryMetrics = map;
+        log.info("Loaded live metrics from disk into memory", {
+          sourcePath: targetPath,
+          blocksCount: list.length,
+        });
       }
     } catch (err) {
-      console.warn("Could not read live metrics cache:", err);
+      log.warn("Could not read live metrics cache", { error: String(err) });
     }
   }
 
@@ -89,12 +129,17 @@ export function getCachedLiveMetrics(blockId?: string): Record<string, BlockMetr
 export function getCachedLiveTimeSeries(blockId: string): TimeSeriesPoint[] | null {
   if (!memoryTimeSeries) {
     try {
-      if (fs.existsSync(TIMESERIES_FILE)) {
-        const raw = fs.readFileSync(TIMESERIES_FILE, "utf-8");
+      const targetPath = resolveReadFile(TIMESERIES_FILENAME);
+      if (targetPath) {
+        const raw = fs.readFileSync(targetPath, "utf-8");
         memoryTimeSeries = JSON.parse(raw);
+        log.info("Loaded live timeseries from disk into memory", {
+          sourcePath: targetPath,
+          blocks: Object.keys(memoryTimeSeries || {}).length,
+        });
       }
     } catch (err) {
-      console.warn("Could not read live timeseries cache:", err);
+      log.warn("Could not read live timeseries cache", { error: String(err) });
     }
   }
 
@@ -107,19 +152,20 @@ export function getCachedLiveTimeSeries(blockId: string): TimeSeriesPoint[] | nu
  */
 export function getCachedLiveAlerts(): Alert[] | null {
   try {
-    if (fs.existsSync(ALERTS_FILE)) {
-      const raw = fs.readFileSync(ALERTS_FILE, "utf-8");
+    const targetPath = resolveReadFile(ALERTS_FILENAME);
+    if (targetPath) {
+      const raw = fs.readFileSync(targetPath, "utf-8");
       memoryAlerts = JSON.parse(raw);
     }
   } catch (err) {
-    console.warn("Could not read live alerts cache:", err);
+    log.warn("Could not read live alerts cache", { error: String(err) });
   }
 
   // Also merge any dispatched alerts from dispatched-alerts.json
   try {
-    const dispatchedFile = path.join(LIVE_DATA_DIR, "dispatched-alerts.json");
-    if (fs.existsSync(dispatchedFile)) {
-      const rawDispatched = fs.readFileSync(dispatchedFile, "utf-8");
+    const dispatchedPath = resolveReadFile(DISPATCHED_FILENAME);
+    if (dispatchedPath) {
+      const rawDispatched = fs.readFileSync(dispatchedPath, "utf-8");
       const dispatchedList: Alert[] = JSON.parse(rawDispatched);
       if (dispatchedList && dispatchedList.length > 0) {
         const map = new Map<string, Alert>();
@@ -129,7 +175,7 @@ export function getCachedLiveAlerts(): Alert[] | null {
       }
     }
   } catch (err) {
-    // Continue cleanly
+    log.warn("Could not read dispatched alerts file", { error: String(err) });
   }
 
   return memoryAlerts;
@@ -144,7 +190,7 @@ export async function saveLiveDataset(
   alerts: Alert[],
   meta: SyncMetadata
 ): Promise<void> {
-  ensureDirExists();
+  ensureWritableDirExists();
 
   // 1. Update in-memory cache
   const metricsMap: Record<string, BlockMetrics> = {};
@@ -158,11 +204,22 @@ export async function saveLiveDataset(
 
   // 2. Persist to disk
   try {
-    fs.writeFileSync(METRICS_FILE, JSON.stringify(metrics, null, 2), "utf-8");
-    fs.writeFileSync(TIMESERIES_FILE, JSON.stringify(timeSeriesMap, null, 2), "utf-8");
-    fs.writeFileSync(ALERTS_FILE, JSON.stringify(alerts, null, 2), "utf-8");
-    fs.writeFileSync(META_FILE, JSON.stringify(meta, null, 2), "utf-8");
+    const metricsPath = path.join(WRITABLE_DATA_DIR, METRICS_FILENAME);
+    const tsPath = path.join(WRITABLE_DATA_DIR, TIMESERIES_FILENAME);
+    const alertsPath = path.join(WRITABLE_DATA_DIR, ALERTS_FILENAME);
+    const metaPath = path.join(WRITABLE_DATA_DIR, META_FILENAME);
+
+    fs.writeFileSync(metricsPath, JSON.stringify(metrics, null, 2), "utf-8");
+    fs.writeFileSync(tsPath, JSON.stringify(timeSeriesMap, null, 2), "utf-8");
+    fs.writeFileSync(alertsPath, JSON.stringify(alerts, null, 2), "utf-8");
+    fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2), "utf-8");
+
+    log.info("Persisted live dataset to cache directory", {
+      targetDir: WRITABLE_DATA_DIR,
+      blocksCount: metrics.length,
+      alertsCount: alerts.length,
+    });
   } catch (err) {
-    console.warn("Could not persist live dataset to disk:", err);
+    log.error("Could not persist live dataset to disk", err, { targetDir: WRITABLE_DATA_DIR });
   }
 }

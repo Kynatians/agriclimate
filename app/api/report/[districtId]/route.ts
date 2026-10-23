@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDistrictSummary, listBlocks, getBlockMetrics, listAlerts, getIrrigationPlan } from "@/lib/dal";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("API:report:[districtId]");
 
 export const revalidate = 3600;
 
@@ -7,10 +10,11 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ districtId: string }> }
 ) {
-  try {
-    const { districtId } = await params;
-    const targetDistrict = districtId || "kurigram";
+  const { districtId } = await params;
+  const targetDistrict = districtId || "kurigram";
+  const reqTimer = log.time("GET", `Compile comprehensive agroclimatic report for ${targetDistrict}`);
 
+  try {
     const summary = await getDistrictSummary(targetDistrict);
     const blocks = await listBlocks(targetDistrict);
     const activeAlerts = await listAlerts({ districtId: targetDistrict });
@@ -36,8 +40,16 @@ export async function GET(
       irrigationPlan,
     };
 
+    reqTimer.end({
+      targetDistrict,
+      blocksCount: blocks.length,
+      alertsCount: activeAlerts.length,
+      deploymentsCount: irrigationPlan.deployments.length,
+    });
+
     return NextResponse.json(report);
   } catch (error) {
+    reqTimer.fail(error, { targetDistrict });
     return NextResponse.json(
       { error: { code: "SERVER_ERROR", message: "Failed to generate district report" } },
       { status: 500 }

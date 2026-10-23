@@ -1,35 +1,62 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Alert } from "@/lib/dal/types";
+import { logger } from "@/lib/logger";
 import fs from "fs";
 import path from "path";
 
-const LIVE_DIR = path.join(process.cwd(), "data", "live");
-const DISPATCHED_FILE = path.join(LIVE_DIR, "dispatched-alerts.json");
+const log = logger.child("API:alerts:dispatch");
+
+const IS_VERCEL = Boolean(process.env.VERCEL);
+const SEED_DIR = path.join(process.cwd(), "data", "live");
+const WRITABLE_DIR = IS_VERCEL ? path.join("/tmp", "agriclimate-live") : SEED_DIR;
+const FILENAME = "dispatched-alerts.json";
+
+function getFilePath(forWrite: boolean = false): string {
+  if (forWrite) {
+    if (!fs.existsSync(WRITABLE_DIR)) {
+      try {
+        fs.mkdirSync(WRITABLE_DIR, { recursive: true });
+      } catch (err) {
+        log.error("Failed to create writable directory", err, { dir: WRITABLE_DIR });
+      }
+    }
+    return path.join(WRITABLE_DIR, FILENAME);
+  }
+
+  const writableFile = path.join(WRITABLE_DIR, FILENAME);
+  if (fs.existsSync(writableFile)) return writableFile;
+
+  const seedFile = path.join(SEED_DIR, FILENAME);
+  if (fs.existsSync(seedFile)) return seedFile;
+
+  return writableFile;
+}
 
 function readDispatchedAlerts(): Alert[] {
   try {
-    if (fs.existsSync(DISPATCHED_FILE)) {
-      const raw = fs.readFileSync(DISPATCHED_FILE, "utf-8");
+    const filePath = getFilePath(false);
+    if (fs.existsSync(filePath)) {
+      const raw = fs.readFileSync(filePath, "utf-8");
       return JSON.parse(raw);
     }
-  } catch {
-    // Return empty on error
+  } catch (err) {
+    log.warn("Could not read dispatched alerts from disk", { error: String(err) });
   }
   return [];
 }
 
 function writeDispatchedAlerts(alerts: Alert[]) {
   try {
-    if (!fs.existsSync(LIVE_DIR)) {
-      fs.mkdirSync(LIVE_DIR, { recursive: true });
-    }
-    fs.writeFileSync(DISPATCHED_FILE, JSON.stringify(alerts, null, 2), "utf-8");
+    const filePath = getFilePath(true);
+    fs.writeFileSync(filePath, JSON.stringify(alerts, null, 2), "utf-8");
+    log.info(`Saved ${alerts.length} dispatched alerts to ${filePath}`);
   } catch (err) {
-    console.warn("Could not save dispatched alert to file:", err);
+    log.error("Could not save dispatched alerts to file", err);
   }
 }
 
 export async function POST(request: NextRequest) {
+  const reqTimer = log.time("POST", "Broadcast officer advisory alert");
   try {
     const body = await request.json().catch(() => ({}));
 
@@ -73,6 +100,8 @@ export async function POST(request: NextRequest) {
     const updated = [alert, ...existing.filter((a) => a.id !== alert.id)];
     writeDispatchedAlerts(updated);
 
+    reqTimer.end({ alertId: alert.id, blockId: alert.blockId, severity: alert.severity });
+
     return NextResponse.json(
       {
         success: true,
@@ -82,6 +111,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (err: unknown) {
+    reqTimer.fail(err);
     const errorMsg = err instanceof Error ? err.message : "Internal error";
     return NextResponse.json(
       {
@@ -96,6 +126,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   const alerts = readDispatchedAlerts();
+  log.info(`GET dispatched alerts -> returning ${alerts.length} alerts`);
   return NextResponse.json(alerts, { status: 200 });
 }
 
@@ -104,13 +135,16 @@ export async function DELETE(request: NextRequest) {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
     if (!id) {
+      log.warn("DELETE alert called without ID");
       return NextResponse.json({ error: "Missing alert ID parameter" }, { status: 400 });
     }
     const existing = readDispatchedAlerts();
     const updated = existing.filter((a) => a.id !== id);
     writeDispatchedAlerts(updated);
+    log.info(`Deleted dispatched alert ${id}`);
     return NextResponse.json({ success: true, removedId: id }, { status: 200 });
   } catch (err: unknown) {
+    log.error("Failed to delete dispatched alert", err);
     const errorMsg = err instanceof Error ? err.message : "Internal error";
     return NextResponse.json({ success: false, detail: errorMsg }, { status: 500 });
   }

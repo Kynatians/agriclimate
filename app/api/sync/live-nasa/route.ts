@@ -3,14 +3,19 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { syncNasaTelemetry } from "@/lib/dal/live-source";
+import { logger } from "@/lib/logger";
+
+const log = logger.child("API:sync:live-nasa");
 
 export async function POST(req: NextRequest) {
+  const reqTimer = log.time("POST", "Trigger live NASA telemetry sync");
   try {
     // Optional cron security token verification
     const authHeader = req.headers.get("authorization");
     const cronSecret = process.env.CRON_SECRET_KEY;
 
     if (cronSecret && authHeader && !authHeader.endsWith(cronSecret)) {
+      log.warn("Unauthorized sync attempt: invalid cron secret token");
       return NextResponse.json(
         { error: "Unauthorized: Invalid cron authorization token" },
         { status: 401 }
@@ -27,7 +32,15 @@ export async function POST(req: NextRequest) {
       // Empty or non-JSON body is acceptable for simple POST
     }
 
+    log.info(`Executing NASA sync (force: ${force})`);
     const result = await syncNasaTelemetry(force);
+
+    reqTimer.end({
+      success: result.success,
+      blocksUpdated: result.blocksUpdated,
+      alertsGenerated: result.alertsGenerated,
+      errorsCount: result.errors?.length || 0,
+    });
 
     return NextResponse.json(
       {
@@ -37,8 +50,8 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (err: unknown) {
+    reqTimer.fail(err);
     const errorMsg = err instanceof Error ? err.message : "Unknown error during NASA sync";
-    console.error("Live NASA sync handler error:", err);
     return NextResponse.json(
       {
         error: "Internal Error during NASA telemetry synchronization",
@@ -50,6 +63,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET() {
+  log.info("GET /api/sync/live-nasa health probe");
   return NextResponse.json(
     {
       service: "AgriClimate Live NASA Synchronization Service",
