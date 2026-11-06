@@ -103,6 +103,43 @@ Rather than fragmenting into separate apps, AgriClimate provides a unified appli
 | **Officer GIS Map Overlays** (`lib/map/layers.ts`) | MODIS, Landsat, SMAP, GPM, POWER, FIRMS, SRTM | Powers 7 interactive choropleth layers: NDVI Anomaly, Soil Moisture, Flood Risk (FSS), CWSI, 7d Precip, Pump Priority, and Fire/Heat. |
 | **Live Telemetry Sync** (`app/api/sync/live-nasa`) | NASA POWER, NASA FIRMS | Real-time endpoint querying 12 Kurigram centroids and VIIRS fire bounding box with atomic file caching and SWR fallback. |
 
+### 🗺️ GIS Map Visual Layers & Geospatial Pipeline
+
+The interactive MapLibre GL engine ([`MapCanvas.tsx`](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/components/map/MapCanvas.tsx)) renders tactical GIS choropleth layers by combining **spatial vector boundaries** with **satellite telemetry**:
+
+#### 1. The 7 Tactical GIS Choropleth Overlays
+
+| Layer Name & ID | Primary Data Source | Metric Property Read (`BlockMetrics`) | Palette Type & Color Range | Visual & Operational Meaning |
+|---|---|---|---|---|
+| **NDVI Vegetation Anomaly**<br>`id: "ndvi"` | **MODIS** (`MOD13Q1`, 250m) & **Landsat 8/9** (30m) | `metrics.ndvi.anomaly` | Diverging (Army-Rose)<br>Green $\leftrightarrow$ Tan $\leftrightarrow$ Rose | Green indicates healthy canopy greenness above 10-year seasonal baseline; Rose/Brown highlights vegetation stress or flood damage. |
+| **Root-Zone Soil Moisture**<br>`id: "soilMoisture"` | **NASA SMAP** (`SPL4SMGP` L4, 9km) | `metrics.soilMoistureRootZone.anomaly` | Diverging (Army-Rose)<br>Blue/Green $\leftrightarrow$ Red | Blue/Green indicates adequate 0–100 cm root-zone moisture; Red marks severe moisture deficits requiring pump intervention. |
+| **Flood Susceptibility Score**<br>`id: "floodRisk"` | **GPM IMERG** (72h rain) + **SMAP** + **SRTM DEM** | `metrics.floodScore` (FSS formula 0–1) | Sequential (Flood)<br>Light Cyan $\rightarrow$ Deep Navy/Purple | Scores inundation vulnerability: FSS $\ge$ 0.70 flags acute flash flood / riverbank overflow risk along low-lying char plots. |
+| **Crop Water Stress Index**<br>`id: "cropHealth"` | **MODIS LST** (`MOD11A1`) + **NASA POWER** + **SMAP** | `metrics.cwsi` (0.0 to 1.0) | Sequential (CWSI)<br>Yellow $\rightarrow$ Amber $\rightarrow$ Crimson | Quantifies plant transpiration deficit; CWSI $>$ 0.60 indicates critical moisture stress requiring evening irrigation. |
+| **7-Day Rainfall Forecast**<br>`id: "precipForecast"` | **NASA POWER / GEOS-FP** & **GPM IMERG** | `metrics.precip7dForecast / 100` | Sequential (Sunset)<br>Amber $\rightarrow$ Purple | Visualizes projected numerical weather prediction accumulated rainfall (mm) across the upcoming week. |
+| **Solar Pump Priority**<br>`id: "pumpRouting"` | **AgriClimate Hydro-Scheduler Engine** | Derived from CWSI & moisture deficit | Discrete Tiers<br>Optimal (Green) $\rightarrow$ Critical (Red) | Allocates solar pump hours dynamically; isolates high-deficit blocks needing emergency mobile pump routing. |
+| **Thermal & Fire Events**<br>`id: "fireEvents"` | **NASA FIRMS** (VIIRS 375m NRT thermal channels) | `metrics.thermalFrp / 10` (MW) | Sequential (Sunset Heatmap)<br>Gold $\rightarrow$ Radiant Red | Spots near-real-time active agricultural stubble burns, crop residue clearing, and wildfire thermal anomalies. |
+
+#### 2. Spatial Geometries & Basemap Providers
+
+* **Administrative Block Polygons**: Stored in [`data/generated/blocks.json`](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/data/generated/blocks.json). Contains EPSG:4326 GeoJSON polygons and centroids for the 12 Kurigram monitoring blocks.
+* **Active Disaster Corridors**: Defined in [`lib/map/disasters.ts`](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/map/disasters.ts) as vector hazard zones (e.g. *Brahmaputra Riparian Inundation Corridor*, *Rajarhat Moisture Depletion Corridor*).
+* **Basemap Tile Underlays**: Configured in [`lib/map/osm.ts`](file:///home/tahsin/Documents/GitHub/kynatians/agriclimate/lib/map/osm.ts) with instant runtime switching:
+  * **Standard OSM**: OpenStreetMap vector roads, waterways, and settlement infrastructure.
+  * **Topographic**: OpenTopoMap incorporating SRTM 30m contour gradients and elevation shading.
+  * **Satellite Aerial / Hybrid**: High-resolution aerial orthomosaics from Esri World Imagery (Maxar, USGS) with administrative boundary overlays.
+
+#### 3. Map Data Pipeline
+
+```mermaid
+flowchart LR
+    A["Raw NASA Telemetry\n(POWER, SMAP, MODIS, FIRMS, SRTM)"] --> B["Ingestion & DAL\n(lib/dal: static seed or live sync)"]
+    B --> C["Server Page\n(app/page.tsx)\nFetches blocks & metricsMap"]
+    D["Spatial Polygons\n(data/generated/blocks.json)"] --> E["MapCanvas.tsx\n(MapLibre GL Vector Engine)"]
+    C --> E
+    F["Basemap Tiles\n(OpenStreetMap / Esri World Imagery)"] --> E
+    E --> G["Interactive Tactical Overlays\n(7 Dynamic Color-Coded Choropleths)"]
+```
+
 ---
 
 ## 🏗️ System Architecture
