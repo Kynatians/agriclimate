@@ -74,35 +74,34 @@ Rather than fragmenting into separate apps, AgriClimate provides a unified appli
 
 ---
 
-## 🛰️ Key Capabilities
+## 🛰️ NASA Satellite Telemetry & Data Specifications
 
-### NASA Satellite Telemetry
+### Earth Observation Dataset Specifications
 
-| Satellite / Dataset | Resolution | What it provides |
+| Satellite / Dataset & Identifier | Spatial & Temporal Resolution | Exact Ingested Parameters & Bands | Derived Indices & Metrics | Where It Is Used in AgriClimate |
+|---|---|---|---|---|
+| **MODIS**<br>*(Terra & Aqua)*<br>`MOD13Q1.061`<br>`MOD11A1.061` | • 250 m (NDVI, 16-day composite)<br>• 1 km (LST, daily) | • Surface Reflectance Red (Band 1: 620–670 nm)<br>• Surface Reflectance NIR (Band 2: 841–876 nm)<br>• Daytime Land Surface Temp (`LST_Day_1km`, °C)<br>• Terra/Aqua cloud fraction & QA flags | • **NDVI**: `(NIR - Red) / (NIR + Red)`<br>• **NDVI Anomaly**: Deviation vs 10-year seasonal baseline (`% delta`)<br>• **CWSI**: Crop Water Stress Index input<br>• Vegetation health trajectory (`improving`, `stable`, `declining`) | • **Officer View**: *NDVI Vegetation Anomaly* & *Crop Water Stress (CWSI)* GIS map layers; block inspect drawer; district summary NDVI averages.<br>• **Farmer View**: *Crop Condition Card* (canopy greenness bar & health badge); *Crop Care Modal* (nitrogen/urea deficiency advisory); *Telemetry Detail Modal*.<br>• **Scoring Engine**: Crop Suitability Score (CSS) canopy recovery sub-score (10% weight). |
+| **Landsat 8 & 9**<br>*(OLI-2 & TIRS-2)*<br>`landsat-c2-l2`<br>*(Planetary Computer STAC)* | • 30 m multispectral<br>• 8–16 day revisit | • Band 4 (Red: 0.64–0.67 µm)<br>• Band 5 (NIR: 0.85–0.88 µm)<br>• Band 3 (Green: 0.53–0.59 µm)<br>• Band 10 (TIRS Thermal Infrared) | • High-resolution 30 m **NDVI**<br>• **NDWI** (Normalized Difference Water Index) for surface water boundary delineation | • **Officer View**: Char land and riparian agricultural parcel monitoring along the Brahmaputra corridor; fine-scale zonal validation for smallholder plots.<br>• **Farmer View**: High-precision field boundary resolution referenced in *Crop Condition Card*.<br>• **Inundation Modeling**: Standing floodwater boundary demarcation and char erosion tracking. |
+| **NASA SMAP**<br>*(Soil Moisture Active Passive)*<br>`SPL3SMP` (L3)<br>`SPL4SMGP` (L4) | • ~9 km (L4 assimilated, 3-hourly)<br>• ~36 km (L3 radiometer, 1–3 days) | • 0–5 cm Surface Soil Moisture (`soilMoistureSurface`, % VWC)<br>• 0–100 cm Root-Zone Soil Moisture (`soilMoistureRootZone`, % VWC)<br>• 5-year rolling seasonal baseline & anomaly | • **Soil Moisture Anomaly** (`% delta`)<br>• **Soil Saturation Ratio** (`current / saturationLimit`)<br>• **Deficit Severity Score** (0–100) for pump routing priority | • **Officer View**: *Root-Zone Soil Moisture* GIS map layer; *Pump Request Queue* review modal; block telemetry data table.<br>• **Farmer View**: *Soil Strata Visual* (0–5 cm surface vs 0–100 cm root-zone strata); *Solar Pumping Dial* (irrigation duration needed); *Weather Card* (soil status badge).<br>• **Early Warning**: Drought advisory (`anomaly < -20%`); waterlogging alert (`saturation > 90%`).<br>• **Hydro-Scheduler**: Priority pump dispatch queue; CSS soil moisture match (30% weight). |
+| **GPM IMERG**<br>*(Global Precipitation Measurement)*<br>`GPM_3IMERGDF`<br>`GPM_3IMERGHH` | • 0.1° (~10 km)<br>• Half-hourly (Early/Late Run)<br>• Daily calibrated accumulation | • Calibrated precipitation rate (`precipitationCal`, mm/h)<br>• 7-day actual accumulated rainfall (`precip7dActual`, mm)<br>• 72-hour forecast precipitation total (`precip7dForecast`, mm) | • **SPI** (Standardized Precipitation Index, -3.5 to +3.5)<br>• **FSS** (Flood Susceptibility Score, 40% weight)<br>• Extreme precipitation threshold triggers (>80 mm / 48 h) | • **Officer View**: *Flood Susceptibility Score (FSS)* GIS map layer; Brahmaputra Inundation corridor hazard tracking; *Alert Composer* & feed.<br>• **Farmer View**: *Weather Card* (7-day rainfall forecast & rain probability); *Weather Horizon Strip*; *Alerts Feed* (flash flood & waterlogging warnings).<br>• **Scoring Engine**: CSS rainfall pattern match (20% weight); SPI drought trigger (SPI ≤ -1.0 advisory, SPI ≤ -1.5 warning). |
+| **NASA POWER**<br>*(Agroclimatology)*<br>`GEOS-FP` / `MERRA-2` assimilation | • 0.5° × 0.625°<br>• Daily reanalysis<br>• Zero-auth REST API | • `T2M`: 2 m air temperature (°C)<br>• `PRECTOTCORR`: Corrected precipitation (mm/day)<br>• `ALLSKY_SFC_SW_DWN`: Solar irradiance (MJ/m²/day)<br>• `RH2M`: Relative humidity (%)<br>• `WS2M`: Wind speed (m/s) | • **VPD** (Vapor Pressure Deficit via Tetens equation)<br>• **CWSI** (Crop Water Stress Index, 0–1)<br>• 30-day agroclimatology time-series trends | • **Officer View**: *7-Day Rainfall Forecast* GIS map layer; historical time-series analytics charts (`/api/timeseries`); *Sync Live NASA Telemetry* engine.<br>• **Farmer View**: *Weather Card* (temperature, humidity, wind speed, solar radiation); *Crop Calendar View* (risk windows); *Solar Pumping Dial* (solar irradiance).<br>• **Scoring Engine**: CSS temperature sub-score (25% weight) and solar irradiance sub-score (15% weight). |
+| **NASA FIRMS**<br>*(Fire Info for Resource Management)*<br>VIIRS & MODIS NRT | • 375 m (VIIRS NRT)<br>• 1 km (MODIS)<br>• ~3-hour latency | • `latitude`, `longitude`<br>• `acq_date`, `acq_time`<br>• `frp`: Fire Radiative Power (MW)<br>• `bright_ti4`, `bright_ti5`: Brightness temp (K)<br>• `confidence`: Detection confidence | • Thermal anomaly clustering<br>• FRP incident severity grading (High: >50 MW, Medium: >15 MW)<br>• Active agricultural fire & stubble burn event detection | • **Officer View**: *Thermal Anomalies & Stubble Burn* GIS map layer (`thermalFrp`); Incident Detail modal; real-time fire detection feed.<br>• **Farmer View**: Stubble burn alerts and field fire hazard advisories in *AlertsListView* and *AlertCard*.<br>• **Alert Dispatcher**: Auto-generates fire alerts with block-level geofencing and lead-time tracking. |
+| **SRTM DEM**<br>*(Shuttle Radar Topography Mission)*<br>`SRTMGL1` | • 30 m (1 arc-second)<br>• Static global DEM | • Ground surface elevation (m MSL)<br>• Terrain slope gradient (°)<br>• Hydrological flow accumulation vectors | • **Terrain Flow Norm** (`terrainFlowNorm`)<br>• Low-lying depression and flood pooling susceptibility | • **Officer View**: Topographic layer (`osm-topo`) in map style switcher; river basin elevation gradients.<br>• **Flood Modeling**: FSS flood susceptibility calculation (25% weight) to identify low-lying catchment depressions prone to inundation. |
+| **OpenStreetMap & Cartography**<br>*(OSM & Esri World Imagery)* | • Multi-scale raster tiles (z0–z19) | • OpenStreetMap vector road, waterbody & settlement networks<br>• Esri World Imagery aerial orthomosaics<br>• Administrative boundaries (GADM Bangladesh) | • Geospatial reference frame<br>• 12 Kurigram administrative monitoring block boundary polygons | • **Map Engine (`components/map/MapCanvas.tsx`)**: Basemap switcher (Standard OSM, Satellite Aerial, Topographic, Hybrid); interactive vector choropleth rendering. |
+
+### 🧭 Telemetry Mapping by Application Feature
+
+| Application Feature / Component | Primary Datasets Ingested | Exact Parameters & Role in Feature |
 |---|---|---|
-| **MODIS** (Terra & Aqua) | 250 m | Normalized Difference Vegetation Index (NDVI) & Land Surface Temperature (LST) |
-| **Landsat 8 & 9** | 30 m | Multi-spectral surface reflectance & water indices via Microsoft Planetary Computer STAC |
-| **SMAP** | ~9 km | 0–5 cm surface and 0–100 cm root-zone volumetric soil moisture |
-| **GPM IMERG** | 0.1° | Sub-hourly calibrated precipitation rates & 7-day SPI tracking |
-| **NASA POWER** | 0.5° | Reanalysis climatology (solar irradiance, wind, humidity, temperature) |
-| **NASA FIRMS** | 375 m | Near-real-time VIIRS active fire & thermal anomaly alerts for stubble burn detection |
-
-### Dual-Mode User Interface
-
-- **Farmer View** — Touch-friendly, low-cognitive-load cards, local language default (বাংলা / English), offline caching, and voice interface placeholder.
-- **Officer Control Panel** — 3-column GIS dashboard with interactive MapLibre choropleth layers, tabular block metrics, telemetry export, and alert composition.
-
-### Predictive Early Warnings
-
-48–72 hour advance lead times for flash floods, severe droughts, cyclone rainfall, and waterlogging.
-
-### Solar Irrigation Hydro-Scheduler
-
-Allocates irrigation rotations based on Crop Water Stress Index (CWSI) and root-zone moisture deficits.
-
-### Hybrid Data Access Layer
-
-Operates deterministically with pre-computed offline seed data, with pluggable live NASA synchronization (`DATA_SOURCE_MODE=hybrid`).
+| **Farmer Weather Card** (`WeatherCard.tsx`) | NASA POWER, GPM IMERG | Displays daily temp (`T2M`), humidity (`RH2M`), wind (`WS2M`), 7-day rainfall forecast (`precip7dForecast`), and rain probability. |
+| **Crop Condition Card** (`CropConditionCard.tsx`) | MODIS (MOD13Q1), Landsat 8/9, SMAP | Renders NDVI canopy vigor, anomaly vs 10-year baseline, vegetation recovery trend, and multi-spectral health status. |
+| **Soil Strata Visualizer** (`SoilStrataVisual.tsx`) | NASA SMAP (SPL3SMP, SPL4SMGP) | Visualizes dual-depth soil moisture: surface (0–5 cm) vs deep root-zone (0–100 cm) % VWC against agronomic baselines. |
+| **Solar Pumping Dial** (`SolarPumpingDial.tsx`) | NASA POWER, SMAP, MODIS | Computes daily irrigation deficit, available solar irradiance (`ALLSKY_SFC_SW_DWN`), and required pumping hours. |
+| **Crop Recommendation Engine** (`lib/indices/css.ts`) | SMAP, MODIS LST, NASA POWER, Landsat | Computes Crop Suitability Score (CSS 0–100) across 5 weighted dimensions: Soil Moisture (30%), Temp (25%), Rainfall (20%), Solar (15%), NDVI (10%). |
+| **Hydro-Scheduler Pump Dispatch** (`lib/dal/index.ts`) | SMAP, MODIS CWSI | Calculates block Deficit Severity (0–100) and sequences mobile solar pump assets to highest-deficit blocks. |
+| **Drought & Flood Early Warnings** (`lib/indices/formulas.ts`) | GPM IMERG, SMAP, NASA POWER, SRTM | Triggers drought alerts (SPI ≤ -1.0, CWSI > 0.70) and flood warnings (FSS ≥ 0.70, rainfall > 80 mm / 48 h). |
+| **Officer GIS Map Overlays** (`lib/map/layers.ts`) | MODIS, Landsat, SMAP, GPM, POWER, FIRMS, SRTM | Powers 7 interactive choropleth layers: NDVI Anomaly, Soil Moisture, Flood Risk (FSS), CWSI, 7d Precip, Pump Priority, and Fire/Heat. |
+| **Live Telemetry Sync** (`app/api/sync/live-nasa`) | NASA POWER, NASA FIRMS | Real-time endpoint querying 12 Kurigram centroids and VIIRS fire bounding box with atomic file caching and SWR fallback. |
 
 ---
 
