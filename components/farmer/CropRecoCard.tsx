@@ -84,12 +84,12 @@ export function CropRecoCard({
               </span>
             </div>
 
-            <div className="flex flex-col rounded-xl bg-[var(--bg-surface-subtle)] p-3 border border-[var(--border-subtle)]/50">
+            <div className="flex flex-col rounded-xl bg-[var(--bg-surface-subtle)] p-3 border border-[var(--border-subtle)]/50 min-w-0">
               <div className="flex items-center gap-1 text-[11px] text-[var(--fg-muted)] font-medium mb-1">
                 <Calendar className="h-3.5 w-3.5 text-[var(--status-info)]" />
                 <span>{t("farmer.harvestWindow", "Harvest Window")}</span>
               </div>
-              <span className="text-xs font-bold font-mono text-[var(--fg-primary)] truncate">
+              <span className="text-xs font-bold font-mono text-[var(--fg-primary)] break-words">
                 {bestHarvestWindow.start} to {bestHarvestWindow.end}
               </span>
             </div>
